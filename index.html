@@ -1858,11 +1858,9 @@ let db=null, ref=null, assets=null, offline=false, state=null, loaded=false;
 const FB_CONFIG={apiKey:"AIzaSyC7PcW2jG32Ebb78UDaEQ2IPyt9MDelAs8",authDomain:"family-quest-ad893.firebaseapp.com",projectId:"family-quest-ad893",storageBucket:"family-quest-ad893.firebasestorage.app",messagingSenderId:"649105509020",appId:"1:649105509020:web:4968ea04c5e6215f1c3b59"};
 const FB_VER="13.0.0";
 let netFail=false; let fb=null, fs=null, roomCode=null, gate=false, gateBusy=false, backend="none";
-const ROOM_AB="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 const roomNorm=c=>String(c||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
 const roomValid=c=>/^[A-HJ-NP-Z2-9]{8}$/.test(c);
 const roomPretty=c=>c?c.slice(0,4)+"-"+c.slice(4):"";
-function makeRoomCode(){ const a=new Uint32Array(8); try{ crypto.getRandomValues(a); }catch(e){ for(let i=0;i<8;i++) a[i]=Math.random()*4294967296>>>0; } return [...a].map(n=>ROOM_AB[n%ROOM_AB.length]).join(""); }
 function showNetBar(){ if($("#netBar")) return; const b=document.createElement("div"); b.id="netBar"; b.setAttribute("role","alert"); b.innerHTML=`<span>📡 인터넷 연결을 확인해 주세요.</span><button class="btn mint" data-act="netRetry">다시 시도</button>`; document.body.appendChild(b); }
 function hideNetBar(){ const b=$("#netBar"); if(b) b.remove(); }
 function renderNetFail(){ $("#tabs").hidden=true; $("#viewerBox").innerHTML="";
@@ -2198,14 +2196,10 @@ function connectRoom(d){
 /* ---------- 방 코드 화면 ---------- */
 function renderGate(){
   $("#tabs").hidden=true; $("#viewerBox").innerHTML="";
-  $("#main").innerHTML=`<div class="onboard"><h1>어느 방으로 들어갈까요?</h1>
-  <p style="color:var(--sub);margin:0 0 16px">가족 중 한 사람이 방을 만들고, 나머지는 그 방의 <b>방 코드</b>로 들어와요. 방 코드는 가족끼리만 공유해 주세요.</p>
+  $("#main").innerHTML=`<div class="onboard"><h1>방 코드를 입력해 주세요</h1>
+  <p style="color:var(--sub);margin:0 0 16px">가족에게 받은 <b>방 코드</b>로 들어와요. 방 코드는 가족끼리만 공유해 주세요.</p>
   <div class="card"><b style="font-family:var(--head);font-size:1.05rem">방 코드로 들어가기</b>
-    <div class="row-inp" style="margin-top:8px"><input id="roomIn" class="inp" maxlength="9" placeholder="예: AB3D-7KQ2" autocapitalize="characters" autocomplete="off" aria-label="방 코드"><button class="btn sm pink" data-act="roomJoin" ${gateBusy?"disabled":""}>들어가기</button></div></div>
-  <div class="card" style="margin-top:10px"><b style="font-family:var(--head);font-size:1.05rem">새 방 만들기</b>
-    <p class="hint" style="margin:6px 0 10px">새 방 코드가 만들어져요. 만든 뒤 방장 닉네임과 비밀번호를 정해요.</p>
-    <button class="btn block" data-act="roomCreate" ${gateBusy?"disabled":""}>새 방 만들기</button></div>
-  ${lsGet("fq-state")?'<p class="hint" style="margin-top:14px">이 기기에 예전(오프라인) 기록이 있어요. 새 방을 만들면 관리 → 데이터 → 백업·되돌리기로 옮길 수 있어요.</p>':""}</div>`;
+    <div class="row-inp" style="margin-top:8px"><input id="roomIn" class="inp" maxlength="9" placeholder="예: AB3D-7KQ2" autocapitalize="characters" autocomplete="off" aria-label="방 코드"><button class="btn sm pink" data-act="roomJoin" ${gateBusy?"disabled":""}>들어가기</button></div></div></div>`;
   const ri=$("#roomIn"); if(ri){ ri.focus(); ri.addEventListener("keydown",e=>{ if(e.key==="Enter"){ e.preventDefault(); acts.roomJoin(); } }); ri.addEventListener("input",()=>{ const v=roomNorm(ri.value); ri.value=v.length>4?v.slice(0,4)+"-"+v.slice(4,8):v; }); }
 }
 async function roomExists(code){ const sn=await fs.doc(`rooms/${code}/app/state`).get(); return sn.exists; }
@@ -4588,9 +4582,6 @@ const acts={
   async roomJoin(){ if(gateBusy) return; const c=roomNorm($("#roomIn")?.value); if(!roomValid(c)) return toast("방 코드는 영문·숫자 8자리예요. (예: AB3D-7KQ2)");
     gateBusy=true; render(); try{ if(!(await roomExists(c))){ toast("그 코드로 만들어진 방이 없어요. 다시 확인해 주세요."); return; } enterRoom(c); }
     catch(e){ console.warn(e); toast(e&&e.code==="permission-denied"?"방을 확인할 권한이 없어요. 보안 규칙을 확인해 주세요.":"연결에 실패했어요. 잠시 뒤 다시 해 주세요."); } finally{ gateBusy=false; if(gate) render(); } },
-  async roomCreate(){ if(gateBusy) return; gateBusy=true; render();
-    try{ let c=makeRoomCode(); for(let i=0;i<3&&await roomExists(c);i++) c=makeRoomCode(); enterRoom(c); toast(`방 코드 ${roomPretty(c)} — 관리 탭에서 다시 볼 수 있어요.`); }
-    catch(e){ console.warn(e); toast("방을 만들지 못했어요. 연결과 보안 규칙을 확인해 주세요."); } finally{ gateBusy=false; if(gate) render(); } },
   async roomCopy(){ try{ await navigator.clipboard.writeText(roomPretty(roomCode)); toast("방 코드를 복사했어요."); }catch(e){ toast(`방 코드: ${roomPretty(roomCode)}`); } },
   async roomLeave(){ if(!(await ask("이 방에서 나가고 다른 방 코드로 들어갈까요? 기록은 서버에 그대로 남아요.","나가기"))) return; leaveRoom(); },
   saveRetry(){ if(flushing){ toast("저장하는 중이에요…"); return; } showSaveBar(); flush(); },
