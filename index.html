@@ -728,7 +728,8 @@ nav.tabs .dot{top:2px;left:calc(50% + 8px)}
 .irow .ii{flex:1;min-width:0}
 .irow .ii b{font-family:var(--head);font-weight:400}
 .irow .ii small{display:block;color:var(--sub);font-size:.76rem}
-.charrow .ie img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.irow .ie{overflow:hidden}
+.irow .ie img{width:100%;height:100%;object-fit:cover;border-radius:12px}
 
 /* ===== maps ===== */
 .petstage{height:300px}
@@ -1856,7 +1857,7 @@ let db=null, ref=null, assets=null, offline=false, state=null, loaded=false;
 /* ---------- Firebase (앱용 공유 DB) ----------
    방 코드(8자리)가 곧 가족의 열쇠예요. 모든 데이터는 rooms/<방코드>/ 아래에 저장돼요. */
 const FB_CONFIG={apiKey:"AIzaSyC7PcW2jG32Ebb78UDaEQ2IPyt9MDelAs8",authDomain:"family-quest-ad893.firebaseapp.com",projectId:"family-quest-ad893",storageBucket:"family-quest-ad893.firebasestorage.app",messagingSenderId:"649105509020",appId:"1:649105509020:web:4968ea04c5e6215f1c3b59"};
-const FB_VER="13.0.0";
+const FB_VER="13.0.0"; const APP_VER="v67";
 let netFail=false; let fb=null, fs=null, roomCode=null, gate=false, gateBusy=false, backend="none";
 const roomNorm=c=>String(c||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
 const roomValid=c=>/^[A-HJ-NP-Z2-9]{8}$/.test(c);
@@ -4170,7 +4171,8 @@ function settingsHTML(){
       <div class="field" style="margin:10px 0 0"><label for="devKeyIn">Claude API 키</label><input id="devKeyIn" type="password" autocomplete="off" placeholder="sk-ant-..." value="${devKey()?"••••••••":""}"></div>
       <p class="hint">이 휴대폰(브라우저)에만 저장돼요. 가족 공용 키 대신 내 키로 AI를 쓰고 싶을 때만 넣어 주세요.</p>
       <div class="actions"><button class="btn sm" data-act="devKeySave">저장</button>${devKey()?'<button class="btn ghost sm" data-act="devKeyDel">지우기</button>':""}</div></details>`;
-  if(!owner) return meHTML;
+  const verHTML=`<p class="hint" style="text-align:center;margin-top:18px">시스템창 ${APP_VER} · ${backend==="fb"?"Firebase":backend==="claude"?"아티팩트":"오프라인"}${assets?" · 사진 "+(assets.kind||"artifact"):""}</p>`;
+  if(!owner) return meHTML+verHTML;
   const p=pendingForOwner();
   const seg=[["me","내 설정",0],["orders","주문",p],["pets","키우기",0],["gacha","가챠",0],["titles","칭호",0],["members","멤버",0]].map(([k,l,b])=>`<button class="${setSeg===k?"on":""}" data-act="sseg" data-k="${k}">${l}${b?`<span class="dot">${b}</span>`:""}</button>`).join("");
   let body="";
@@ -4215,7 +4217,7 @@ function settingsHTML(){
     <div class="row-inp" style="margin-top:10px"><input id="newMem" class="inp" maxlength="12" placeholder="새 멤버 닉네임"><button class="btn pink sm" data-act="addMember">추가</button></div>
     <p class="hint">멤버를 누르면 코인·경험치 지급/차감, 코인 내역, 비밀번호, 공동 방장 지정을 할 수 있어요. 방장은 위쪽 ‘보는 사람’을 바꿔 각 멤버 입장으로 시험해 볼 수 있어요.</p>`;
   }
-  return `<div class="seg">${seg}</div>${body}`;
+  return `<div class="seg">${seg}</div>${body}${verHTML}`;
 }
 
 /* ---------- 멤버 관리 / 코인 내역 ---------- */
