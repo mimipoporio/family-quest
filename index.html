@@ -1883,16 +1883,19 @@ function lockRelease(holder){ const L=db.doc("app/lock"); fs.runTransaction(asyn
    API Secret은 코드에 넣지 않아요. 업로드 프리셋(unsigned)만 사용하고, 받은 secure_url을 그대로 문서에 저장해요.
    unsigned 업로드로는 삭제가 안 되므로, 안 쓰는 사진 정리는 Cloudinary 콘솔(또는 서버 함수)에서 해요. */
 const CLOUDINARY={cloud:"mkiksoey",preset:"family_quest"};
+const hex32=()=>{ const a=new Uint8Array(16); try{ crypto.getRandomValues(a); }catch(e){ for(let i=0;i<16;i++) a[i]=Math.random()*256|0; } return [...a].map(b=>b.toString(16).padStart(2,"0")).join(""); };
+function upErr(e,fallback){ const c=e&&e.code; if(c==="too_large") return "그림이 너무 커요. 10MB 이하로 골라 주세요."; if(c==="unsupported_type") return "PNG, JPG, WEBP, GIF만 올릴 수 있어요."; if(c==="net") return "네트워크 연결을 확인해 주세요."; if(c==="rate_limited") return "잠시 후 다시 올려 주세요."; return fallback+(e&&e.message?` (${e.message})`:""); }
 function cloudinaryAssets(){ if(!CLOUDINARY.cloud||/여기에/.test(CLOUDINARY.cloud)) return null;
   return { kind:"cloudinary",
     async upload(blob){
       if(!/^image\//.test(blob.type)) throw {code:"unsupported_type"};
       const b=blob._shrunk||blob.type==="image/gif"?blob:await shrink(blob);
       if(b.size>10*1024*1024) throw {code:"too_large"};
-      const fd=new FormData(); fd.append("file",b,"photo."+(b.type==="image/gif"?"gif":b.type==="image/webp"?"webp":"jpg")); fd.append("upload_preset",CLOUDINARY.preset); if(roomCode) fd.append("folder",`family_quest/${roomCode}`);
+      const pid=hex32(); // 파일 이름과 무관하게 항상 고유한 id로 저장 (프리셋의 use filename/unique filename 설정에 영향받지 않게)
+      const fd=new FormData(); fd.append("file",b,pid+"."+(b.type==="image/gif"?"gif":b.type==="image/webp"?"webp":"jpg")); fd.append("upload_preset",CLOUDINARY.preset); fd.append("public_id",pid); if(roomCode) fd.append("folder",`family_quest/${roomCode}`);
       let r; try{ r=await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY.cloud}/image/upload`,{method:"POST",body:fd}); }catch(e){ throw {code:"net"}; }
       let j={}; try{ j=await r.json(); }catch(e){}
-      if(!r.ok||!j.secure_url){ const m=(j.error&&j.error.message)||""; throw {code:r.status===420||r.status===429?"rate_limited":/preset/i.test(m)?"bad_preset":"upload_failed",message:m}; }
+      if(!r.ok||!j.secure_url){ const m=(j.error&&j.error.message)||`HTTP ${r.status}`; throw {code:r.status===420||r.status===429?"rate_limited":"upload_failed",message:m}; }
       return {id:j.secure_url};
     },
     delete:()=>Promise.resolve() }; }
@@ -4291,7 +4294,7 @@ async function uploadPending(btn,label){
   btn.disabled=true; btn.textContent="사진 올리는 중…";
   try{ const r=await assets.upload(pendingPhoto); return r.id; }
   catch(e){ btn.disabled=false; btn.textContent=label;
-    const msg={too_large:"사진이 너무 커요. 10MB 이하로 골라 주세요.",unsupported_type:"PNG, JPG, WEBP, GIF 사진만 올릴 수 있어요.",quota_or_state:"사진 저장 공간이 가득 찼어요. 안 쓰는 사진을 빼 주세요.",rate_limited:"잠시 후 다시 올려 주세요.",net:"네트워크 연결을 확인해 주세요.",bad_preset:"Cloudinary 업로드 프리셋 설정이 맞지 않아요. (unsigned 프리셋인지 확인)",upload_failed:"사진을 올리지 못했어요."}[e&&e.code];
+    const msg={too_large:"사진이 너무 커요. 10MB 이하로 골라 주세요.",unsupported_type:"PNG, JPG, WEBP, GIF 사진만 올릴 수 있어요.",quota_or_state:"사진 저장 공간이 가득 찼어요. 안 쓰는 사진을 빼 주세요.",rate_limited:"잠시 후 다시 올려 주세요.",net:"네트워크 연결을 확인해 주세요.",upload_failed:"사진을 올리지 못했어요."+(e&&e.message?` (${e.message})`:"")}[e&&e.code];
     toast(msg||"사진을 올리지 못했어요. 다시 시도해 주세요."); throw e; }
 }
 function goodsSheet(id){
@@ -5161,19 +5164,19 @@ document.addEventListener("change",ev=>{
   if(ev.target.id==="vsel"){ if(!canView(loginM(),member(ev.target.value))) return; viewerId=ev.target.value; lsSet("fq-viewer",viewerId); setSeg="me"; albumOf=null; render(); }
   if(ev.target.name==="fx") updateTitlePreview();
   if(ev.target.dataset&&ev.target.dataset.form!=null&&ev.target.files[0]&&chDraft){ const i=+ev.target.dataset.form, f=ev.target.files[0]; const th=$("#o"+i+"_fth"); if(th) th.textContent="…";
-    (async()=>{ try{ const blob=f.type==="image/gif"?f:await shrink(f); const r=await assets.upload(blob); chDraft.forms[i]=r.id; const t=$("#o"+i+"_fth"); if(t) t.innerHTML=`<img src="${blobURL(r.id)}" alt="">`; }catch(e){ toast("그림을 올리지 못했어요."); const t=$("#o"+i+"_fth"); if(t) t.textContent="—"; } })(); }
+    (async()=>{ try{ const blob=f.type==="image/gif"?f:await shrink(f); const r=await assets.upload(blob); chDraft.forms[i]=r.id; const t=$("#o"+i+"_fth"); if(t) t.innerHTML=`<img src="${blobURL(r.id)}" alt="">`; }catch(e){ toast(upErr(e,"그림을 올리지 못했어요.")); const t=$("#o"+i+"_fth"); if(t) t.textContent="—"; } })(); }
   if(ev.target.dataset&&ev.target.dataset.exbg&&ev.target.files[0]){ const k=ev.target.dataset.exbg, f=ev.target.files[0]; toast("배경을 올리는 중…");
     (async()=>{ try{ const blob=f.type==="image/gif"?f:await shrink(f); const r=await assets.upload(blob); const old=state.examBg?.[k]; commit(s=>{ s.examBg=s.examBg||{}; s.examBg[k]=r.id; }); if(old) cleanupPhoto(old); toast("배경을 바꿨어요."); }catch(e){ toast("배경을 올리지 못했어요."); } })(); }
   if(ev.target.dataset&&ev.target.dataset.art&&ev.target.files.length){ const k=ev.target.dataset.art, files=[...ev.target.files].slice(0,12);
     toast(`그림 ${files.length}장을 올리는 중…`);
-    (async()=>{ const ids=[]; for(const f of files){ try{ const blob=f.type==="image/gif"?f:await shrink(f); const r=await assets.upload(blob); ids.push(r.id); }catch(e){ toast({too_large:"너무 큰 그림은 빼고 올렸어요.",unsupported_type:"PNG, JPG, WEBP, GIF만 올릴 수 있어요."}[e&&e.code]||"일부 그림을 올리지 못했어요."); } }
+    (async()=>{ const ids=[]; for(const f of files){ try{ const blob=f.type==="image/gif"?f:await shrink(f); const r=await assets.upload(blob); ids.push(r.id); }catch(e){ toast(upErr(e,"일부 그림을 올리지 못했어요.")); } }
       if(ids.length){ commit(s=>{ s.examArt=s.examArt||{}; s.examArt[k]=[...(s.examArt[k]||[]),...ids].slice(0,40); }); toast(`${ids.length}장을 넣었어요.`); } })();
   }
   if(ev.target.dataset&&ev.target.dataset.anim&&ev.target.files[0]){ const k=ev.target.dataset.anim, cid=ev.target.dataset.c, f=ev.target.files[0];
     const lab=ev.target.previousElementSibling; if(lab) lab.textContent="올리는 중…";
     (async()=>{ try{ const blob=f.type==="image/gif"?f:await shrink(f); const r=await assets.upload(blob); const old=charById(cid)?.anim?.[k];
       commit(s=>{ const c=s.chars.find(x=>x.id===cid); if(c){ c.anim=c.anim||{}; c.anim[k]=r.id; } }); if(old) cleanupPhoto(old); animSheet(cid); toast("동작 그림을 넣었어요."); }
-      catch(e){ toast({too_large:"그림이 너무 커요. 20MB 이하로 골라 주세요.",unsupported_type:"PNG, JPG, WEBP, GIF만 올릴 수 있어요."}[e&&e.code]||"그림을 올리지 못했어요."); animSheet(cid); } })();
+      catch(e){ toast(upErr(e,"그림을 올리지 못했어요.")); animSheet(cid); } })();
   }
   if(ev.target.id==="rFreq"){ const d=$("#rDays"); if(d) d.hidden=ev.target.value!=="weekly"; }
   if(ev.target.id==="qRep"){ const d=$("#repDays"), b=$("#dueBox"), t=$("#repTimeBox"); if(d) d.hidden=ev.target.value!=="weekly"; if(b) b.hidden=!!ev.target.value; if(t) t.hidden=!ev.target.value; }
