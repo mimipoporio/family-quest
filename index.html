@@ -170,6 +170,7 @@ h2 .count{font-family:var(--body);font-size:.8rem;background:var(--surface);bord
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip.c{background:#4A3D12;color:#FFE08A}}
 .actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
 .btn{border:none;border-radius:12px;padding:9px 16px;font-weight:700;background:var(--ink);color:var(--surface)}
+a.btn{text-decoration:none;display:inline-block}
 .btn.pink{background:var(--pink);color:#3A1220}
 .btn.mint{background:var(--mint);color:#0D3328}
 .btn.ghost{background:transparent;border:2px solid var(--line);color:var(--ink)}
@@ -764,6 +765,53 @@ nav.tabs .dot{top:2px;left:calc(50% + 8px)}
 .ptag{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);background:rgba(255,255,255,.9);color:#3D3456;font-family:var(--head);font-size:.72rem;border-radius:999px;padding:0 8px;white-space:nowrap}
 .walker.sel .ptag{background:#FF7EB3;color:#fff}
 .walker .psay{bottom:128px;z-index:8}
+.walker .psay.ask{background:#FFF3CF;border-color:#FFC94D;font-weight:700;animation:askBob 1.2s ease-in-out infinite}
+@keyframes askBob{50%{transform:translateX(-50%) translateY(-4px)}}
+/* 이벤트 카드 */
+.fxo.k-event .fxo-pic{width:200px;height:260px;border-radius:18px;background:#fff;box-shadow:0 0 0 4px var(--fc),0 18px 40px rgba(0,0,0,.35);animation:evIn .9s cubic-bezier(.2,1.4,.4,1) both;overflow:hidden}
+.fxo.k-event .fxo-pic img{width:100%;height:100%;object-fit:cover}
+.fxo.k-event .fxo-pic .evemo{font-size:5rem}
+.fxo.k-event .fxo-rays{background:repeating-conic-gradient(#FFD23F 0 4deg,transparent 4deg 9deg,#FF7EB3 9deg 13deg,transparent 13deg 18deg,#A98BFF 18deg 22deg,transparent 22deg 27deg);opacity:.7}
+.fxo.k-event .fxo-sub{color:var(--ink);font-size:.95rem;line-height:1.5;max-width:300px;margin:8px auto 0;text-align:left;background:var(--field);border-radius:14px;padding:10px 12px}
+@keyframes evIn{0%{transform:rotateY(90deg) scale(.6);opacity:0}60%{transform:rotateY(-12deg) scale(1.05);opacity:1}100%{transform:none}}
+.evgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.evc{position:relative;border:none;background:var(--surface);border-radius:16px;padding:0 0 6px;box-shadow:0 4px 0 var(--line);text-align:center;overflow:hidden;color:var(--ink)}
+.evc .pic{aspect-ratio:3/4;background:var(--field);display:grid;place-items:center;font-size:2.4rem;overflow:hidden}
+.evc .pic img{width:100%;height:100%;object-fit:cover}
+.evc .nm{font-size:.78rem;font-weight:700;padding:6px 6px 0;line-height:1.3}
+.evc .cnt{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);color:#fff;border-radius:999px;font-size:.7rem;padding:1px 7px}
+.evc.locked{opacity:.55}
+.evc.locked .pic{filter:grayscale(1)}
+.evc .tg{position:absolute;top:6px;left:6px;font-size:.68rem;background:var(--pink);color:#fff;border-radius:999px;padding:1px 7px}
+.spfx .sp-ground{animation:none}
+.spfx .sp-crack{display:none}
+.chatbox{background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:12px;margin-bottom:12px;box-shadow:0 5px 0 var(--line)}
+.chatbox .ch-h{display:flex;align-items:center;justify-content:space-between;font-family:var(--head);margin-bottom:6px}
+.chatbox .ch-h small{font-family:var(--body);color:var(--sub);font-size:.75rem}
+.chatlog{display:flex;flex-direction:column;gap:6px;max-height:260px;overflow-y:auto;overscroll-behavior:contain;padding:4px 2px}
+.chatlog .cm{max-width:82%;padding:7px 12px;border-radius:16px;font-size:.9rem;line-height:1.4;word-break:break-word}
+.chatlog .cm.me{align-self:flex-end;background:#FEE500;color:#2B2B2B;border-bottom-right-radius:4px}
+.chatlog .cm.pet{align-self:flex-start;background:var(--pink-soft);color:var(--ink);border-bottom-left-radius:4px}
+.chatlog .cm.pet.wait{color:var(--sub);font-style:italic}
+.chatlog .cm .tr,.psay .tr{display:block;color:var(--sub);font-size:.78rem;font-weight:400;margin-top:2px}
+.chatlog .ct{font-size:.68rem;color:var(--sub);align-self:center;margin:2px 0}
+.chatrow{display:flex;gap:8px;margin-top:8px}
+.chatrow input{flex:1;min-width:0;border:2px solid var(--line);background:var(--field);border-radius:999px;padding:9px 14px}
+.chatrow button{border:none;border-radius:999px;padding:0 16px;background:var(--pink);color:#fff;font-family:var(--head);box-shadow:0 3px 0 var(--pinkd)}
+.chatrow button:disabled{opacity:.5}
+.askbar{display:flex;align-items:center;gap:10px;background:var(--surface);border:2px solid var(--coin);border-radius:18px;padding:10px 12px;margin-bottom:10px;box-shadow:0 5px 0 var(--line)}
+.askbar .ab-pic{width:42px;height:42px;border-radius:50%;overflow:hidden;background:var(--pb-t2);display:grid;place-items:center;font-size:1.4rem;flex:none}
+.askbar .ab-pic img{width:100%;height:100%;object-fit:cover}
+.askbar .ab-t{flex:1;min-width:0;font-size:.9rem}
+.askbar .ab-t small{display:block;color:var(--sub);font-size:.75rem}
+.walker.dance .mover{animation:dance .5s ease-in-out 4}
+@keyframes dance{25%{transform:rotate(-12deg) translateY(-6px)}75%{transform:rotate(12deg) translateY(-6px)}}
+.walker.yuck .mover{animation:yuck .35s ease-in-out 3}
+@keyframes yuck{50%{transform:translateX(-8px)}}
+.prefchips{display:flex;flex-wrap:wrap;gap:6px}
+.prefchips label{display:inline-flex;align-items:center;gap:4px;border:2px solid var(--line);border-radius:999px;padding:3px 10px;font-size:.82rem;cursor:pointer}
+.prefchips input{width:auto;margin:0}
+.prefchips label:has(input:checked){background:var(--pink-soft);border-color:var(--pink)}
 .walker .pemo{z-index:4}
 .tree{position:absolute;bottom:40%;left:var(--x);width:50px;height:90px;transform:scale(var(--s));transform-origin:bottom}
 .tree::before{content:"";position:absolute;bottom:0;left:21px;width:8px;height:30px;background:#8A5A3B;border-radius:3px}
@@ -1353,6 +1401,7 @@ nav.tabs .dot{top:2px;left:calc(50% + 8px)}
 .b-intent.i-guard{background:#E6F4FF;color:#2F6DB5}
 .b-mon{position:relative;font-size:4.2rem;line-height:1.1;animation:bob 1.4s ease-in-out infinite}
 .b-mon.hit span{display:inline-block;animation:hitshake .45s}
+.b-mon img{width:96px;height:96px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25));vertical-align:middle}
 .hpbar{position:relative;height:16px;border-radius:999px;background:rgba(0,0,0,.08);overflow:hidden;margin-top:4px}
 .hpbar i{display:block;height:100%;border-radius:999px;transition:width .4s}
 .hpbar.m i{background:linear-gradient(90deg,#FF6B6B,#FF9A7A)}
@@ -1857,7 +1906,7 @@ let db=null, ref=null, assets=null, offline=false, state=null, loaded=false;
 /* ---------- Firebase (앱용 공유 DB) ----------
    방 코드(8자리)가 곧 가족의 열쇠예요. 모든 데이터는 rooms/<방코드>/ 아래에 저장돼요. */
 const FB_CONFIG={apiKey:"AIzaSyC7PcW2jG32Ebb78UDaEQ2IPyt9MDelAs8",authDomain:"family-quest-ad893.firebaseapp.com",projectId:"family-quest-ad893",storageBucket:"family-quest-ad893.firebasestorage.app",messagingSenderId:"649105509020",appId:"1:649105509020:web:4968ea04c5e6215f1c3b59"};
-const FB_VER="13.0.0"; const APP_VER="v67";
+const FB_VER="13.0.0"; const APP_VER="v78";
 let netFail=false; let fb=null, fs=null, roomCode=null, gate=false, gateBusy=false, backend="none";
 const roomNorm=c=>String(c||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
 const roomValid=c=>/^[A-HJ-NP-Z2-9]{8}$/.test(c);
@@ -1903,7 +1952,7 @@ function cloudinaryAssets(){ if(!CLOUDINARY.cloud||/여기에/.test(CLOUDINARY.c
 function blobURL(id){ return /^https:\/\//.test(id||"")?id:`/_blob/${id}`; }
 let pendingPhoto=null, dropPhoto=false;
 let rkPeriod="week", rkCat="total";
-let tab="home", questSeg="open", ckCat="all", setSeg="me", petSeg="char", bagSeg="tickets", albumOf=null;
+let albumSort="grade"; let tab="home", questSeg="open", ckCat="all", setSeg="me", petSeg="char", bagSeg="tickets", albumOf=null;
 let viewerId=null, saveChain=Promise.resolve();
 
 const $=s=>document.querySelector(s);
@@ -1966,7 +2015,7 @@ function normalize(s){
   if(!s.stats){ s.stats={}; s.quests.forEach(q=>{ if(q.status==="done"&&q.assigneeId&&q.doneAt) addStat(s,q.assigneeId,{c:q.rewardCoins||0,x:q.rewardXp||0,q:1},q.doneAt); }); }
   s.packs.forEach(p=>p.cards.forEach(c=>{ if(OLD_GRADE[c.rarity]) c.rarity=OLD_GRADE[c.rarity]; if(!RARITY[c.rarity]) c.rarity="F"; }));
   s.members.forEach(m=>{ m.ownedTitles=m.ownedTitles||[]; m.tickets=m.tickets||{}; m.album=m.album||{}; m.stars=m.stars||{}; m.items=m.items||{}; });
-  s.checkCats=s.checkCats||{}; // 멤버별 체크리스트 카테고리 (항목의 cat이 비어 있으면 '일반')
+  s.checkCats=s.checkCats||{}; s.events=s.events||[]; s.members.forEach(m=>{ m.eventAlbum=m.eventAlbum||{}; }); if(s.members.length) ensureNtfy(s); // 멤버별 체크리스트 카테고리 (항목의 cat이 비어 있으면 '일반')
   return s;
 }
 
@@ -2046,7 +2095,7 @@ function commit(mut,opt){
   const before=state, next=structuredClone(state); mut(next);
   if(broke(before,next)){ toast("코인이나 도토리가 부족해서 할 수 없어요."); return false; }
   logCoins(before,next,opt.reason);
-  state=next; render();
+  state=next; render(); flushNtfy();
   if(!ref){ lsSet("fq-state",JSON.stringify(state)); return; }
   if(opt.replay) pend.push({fn:bindViewer(mut),reason:opt.reason||REASON[curAct]||"기타"}); // 사유는 '지금 누른 버튼' 기준으로 고정
   else { const d=diff(before,next); if(d===undefined) return; pend.push({d}); }
@@ -2063,7 +2112,7 @@ function archivable(q,now){
 const orderDone=(o,now)=>(o.status==="confirmed"||o.status==="cancelled")&&now-(o.confirmedAt||o.deliveredAt||o.ts||0)>7*86400000;
 const CORE_MAX=230*1024, byteLen=v=>new Blob([JSON.stringify(v)]).size;
 let coreBytes=0;
-function trimPet(p){ const x=structuredClone(p); x.log=(x.log||[]).slice(0,30);
+function trimPet(p){ const x=structuredClone(p); x.log=(x.log||[]).slice(0,30); x.chat=(x.chat||[]).slice(-40);
   x.growth=(x.growth||[]).slice(0,80).map((g,i)=>{ if(i<20||!g.story) return g; const {story,...r}=g; return r; }); return x; }
 const plain=v=>JSON.parse(JSON.stringify(v));
 function split(st){ const now=Date.now(), out={}, core={...st}; delete core.pets; delete core.ledger; delete core.stats; delete core._t;
@@ -2185,7 +2234,7 @@ function connectRoom(d){
     if(flushing&&loaded){ updLater=true; return; } // 저장 중에 도착한 echo는 저장이 끝난 뒤에 처리 (내 변경이 두 번 겹쳐 보이지 않게)
     const nx=join(parts);
     if(loaded&&lastServer&&same(nx,lastServer)) return; // 실제로 바뀐 게 없으면 다시 그리지 않아요 (캐릭터 걸음·수치가 튀지 않게)
-    lastServer=nx; server=nx; state=rebase(); loaded=true; fixViewer(); renderSoon();
+    lastServer=nx; server=nx; state=rebase(); const first=!loaded; loaded=true; fixViewer(); renderSoon(); if(first&&tab==="pet"){ setTimeout(greetPets,500); setTimeout(evRandomCheck,1200); }
     if(!checked&&server){ checked=true; try{ const out=split(server); if(!same(noT(plain(parts[CORE])),out[CORE])){ pend.push({d:{o:{}}}); flush(); } }catch(e){} } };
   runUpd=upd;
   const lost=e=>{ console.warn(e); toast(e&&e.code==="permission-denied"?"이 방을 읽을 권한이 없어요. 방 코드를 확인해 주세요.":"데이터 연결이 끊겼어요. 새로고침해 주세요."); };
@@ -2209,6 +2258,12 @@ function renderGate(){
 async function roomExists(code){ const sn=await fs.doc(`rooms/${code}/app/state`).get(); return sn.exists; }
 function enterRoom(code){ roomCode=code; lsSet("fq-room",code); lsSet("fq-login",""); lsSet("fq-viewer",""); loginId=null; viewerId=null; assets=cloudinaryAssets(); connectRoom(roomDb(code)); }
 function leaveRoom(){ ["fq-room","fq-login","fq-viewer"].forEach(k=>lsSet(k,"")); location.reload(); }
+/* 퀘스트 보상 지급 + 완료 처리 (심사 승인과 셀프 클리어가 함께 써요) */
+function grantQuest(s,q){ const a=s.members.find(x=>x.id===q.assigneeId); let who="";
+  if(a){ a.xp+=q.rewardXp; a.coins+=q.rewardCoins; who=a.name; addStat(s,a.id,{c:q.rewardCoins||0,x:q.rewardXp||0,q:1}); if(q.rewardTitleId&&s.titles.some(t=>t.id===q.rewardTitleId)&&!a.ownedTitles.includes(q.rewardTitleId)) a.ownedTitles.push(q.rewardTitleId);
+    if(q.rewardTickets&&s.packs.some(p=>p.id===q.rewardTickets.packId)){ a.tickets=a.tickets||{}; a.tickets[q.rewardTickets.packId]=(a.tickets[q.rewardTickets.packId]||0)+q.rewardTickets.count; }
+    if(q.rewardItems&&s.careItems.some(c=>c.id===q.rewardItems.itemId)){ a.items=a.items||{}; a.items[q.rewardItems.itemId]=(a.items[q.rewardItems.itemId]||0)+q.rewardItems.count; } }
+  q.status="done"; q.doneAt=Date.now(); q.result={type:"clear",to:q.assigneeId,seen:false}; bump(s,q.assigneeId,"questClear"); return who; }
 /* ---------- 로그인 (비밀번호) ---------- */
 let loginId=null;
 const isMaster=m=>m&&m.role==="owner";
@@ -2278,7 +2333,7 @@ function render(){
   if(gate){ renderGate(); return; }
   if(!state){ renderOnboard(); return; }
   if(!loginM()){ renderLogin(); return; }
-  renderTabs(); renderViewer();
+  renderTabs(); renderViewer(); try{ checkTitleConds(); if(tab==="pet") setTimeout(evCondCheck,250); }catch(e){}
   const banner=offline?'<div class="banner">공유 저장소에 연결되지 않아 이 기기에만 저장돼요.</div>':"";
   const views={home:homeHTML,quests:questsHTML,pet:petHTML,bag:bagHTML,rank:rankHTML,shop:shopHTML,settings:settingsHTML};
   document.body.dataset.tab=tab; main.innerHTML=banner+(views[tab]||homeHTML)();
@@ -2360,7 +2415,7 @@ function rewardChips(q){
 function questCard(q){
   let actions="", extra="";
   const mine=q.creatorId===viewerId;
-  if(q.status==="open") actions=mine?`<button class="btn ghost sm" data-act="qeOpen" data-id="${q.id}">✏️ 수정</button><button class="btn ghost sm" data-act="cancelQuest" data-id="${q.id}">등록 취소</button>`:`<button class="btn mint sm" data-act="accept" data-id="${q.id}">수락하기</button>`;
+  if(q.status==="open") actions=mine?`${isOwner(me())?`<button class="btn mint sm" data-act="accept" data-id="${q.id}">🙋 내가 할게요</button>`:""}<button class="btn ghost sm" data-act="qeOpen" data-id="${q.id}">✏️ 수정</button><button class="btn ghost sm" data-act="cancelQuest" data-id="${q.id}">등록 취소</button>`:`<button class="btn mint sm" data-act="accept" data-id="${q.id}">수락하기</button>`;
   if(q.status==="in_progress"&&q.assigneeId===viewerId) actions=q.edit?"":`<button class="btn pink sm" data-act="submit" data-id="${q.id}">완료 제출</button><button class="btn ghost sm" data-act="giveup" data-id="${q.id}">포기</button>`;
   if(isOwner(me())&&!mine&&q.status!=="done"&&(isMaster(me())||!isMaster(member(q.creatorId)))) actions+=`<button class="btn ghost sm" data-act="qRemove" data-id="${q.id}">🗑 내리기</button>`;
   if(q.status==="in_progress"&&mine&&!q.edit&&q.assigneeId!==viewerId) actions+=`<button class="btn ghost sm" data-act="qeOpen" data-id="${q.id}">✏️ 수정 요청</button>`;
@@ -2372,8 +2427,9 @@ function questCard(q){
   if(q.assigneeId) meta+=` · ${q.status==="done"?"완료":"수행"}: ${esc(nameOf(q.assigneeId))}`;
   const cls=q.status==="review"?"review":(q.rejectNote&&q.status==="in_progress"?"rejected":"");
   const st={open:"모집 중",in_progress:"진행 중",review:"심사 중",done:"완료",expired:"기한 지남"}[q.status];
-  if(q.due&&q.status!=="done"&&q.status!=="expired"){ const left=q.due-Date.now(); extra=`<div class="rewards"><span class="chip due ${left<3*3600000?"hot":""}">⏰ ${dueText(q)}</span>${q.repeatId?'<span class="chip rep">🔁 반복</span>':""}${q.late?`<span class="chip late" title="원래 마감 ${fmtTime(q.late)}">🕰 늦게 올라옴</span>`:""}</div>`+extra; }
-  const stamp=q.status==="expired"?'<span class="stamp bad">기한 지남</span>':q.status==="review"?'<span class="stamp">심사중</span>':q.status==="done"?'<span class="stamp ok">완료</span>':(q.rejectNote&&q.status==="in_progress")?'<span class="stamp bad">반려</span>':"";
+  if(q.overdue&&q.status!=="done"&&q.status!=="expired") extra=`<div class="rewards"><span class="chip late">⏰ 연체 중 · 아직 아무도 안 했어요</span>${q.repeatId?'<span class="chip rep">🔁 매주</span>':""}</div>`+extra;
+  else if(q.due&&q.status!=="done"&&q.status!=="expired"){ const left=q.due-Date.now(); extra=`<div class="rewards"><span class="chip due ${left<3*3600000?"hot":""}">⏰ ${dueText(q)}</span>${q.repeatId?'<span class="chip rep">🔁 반복</span>':""}${q.late?`<span class="chip late" title="원래 마감 ${fmtTime(q.late)}">🕰 늦게 올라옴</span>`:""}</div>`+extra; }
+  const stamp=q.status==="expired"?'<span class="stamp bad">기한 지남</span>':q.status==="review"?'<span class="stamp">심사중</span>':q.status==="done"?`<span class="stamp ok">${q.selfClear?"셀프 클리어":"완료"}</span>`:(q.rejectNote&&q.status==="in_progress")?'<span class="stamp bad">반려</span>':"";
   if(q.ext?.status==="accepted"&&q.status!=="expired") extra=`<div class="rewards"><span class="chip ext">⏳ 연장됨 · 보상 조정</span></div>`+extra;
   extra+=extBlock(q)+editBlock(q);
   return `<article class="card q ${cls}">${stamp}<div class="qt">${esc(q.title)}</div><div class="meta">${st} · ${meta}</div>
@@ -2508,11 +2564,11 @@ function shopHTML(){
 /* ---------- bag ---------- */
 function bagHTML(){
   const m=me();
-  const seg=[["tickets","티켓",ticketCount(m)],["items","아이템",0],["album","카드 앨범",0],["growth","성장 앨범",0],["sprout","음식 도감",0]].map(([k,l,b])=>`<button class="${bagSeg===k?"on":""}" data-act="bseg" data-k="${k}">${l}${b?`<span class="dot">${b}</span>`:""}</button>`).join("");
+  const seg=[["tickets","티켓",ticketCount(m)],["items","아이템",0],["album","카드 앨범",0],["growth","성장 앨범",0],["sprout","이벤트 카드",0]].map(([k,l,b])=>`<button class="${bagSeg===k?"on":""}" data-act="bseg" data-k="${k}">${l}${b?`<span class="dot">${b}</span>`:""}</button>`).join("");
   let body="";
   if(bagSeg==="items") body=itemsInvHTML();
   else if(bagSeg==="growth") body=growthAlbumHTML();
-  else if(bagSeg==="sprout") body=sproutBookHTML();
+  else if(bagSeg==="sprout") body=eventAlbumHTML();
   else if(bagSeg==="tickets"){
     const own=state.packs.filter(p=>(m.tickets[p.id]||0)>0);
     body=own.length?`<div class="tickets">${own.map(p=>{const n=m.tickets[p.id], ready=p.cards.some(c=>c.weight>0);
@@ -2525,11 +2581,13 @@ function bagHTML(){
   } else {
     const who=member(albumOf)||m; const mine=who.id===viewerId;
     const chips=state.members.map(x=>`<button class="${x.id===who.id?"on":""}" data-act="albumOf" data-id="${x.id}">${avSmall(x)}${esc(x.name)}${x.id===viewerId?" (나)":""}</button>`).join("");
-    body=`<div class="whos">${chips}</div>`+(state.packs.length?state.packs.map(p=>{
+    const sortBtns=`<div class="seg" style="margin:8px 0 10px">${[["grade","등급 순"],["pack","팩 순서"],["owned","모은 것 먼저"]].map(([k,l])=>`<button class="${albumSort===k?"on":""}" data-act="albumSort" data-k="${k}">${l}</button>`).join("")}</div>`;
+    const sortCards=L=>{ const A=L.slice(); if(albumSort==="grade") A.sort((a,b)=>gIdx(b.rarity)-gIdx(a.rarity)); else if(albumSort==="owned") A.sort((a,b)=>((who.album[b.id]||0)>0)-((who.album[a.id]||0)>0)||gIdx(b.rarity)-gIdx(a.rarity)); return A; };
+    body=`<div class="whos">${chips}</div>${sortBtns}`+(state.packs.length?state.packs.map(p=>{
       const got=p.cards.filter(c=>(who.album[c.id]||0)>0).length;
       return `<div class="album-head"><b>${esc(p.name)}</b><span>${got} / ${p.cards.length} 모음</span></div>
       <div class="prog"><i style="width:${p.cards.length?got/p.cards.length*100:0}%"></i></div>
-      <div class="agrid">${p.cards.map(c=>{const n=who.album[c.id]||0, st=who.stars[c.id]||0;
+      <div class="agrid">${sortCards(p.cards).map(c=>{const n=who.album[c.id]||0, st=who.stars[c.id]||0;
         const canUp=mine&&st<5&&n-1>=STAR_COST[st];
         const F=frame(c.rarity,st);
         return n?`<button class="acard ${F.cls}" data-l="${F.L}" style="${F.style}" data-act="viewCard" data-p="${p.id}" data-id="${c.id}" data-m="${who.id}"><div class="pic">${cardPic(c)}</div><div class="nm">${esc(c.name)}</div>${F.extra}${st?`<span class="st">${starsTxt(st)}</span>`:""}${n>1?`<span class="cnt">×${n}</span>`:""}${canUp?'<span class="dot" style="position:absolute;bottom:26px;right:4px">UP</span>':""}</button>`
@@ -2579,6 +2637,9 @@ function localTale(p,seed){ const loc=petLoc(p), k=loc.startsWith("home:")?"home
 function localReply(p,l){ const c=charById(p.charId), snd=charSounds(c), call=p.call||nameOf(l.from), s1=pick(snd.length?snd:["야하"],l.id);
   if(snd.length||c?.talk==="mute") return `${s1}! (편지를 두 손으로 꼭 안는다) ${pick(snd.length?snd:["…"],l.id+"b")}~ (편지 위에 발도장을 꾹 찍는다)`;
   return `${call}, 편지 고마워! 몇 번이나 다시 읽었어. 오늘은 ${pick(["들판","숲","장터","집"],l.id)}에서 재밌게 지냈어. 내일도 같이 놀자!`; }
+const CARE_SCENES=[["care:food","밥 먹이기 장면","🍙"],["care:bath","씻기기 장면","🛁"]];
+const CARE_DECO_DEF={food:{wall:"🖼️",hang:"🍳",bib:"🧣",cup:"🥛"},bath:{shower:"🚿",towel:"🧺",duck:"🦆"}};
+const careDeco=k=>Object.assign({},CARE_DECO_DEF[k],(state.careDeco||{})[k]||{});
 const BASE_MAPS=[["field","잡초 뽑는 들판","🌿"],["forest","숲","🌲"],["hunt","토벌터","⚔️"],["guild","의뢰소","📜"],["market","장터","🧺"],["ramen","로우 라멘","🍜"],["exam","시험장","📝"]];
 const ITEM_TYPES={food:"특별식",wash:"특별 목욕용품",gift:"선물",event:"이벤트 아이템",freeze:"성장 조절 아이템",revive:"소생 아이템",ingredient:"요리 재료",decor:"집 꾸미기 가구",wear:"옷·액세서리"};
 let curMap=0, selPet=null, petBusy=false, sampleFn=null, petCtl=null;
@@ -2666,7 +2727,42 @@ function speechRule(c){
   if(c?.talk==="mute") return `말을 못 함. 사람 말(한국어 문장)을 절대 쓰지 않고 소리·의성어로만 표현함${snd.length?` (자주 내는 소리: ${snd.join(", ")})`:""}`;
   return `말을 함 · 말투: ${c?.speech||"자유롭게"}${snd.length?` · 말버릇: ${snd.join(", ")}`:""}`;
 }
-function lineOk(c,line){ return !(c?.talk==="mute"&&/[가-힣]{2,}\s+[가-힣]{2,}/.test(line||"")); }
+/* ---------- 먼저 말 걸기 · 부탁 ---------- */
+const GREET_GAP=3*3600000, ASK_TTL=6*3600000, ASK_KINDS={feed:["🍙","밥 주기"],wash:["🧼","씻기기"],pat:["🤲","쓰다듬기"],play:["🙈","놀아주기"],gift:["🎁","아이템 주기"]};
+const prefOf=(p,it)=>{ const c=charById(p.charId); if(!c||!it) return ""; if((c.fav||[]).includes(it.id)) return "fav"; if((c.hate||[]).includes(it.id)) return "hate"; return ""; };
+const askActive=p=>p.ask&&Date.now()-p.ask.ts<ASK_TTL?p.ask:null;
+function fulfillAsk(s,x,kind,itemId){ const a=x.ask; if(!a||Date.now()-a.ts>=ASK_TTL) return; if(a.kind!==kind) return; if(a.itemId&&itemId&&a.itemId!==itemId) return;
+  const P=petCalc(x); setPetStats(x,{mood:P.mood+10}); addGxp(x,5,`부탁을 들어줬어요 (${ASK_KINDS[a.kind][1]})`); x.traits["신뢰"]=(x.traits["신뢰"]||0)+1; x.ask=null; x.askDone=(x.askDone||0)+1; x.thank=Date.now(); }
+function pickAsk(p){ const P=petCalc(p), c=charById(p.charId); const pool=[];
+  if(P.hunger<45) pool.push("feed","feed"); if(P.clean<40) pool.push("wash","wash"); if(P.mood<50) pool.push("play","pat"); if(petLeft(p,"pat")>0) pool.push("pat"); if(playWait(p)<=0) pool.push("play");
+  const favs=(c?.fav||[]).filter(id=>careById(id)); if(favs.length) pool.push("gift");
+  if(!pool.length) return null; const kind=pool[hash(p.id+":"+Math.floor(Date.now()/GREET_GAP))%pool.length];
+  return {kind,itemId:kind==="gift"?favs[hash(p.id+"g")%favs.length]:null}; }
+function askTextLocal(p,a){ const c=charById(p.charId), it=a.itemId?careById(a.itemId):null, snd=charSounds(c), pre=snd.length?snd[hash(p.id+a.kind)%snd.length]+" ":"";
+  if(c?.talk==="mute") return `${pre||"…"}${ {feed:"🍙?",wash:"🫧?",pat:"🤲?",play:"🙈?",gift:(it?.emoji||"🎁")+"?"}[a.kind] }(${p.nick}은(는) ${ {feed:"배가 고프다고",wash:"씻고 싶다고",pat:"쓰다듬어 달라고",play:"같이 놀자고",gift:`${it?.name||"선물"}을(를) 먹고 싶다고`}[a.kind] } 말했다.)`;
+  return pre+{feed:"배고파… 밥 줘",wash:"몸이 근질근질해, 씻겨 줘",pat:"쓰다듬어 줘…",play:"심심해! 같이 놀자",gift:`${it?.name||"선물"} 먹고 싶어…`}[a.kind]; }
+function greetLocal(p){ const P=petCalc(p), c=charById(p.charId), snd=charSounds(c), pre=snd.length?snd[hash(p.id+"gr"+Math.floor(Date.now()/GREET_GAP))%snd.length]+" ":"";
+  if(c?.talk==="mute") return `${pre||"…!"}(${p.nick}은(는) 반갑다고 인사했다.)`; const band=timeBand();
+  const L=P.days<=1?["처음 뵙겠습니다…? 아니 반가워!","여기가 우리 집이야?"]:band==="아침"?["좋은 아침! 잘 잤어?","벌써 아침이야…"]:band==="밤"?["아직 안 자? 나도 아직…","밤이네. 오늘 어땠어?"]:P.mood>80?["오늘 기분 최고야!","왔구나! 기다렸어"]:P.hunger<30?["배에서 소리가 나…","오늘 밥은 언제…"]:["왔어? 심심했어","어디 갔다 왔어?","오늘도 잘 부탁해"];
+  return pre+L[hash(p.id+Math.floor(Date.now()/GREET_GAP))%L.length]; }
+function greetPrompt(list){ const o=me();
+  return `너는 가족 캐릭터 키우기 앱의 캐릭터 대사 작가야. ${o.name}님이 방금 앱을 열었어. 지금은 ${timeBand()}. 각 캐릭터가 ${o.name}님에게 먼저 건네는 한마디(line, 40자 이내)를 써 줘. 부탁(ask)이 있는 캐릭터는 그 부탁을 캐릭터답게 말해 줘(요구 사항을 분명히). 말하기 규칙을 반드시 지켜. 말 못 하는 캐릭터는 "의성어(뜻 설명)" 형식으로 써 — 예: "프르르?(모모는 배가 고프다고 말했다.)". '주인'이라는 말은 쓰지 마.
+${list.map(({p,a})=>{ const c=charById(p.charId)||{}, P=petCalc(p); return `<${p.id}>
+이름 ${p.nick} / 부르는 말 '${p.call||o.name}' / 성격 ${c.personality||"-"} / 말하기 ${speechRule(c)} / 말버릇 ${charSounds(c).join(", ")||"-"}
+상태 배부름 ${P.hunger} 청결 ${P.clean} 기분 ${P.mood}, 함께한 지 ${P.days}일 / 최근 ${p.log[0]?p.log[0].story.slice(0,80):"-"}
+부탁: ${a?`${ASK_KINDS[a.kind][1]}${a.itemId?` (${careById(a.itemId)?.name})`:""}`:"없음"}`; }).join("\n")}
+JSON으로만 답해: {"pets":[{"id":"...","line":"..."}]}`; }
+let greetBusy=false;
+async function greetPets(){ if(!state||greetBusy||tab!=="pet") return; const now=Date.now();
+  const due=alivePets().filter(p=>now-(p.greet?.ts||0)>=GREET_GAP); if(!due.length) return; greetBusy=true;
+  const list=due.map(p=>({p,a:askActive(p)?null:(hash(p.id+Math.floor(now/GREET_GAP))%100<55?pickAsk(p):null)}));
+  let r=null; if(aiReady()){ try{ r=await aiJSON(greetPrompt(list)); }catch(e){} }
+  const lines={}; (Array.isArray(r?.pets)?r.pets:[]).forEach(x=>{ if(x&&x.id&&x.line) lines[x.id]=String(x.line).slice(0,80); });
+  commit(s=>{ list.forEach(({p,a})=>{ const x=s.pets.find(y=>y.id===p.id); if(!x||now-(x.greet?.ts||0)<GREET_GAP) return; const c=charById(x.charId);
+    let line=lines[x.id]; if(!line||!lineOk(c,line)) line=a?askTextLocal(x,a):greetLocal(x);
+    x.greet={ts:now,line}; if(a) x.ask={...a,ts:now,text:line}; else if(x.ask&&now-x.ask.ts>=ASK_TTL){ x.ask=null; } }); },{replay:true});
+  greetBusy=false; if(tab==="pet") render(); }
+function lineOk(c,line){ if(c?.talk!=="mute") return true; const bare=String(line||"").replace(/[（(][^()（）]*[)）]/g,""); return !/[가-힣]{2,}\s+[가-힣]{2,}/.test(bare); }
 function defaultLine(P,sleep,c,seed){
   const tag=sleep?"💤":P.hunger<25?"🍙":P.clean<20?"💨":P.mood<30?"☁️":P.mood>80?"💗":"";
   const snd=charSounds(c);
@@ -2700,10 +2796,11 @@ function petHTML(){
   if(night) deco+=`<div class="nightveil"></div>`;
   const walkers=here.map((p,i)=>{ const P=petCalc(p), sleep=night&&m.id==="home:"+p.id;
     const ch_=charById(p.charId), ll=p.log.find(l=>l.line);
-    const say=ll&&!sleep&&Date.now()-ll.ts<6*3600000&&lineOk(ch_,ll.line)?ll.line:defaultLine(P,sleep,ch_,p.id);
+    const ask_=askActive(p), gr=p.greet&&Date.now()-p.greet.ts<GREET_GAP?p.greet:null, thank=p.thank&&Date.now()-p.thank<60000;
+    const say=sleep?defaultLine(P,sleep,ch_,p.id):thank?(ch_?.talk==="mute"?"💗💗":"고마워! 💗"):ask_?ask_.text:gr?gr.line:(ll&&Date.now()-ll.ts<6*3600000&&lineOk(ch_,ll.line)?ll.line:defaultLine(P,sleep,ch_,p.id));
     const emo=ch_?.hideEmo?"":sleep?"💤":P.hunger<25?"💧":P.clean<20?"💨":P.mood>80?"💗":"";
     return `<button class="walker ${sleep?"sleep":P.hunger<25?"slow":""} ${selPet===p.id?"sel":""}" style="--lane:${(i%3)*26}px;--wd:${-(((Date.now()/1000)+i*5.3)%(P.hunger<25?40:22)).toFixed(2)}s;z-index:${5-i%3}" data-act="petSel" data-id="${p.id}" aria-label="${esc(p.nick)} 선택">
-      <span class="mover">${selPet===p.id?`<span class="psay">${esc(say||"")}</span>`:""}${spriteHTML(p,m,sleep)}${p.wear&&careById(p.wear)?`<span class="pwear" aria-hidden="true">${esc(careById(p.wear).emoji)}</span>`:""}<span class="pshadow"></span>${emo?`<span class="pemo">${emo}</span>`:""}<span class="ptag">${esc(p.nick)}</span></span></button>`; }).join("");
+      <span class="mover">${selPet===p.id||askActive(p)?`<span class="psay ${askActive(p)&&!sleep?"ask":""}">${esc(say||"").replace(/[（(]([^()（）]{2,})[)）]/g,'<small class="tr">($1)</small>')}</span>`:""}${spriteHTML(p,m,sleep)}${p.wear&&careById(p.wear)?`<span class="pwear" aria-hidden="true">${esc(careById(p.wear).emoji)}</span>`:""}<span class="pshadow"></span>${emo?`<span class="pemo">${emo}</span>`:""}<span class="ptag">${esc(p.nick)}</span></span></button>`; }).join("");
   const dots=maps.map((x,i)=>`<i class="${i===curMap?"on":""}"></i>`).join("");
   const stage=`<div class="petstage map-${m.pet?"home":m.id} ${night?"night":band==="저녁"?"eve":""} ${custom?"custom":""}" id="petStage" style="${custom}">
     ${deco}<div class="mapsign">${m.ic} ${esc(m.name)}</div>
@@ -2714,7 +2811,8 @@ function petHTML(){
   const aiBox=`<div class="aibar"><span class="ai-ic" aria-hidden="true">✏️</span><div><b>오늘 다들 뭐 했어?</b><small>내 캐릭터 ${pets.filter(x=>!x.dead).length}명의 하루와 함께 보낸 시간을 들려줘요 · 오늘 ${left}/${AI_LIMIT}회 남음</small></div>
     <button class="btn pink sm" data-act="petAI" ${!petBusy&&left>0?"":"disabled"}>${petBusy?"쓰는 중…":"뭐 했어?"}</button></div><div id="diaryTop"></div>`;
   const p=selPet&&state.pets.find(x=>x.id===selPet);
-  const evNow=sproutNow(me()); const spb=evNow?`<div class="banner spbanner">🌱 ${evNow.opened?`${esc(mapName(evNow.map))}에서 솟아난 음식이 기다리고 있어요!`:"어딘가에서 땅이 들썩여요! 장소를 돌아다니며 찾아보세요."}</div>`:"";
+  const asks=alivePets().filter(p=>askActive(p)).map(p=>{ const a=askActive(p); const [ic,lb]=ASK_KINDS[a.kind]; return `<div class="askbar"><div class="ab-pic">${petPicHTML(p)}</div><div class="ab-t"><b>${esc(p.nick)}</b>: “${esc(a.text)}”<small>${ic} ${lb}${a.itemId?` · ${esc(careById(a.itemId)?.name||"")}`:""} · 들어주면 기분 +10, 성장 +5</small></div><button class="btn mint sm" data-act="askGo" data-id="${p.id}">들어주기</button></div>`; }).join("");
+  const evNow=sproutNow(me()); const spb=asks+(evNow?`<div class="banner spbanner">🌱 ${evNow.opened?`${esc(mapName(evNow.map))}에서 무언가 솟아나고 있어요!`:"어딘가에서 땅이 들썩여요! 장소를 돌아다니며 찾아보세요."}</div>`:"");
   const lineup=pets.map((x,i)=>({x,i,n:petNeed(x)})).sort((a,b)=>(a.x.dead?1:0)-(b.x.dead?1:0)||(b.n?.lv||0)-(a.n?.lv||0)||a.i-b.i).map(o=>o.x), mini=pets.length>3;
   const chips=`<div class="mypets ${mini?"mini":""}" role="list" aria-label="내 캐릭터">${lineup.map(x=>{ const n=petNeed(x), loc=x.dead?"🕊️ 떠남":mapName(petLoc(x)).replace(/^.+의 집$/,"집");
     return `<button role="listitem" class="mp-chip ${selPet===x.id?"on":""} ${n?"need lv"+n.lv:""}" data-act="goPet" data-id="${x.id}" title="${esc(x.nick)} · ${esc(loc)}" aria-label="${esc(x.nick)} 있는 곳으로 가기"><span class="mp-av">${petPicHTML(x)}${n?`<i class="mp-dot">${n.lv>=2?"!":"🍙"}</i>`:""}</span><span class="mp-t"><b>${esc(x.nick)}</b><small>📍 ${esc(loc)}</small></span></button>`; }).join("")}</div>`+(p?"":`<p class="mp-hint">위에서 캐릭터를 누르면 있는 곳으로 바로 가요</p>`);
@@ -2759,8 +2857,38 @@ function petPanel(p,m){
     <button data-act="careSheetOpen" data-k="wash"><span>🧼</span>씻기기</button>
     <button data-act="petPat"><span>🤲</span>쓰다듬기</button>
     <button data-act="careSheetOpen" data-k="gift"><span>🎁</span>아이템</button>
-  </div>`;
+  </div>${chatHTML(p)}`;
 }
+/* ---------- 말걸기 (1:1 대화) ---------- */
+const CHAT_LIMIT=30, CHAT_KEEP=20;
+function chatUsed(){ const u=state.chatUse?.[viewerId]; return u&&u.day===dkey(Date.now())?u.n:0; }
+let chatBusy=false;
+function chatHTML(p){ const log=(p.chat||[]).filter(x=>x.by===viewerId||x.to===viewerId).slice(-CHAT_KEEP), left=CHAT_LIMIT-chatUsed(), can=aiReady();
+  return `<div class="chatbox"><div class="ch-h"><span>💬 ${esc(p.nick)}에게 말 걸기</span><small>오늘 ${Math.max(0,left)}번 남음</small></div>
+  <div class="chatlog" id="chatLog">${log.length?log.map(x=>`<div class="cm ${x.by===viewerId?"me":"pet"}">${esc(x.text).replace(/[（(]([^()（）]{2,})[)）]/g,'<small class="tr">($1)</small>')}</div>`).join(""):`<div class="ct">${can?"무엇이든 말을 걸어 보세요. 성격과 지금 상태에 맞게 대답해요.":"AI 연결이 없어서 대화를 할 수 없어요. 관리 → 키우기 → AI 연결에서 설정해 주세요."}</div>`}${chatBusy?'<div class="cm pet wait">…</div>':""}</div>
+  <form class="chatrow" id="chatForm" data-id="${p.id}"><input id="chatIn" maxlength="120" placeholder="${can?`${esc(p.nick)}에게…`:"AI 연결 필요"}" autocomplete="off" ${can&&left>0&&!chatBusy?"":"disabled"}><button type="submit" ${can&&left>0&&!chatBusy?"":"disabled"}>보내기</button></form></div>`; }
+function chatPrompt(p,text){ const o=me(), c=charById(p.charId)||{}, P=petCalc(p), hist=(p.chat||[]).filter(x=>x.by===viewerId||x.to===viewerId).slice(-8);
+  return `너는 가족 캐릭터 키우기 앱의 캐릭터 '${p.nick}'이야. ${o.name}님(캐릭터는 '${p.call||o.name}'라고 불러)과 1:1로 대화 중이야. 캐릭터로서 짧게(60자 이내, 1~2문장) 답해. 말하기 규칙을 반드시 지켜: ${speechRule(c)}. 말버릇: ${charSounds(c).join(", ")||"-"}. '주인'이라는 말은 쓰지 마. 상담사처럼 굴지 말고 캐릭터답게.${c.talk==="mute"?`
+※ 이 캐릭터는 말을 못 하니, 답은 반드시 "의성어(뜻 설명)" 형식으로 써. 괄호 안은 3인칭 서술로 무슨 뜻인지 풀어 써 줘. 예: "웅냥냥!(${p.nick}은(는) 맛있는 음식을 찾고 있다고 말했다.)"`:""}
+성격: ${c.personality||"-"} / 배경: ${c.story||"-"} / 좋아하는 것: ${c.likes||"-"} / 싫어하는 것: ${c.dislikes||"-"}
+지금 상태: ${P.stage} Lv.${P.lvl}, 배부름 ${P.hunger}, 청결 ${P.clean}, 기분 ${P.mood}, 있는 곳 ${mapName(petLoc(p))}, ${timeBand()} / 최근 일: ${p.log[0]?p.log[0].story.slice(0,100):"-"}${askActive(p)?` / 지금 부탁 중: ${ASK_KINDS[askActive(p).kind][1]}`:""}
+최근 대화:
+${hist.map(x=>`${x.by===viewerId?o.name:p.nick}: ${x.text}`).join("\n")||"(처음)"}
+${o.name}: ${text}
+JSON으로만 답해: {"reply":"...","mood":-2~2 정수}`; }
+async function sendChat(pid,text){ const p=state.pets.find(x=>x.id===pid); if(!p||chatBusy) return; if(!aiReady()) return toast("AI 연결이 없어요.");
+  if(chatUsed()>=CHAT_LIMIT) return toast(`오늘은 ${CHAT_LIMIT}번 다 이야기했어요. 내일 또 걸어 주세요.`);
+  const who=viewerId, now=Date.now();
+  commit(s=>{ const x=s.pets.find(y=>y.id===pid); if(!x) return; x.chat=[...(x.chat||[]),{by:who,text,ts:now}].slice(-CHAT_KEEP*2); },{replay:true});
+  chatBusy=true; render(); scrollChatLog();
+  let r=null; try{ r=await aiJSON(chatPrompt(p,text),{max:300}); }catch(e){ aiWarn(e); }
+  let reply=r&&typeof r.reply==="string"?r.reply.slice(0,160):""; const c=charById(p.charId);
+  if(!reply||!lineOk(c,reply)) reply=c?.talk==="mute"?(charSounds(c)[hash(text)%Math.max(1,charSounds(c).length)]||"…")+`?(${p.nick}은(는) 고개를 갸웃했다.)`:"…잠깐 딴생각했어. 다시 말해 줄래?";
+  const md=Math.max(-2,Math.min(2,parseInt(r?.mood,10)||0));
+  commit(s=>{ const x=s.pets.find(y=>y.id===pid); if(!x) return; x.chat=[...(x.chat||[]),{by:x.id,to:who,text:reply,ts:Date.now()}].slice(-CHAT_KEEP*2); if(md){ const P=freshen(x); setPetStats(x,{mood:P.mood+md}); }
+    s.chatUse=s.chatUse||{}; const u=s.chatUse[who], d=dkey(Date.now()); s.chatUse[who]={day:d,n:(u&&u.day===d?u.n:0)+1}; },{replay:true});
+  chatBusy=false; render(); scrollChatLog(); }
+function scrollChatLog(){ const l=$("#chatLog"); if(l) l.scrollTop=l.scrollHeight; const i=$("#chatIn"); if(i&&!i.disabled) i.focus(); }
 const diaryOpen=new Set();
 function diaryHTML(p){ const all=diaryOpen.has(p.id), L=all?p.log:p.log.slice(0,1);
   return `<h2 class="pb-h">📔 ${esc(p.nick)}의 그림일기${p.log.length>1?`<button class="h2btn" data-act="diaryMore" data-id="${p.id}">${all?"접기":`더 보기 (${p.log.length})`}</button>`:""}</h2>`+(p.log.length?L.map(l=>`<div class="diary ${l.together?"tog":""}"><div class="dt">${esc(l.title)}<small>${fmtTime(l.ts)}</small></div>
@@ -2798,7 +2926,7 @@ function petsPrompt(pets){
 이름: ${p.nick}${c.name&&!p.nick.startsWith(c.name)?` (원래 이름: ${c.name})`:""} / 지금 있는 곳: ${mapName(petLoc(p))} / 키워 주는 사람을 부르는 말: '${p.call||o.name}'
 
 성격: ${c.personality||"정해지지 않음"} / 배경: ${c.story||"정해지지 않음"}
-좋아하는 것: ${c.likes||"-"} / 싫어하는 것: ${c.dislikes||"-"}
+좋아하는 것: ${c.likes||"-"}${(c.fav||[]).length?` (특히 ${c.fav.map(id=>careById(id)?.name).filter(Boolean).join(", ")})`:""} / 싫어하는 것: ${c.dislikes||"-"}${(c.hate||[]).length?` (특히 ${c.hate.map(id=>careById(id)?.name).filter(Boolean).join(", ")})`:""}
 말하기: ${speechRule(c)}
 상태: ${P.stage} Lv.${P.lvl}, 함께한 지 ${P.days}일, 배부름 ${P.hunger}, 청결 ${P.clean}, 기분 ${P.mood} (100 만점)
 성향: ${topTraits(p).join(", ")||"아직 없음"} / 자격증: 잡초 뽑기 ${licLabel(p,"weed")}, 토벌 ${licLabel(p,"hunt")}, 술 ${licLabel(p,"sake")} / 최근 받은 것: ${(p.recent||[]).slice(0,4).join(", ")||"없음"}
@@ -3179,7 +3307,7 @@ function startHunt(pid,opt){
   game={kind:"battle",pid,mon,opt,B,P,pmax,php:pmax,mmax,mhp:mmax,gauge:0,turn:0,phase:"choose",pos:0,dir:1,speed:2.1+mon[2]*.08,zone:Math.min(40,B.zone+Math.min(6,brave)+(p?licN(p,"hunt"):0)),timers:[],to:[],perfect:0,blocked:0};
   const title=opt.mode==="practice"?"토벌 연습":"토벌";
   gameShell(title,`<div class="battle"><div class="b-top"><div class="b-intent" id="bInt"></div>
-    <div class="b-mon" id="bMon"><span>${mon[0]}</span></div><div class="hpbar m"><i id="bMhp" style="width:100%"></i><b id="bMhpT">${mmax}/${mmax}</b></div><small class="b-name">${mon[1]}</small></div>
+    <div class="b-mon" id="bMon"><span>${(()=>{ const L=artList("enemies"); if(!L.length) return mon[0]; const img=L[MONSTERS.indexOf(mon)%L.length]||L[0]; return `<img src="${blobURL(img)}" alt="${esc(mon[1])}">`; })()}</span></div><div class="hpbar m"><i id="bMhp" style="width:100%"></i><b id="bMhpT">${mmax}/${mmax}</b></div><small class="b-name">${mon[1]}</small></div>
     <div class="b-log" id="bLog">${mon[1]}이(가) 나타났다!</div>
     <div class="b-me"><div class="b-ppic">${p?petPicHTML(p):"🐾"}</div><div style="flex:1"><div class="hpbar p"><i id="bPhp" style="width:100%"></i><b id="bPhpT">${pmax}/${pmax}</b></div><div class="b-gauge" id="bGauge">필살 게이지 ○○○</div></div></div>
     <div class="tbar b-bar" id="bBar" hidden><i class="zone" id="bZone"></i><i class="pzone" id="bPZone"></i><i class="needle" id="bNeedle"></i></div>
@@ -3588,48 +3716,101 @@ const SP_SLOT=3*3600000;
 const SP_RATE={often:.65,normal:.45,rare:.25};
 const spRate=()=>SP_RATE[state.sproutRate]||SP_RATE.normal;
 const SP_MAPS=["field","forest","hunt","guild","market","ramen"];
+/* ---------- 이벤트 카드 ---------- */
+const EV_TRIG={random:"랜덤 (가끔 저절로)",item:"특정 아이템을 줄 때",sprout:"땅이 들썩일 때",time:"정해진 시각에 앱을 열 때",stat:"조건을 만족할 때 (횟수·상태 등)"};
+const EV_STATS=[["feedToday","오늘 밥 준 횟수"],["washToday","오늘 씻긴 횟수"],["patToday","오늘 쓰다듬은 횟수"],["givenItem","특정 아이템을 준 누적 횟수"],["level","캐릭터 레벨"],["days","함께한 날 수"],["hunger","배부름"],["clean","청결"],["mood","기분"],["askDone","들어준 부탁 수"],["chatToday","오늘 나눈 대화 수"],["playToday","오늘 놀아준 횟수"]];
+const EV_OPS=[[">=","이상"],["<=","이하"],["==","딱"]];
+const WD=["일","월","화","수","목","금","토"];
+function evStat(p,key,itemId){ const d=petDay(p).c||{}, P=petCalc(p);
+  switch(key){ case "feedToday": return (d.feed||0)+(d.feedItem||0); case "washToday": return (d.wash||0)+(d.washItem||0); case "patToday": return d.pat||0; case "playToday": return d.playN||0;
+    case "givenItem": return (p.given||{})[itemId]||0; case "level": return P.lvl; case "days": return P.days; case "hunger": return P.hunger; case "clean": return P.clean; case "mood": return P.mood;
+    case "askDone": return p.askDone||0; case "chatToday": { const t=dkey(Date.now()); return (p.chat||[]).filter(x=>x.by===viewerId&&dkey(x.ts)===t).length; } } return 0; }
+function evCondText(e){ if(e.trigger==="time") return `${e.time||"--:--"}${e.wdays&&e.wdays.length&&e.wdays.length<7?` (${e.wdays.map(d=>WD[d]).join("·")}요일)`:""}`;
+  if(e.trigger==="stat"){ const st=EV_STATS.find(x=>x[0]===e.stat)?.[1]||e.stat, op=EV_OPS.find(x=>x[0]===e.op)?.[1]||"이상"; return `${st}${e.stat==="givenItem"?`(${careById(e.itemId)?.name||"?"})`:""} ${e.n||1} ${op}`; } return ""; }
+function evCondMet(e,p){ if(e.trigger==="time"){ const d=new Date(); const hm=`${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`; return hm===e.time&&(!e.wdays||!e.wdays.length||e.wdays.includes(d.getDay())); }
+  if(e.trigger==="stat"){ const v=evStat(p,e.stat,e.itemId), n=+e.n||0; return e.op==="<="?v<=n:e.op==="=="?v===n:v>=n; } return false; }
+let evCondBusy=false;
+// 시각·조건 이벤트 판정 (키우기 탭에서 상태가 바뀔 때마다 + 20초마다)
+function evCondCheck(){ if(!state||!loaded||evCondBusy||tab!=="pet"||$("#fxSlot")?.innerHTML) return; const m=me(); if(!m) return; const today=dkey(Date.now()), fired=m.evFired||{};
+  for(const p of alivePets()) for(const e of (state.events||[]).filter(x=>(x.trigger==="time"||x.trigger==="stat")&&evFor(x,p))){ const k=e.id+":"+p.id;
+    if(e.once&&(m.eventAlbum||{})[e.id]) continue; if(fired[k]===today) continue; if(!evCondMet(e,p)) continue;
+    evCondBusy=true; const isNew=!(m.eventAlbum||{})[e.id];
+    commit(s=>{ const mm=s.members.find(x=>x.id===m.id); if(!mm) return; mm.evFired=Object.assign({},mm.evFired||{},{[k]:today}); const x=s.pets.find(y=>y.id===p.id); fireEvent(s,m.id,e,x,e.trigger); },{replay:true});
+    setTimeout(()=>{ showEvent(e,p,isNew); evCondBusy=false; },300); return; } }
+const evById=id=>(state.events||[]).find(e=>e.id===id);
+function evPic(ev,cls){ return isBlob(ev.photo)?`<img class="${cls||""}" src="${blobURL(ev.photo)}" alt="">`:`<span class="evemo ${cls||""}">${esc(ev.emoji||"🎴")}</span>`; }
+const evFor=(ev,p)=>!ev.charId||ev.charId===p.charId;
+function evText(ev,p){ const o=me(); return String(ev.text||"").replace(/\{이름\}/g,p?.nick||"").replace(/\{나\}/g,p?.call||o?.name||""); }
+function fireEvent(s,mid,ev,p,how){ const mm=s.members.find(x=>x.id===mid); if(!mm) return false; mm.eventAlbum=mm.eventAlbum||{}; if(ev.once&&mm.eventAlbum[ev.id]) return false;
+  mm.eventAlbum[ev.id]=(mm.eventAlbum[ev.id]||0)+1; if(p){ const P=freshen(p); setPetStats(p,{mood:P.mood+(+ev.mood||0)}); if(+ev.grow) addGxp(p,+ev.grow); p.growth=p.growth||[]; p.growth.unshift({ts:Date.now(),kind:"event",text:`🎴 ${ev.title}`}); }
+  if(mm.eventAlbum[ev.id]===1) notify(s,"all","🎴",`${mm.name} 님이 이벤트 카드 ‘${ev.title}’을(를) 얻었어요${p?` (${p.nick})`:""}`); return true; }
+function showEvent(ev,p,isNew){ fxOverlay({kind:"event",title:isNew?"이벤트 카드 획득!":"이벤트 발생!",pic:evPic(ev),name:ev.title,sub:evText(ev,p),rewards:[isNew?"앨범에 새로 추가":"앨범 +1",+ev.mood?`기분 ${ev.mood>0?"+":""}${ev.mood}`:"",+ev.grow?`성장 +${ev.grow}`:""].filter(Boolean),btn:"멋져!"}); }
+// 아이템을 줬을 때 (petGive 끝에서 호출)
+function evOnItem(pid,itemId){ const p=state.pets.find(x=>x.id===pid); if(!p) return; const m=me(); const L=(state.events||[]).filter(e=>e.trigger==="item"&&e.itemId===itemId&&evFor(e,p)&&!(e.once&&(m.eventAlbum||{})[e.id])); if(!L.length) return;
+  const ev=L[hash(pid+itemId+Date.now())%L.length], isNew=!(m.eventAlbum||{})[ev.id]; let ok=false; commit(s=>{ const x=s.pets.find(y=>y.id===pid); ok=fireEvent(s,viewerId,ev,x,"item"); },{replay:true}); if(ok!==false) setTimeout(()=>showEvent(ev,p,isNew),700); }
+// 랜덤 (키우기 탭 열 때 6시간 슬롯마다 판정)
+function evRandomCheck(){ if(!state||!loaded) return; const m=me(); if(!m) return; const slot=Math.floor(Date.now()/(6*3600000)); const seen=m.evSlot||{}; const hits=[];
+  for(const p of alivePets()) for(const ev of (state.events||[]).filter(e=>e.trigger==="random"&&evFor(e,p))){ const k=ev.id+":"+p.id; if(seen[k]===slot) continue; if(ev.once&&(m.eventAlbum||{})[ev.id]) continue; if(hash(m.id+k+slot)%100<Math.max(0,Math.min(100,+ev.chance||10))) hits.push({ev,p,k}); }
+  const marks=Object.fromEntries(alivePets().flatMap(p=>(state.events||[]).filter(e=>e.trigger==="random"&&evFor(e,p)).map(e=>[e.id+":"+p.id,slot])));
+  if(!hits.length){ if(Object.keys(marks).some(k=>seen[k]!==slot)) commit(s=>{ const mm=s.members.find(x=>x.id===m.id); if(mm) mm.evSlot=Object.assign({},mm.evSlot||{},marks); },{replay:true}); return; }
+  const h=hits[0], isNew=!(m.eventAlbum||{})[h.ev.id];
+  commit(s=>{ const mm=s.members.find(x=>x.id===m.id); if(!mm) return; mm.evSlot=Object.assign({},mm.evSlot||{},marks); const x=s.pets.find(y=>y.id===h.p.id); fireEvent(s,m.id,h.ev,x,"random"); },{replay:true});
+  setTimeout(()=>showEvent(h.ev,h.p,isNew),400); }
+function eventAlbumHTML(){ const m=me(), L=state.events||[], got=L.filter(e=>(m.eventAlbum||{})[e.id]>0).length;
+  if(!L.length) return '<div class="empty">방장이 이벤트 카드를 만들면 여기에 모여요.</div>';
+  return `<div class="album-head"><b>🎴 이벤트 카드</b><span>${got} / ${L.length}</span></div><div class="prog"><i style="width:${got/L.length*100}%"></i></div>
+  <div class="evgrid">${L.map(e=>{ const n=(m.eventAlbum||{})[e.id]||0, c=e.charId?charById(e.charId):null; return n?`<button class="evc" data-act="evView" data-id="${e.id}"><div class="pic">${evPic(e)}</div>${c?`<span class="tg">${esc(c.name)}</span>`:""}${n>1?`<span class="cnt">×${n}</span>`:""}<div class="nm">${esc(e.title)}</div></button>`:`<div class="evc locked"><div class="pic">?</div><div class="nm">???</div><span class="tg" style="background:var(--sub)">${EV_TRIG[e.trigger].split(" ")[0]}</span></div>`; }).join("")}</div>
+  <p class="hint">랜덤 카드는 키우기 탭을 열 때 가끔, 아이템 카드는 그 아이템을 줄 때, 땅 카드는 땅이 들썩이는 곳에서, 시각·조건 카드는 그 때가 되면 나와요.</p>`; }
+function evViewSheet(id){ const ev=evById(id); if(!ev) return; const n=(me().eventAlbum||{})[id]||0;
+  openSheet(`<div style="text-align:center"><div style="width:180px;height:240px;margin:0 auto 10px;border-radius:16px;overflow:hidden;background:var(--field);display:grid;place-items:center;font-size:4rem;box-shadow:0 8px 24px var(--sh)">${evPic(ev)}</div><h3 style="margin:0 0 6px">${esc(ev.title)}</h3><p style="white-space:pre-wrap;margin:0 0 8px">${esc(evText(ev,alivePets().find(p=>evFor(ev,p))||null))}</p><p class="hint">${n}번 겪었어요 · ${EV_TRIG[ev.trigger]}${ev.charId?` · ${esc(charById(ev.charId)?.name||"")}`:" · 모든 캐릭터"}</p></div><div class="actions">${closeBtn}</div>`); }
+function eventAdminHTML(){ const L=state.events||[];
+  return `<h2>이벤트 카드 <span class="count">${L.length}</span><button class="h2btn" data-act="evSheet">＋ 만들기</button></h2>
+  <p class="hint">그림 + 제목 + 설명문으로 된 카드예요. 랜덤으로, 특정 아이템을 줄 때, 땅이 들썩일 때 나오고 각자의 카드 앨범에 모여요. 설명문에 {이름}을 쓰면 캐릭터 이름으로, {나}를 쓰면 부르는 말로 바뀌어요.</p>
+  ${L.length?`<div class="card">${L.map(e=>{ const c=e.charId?charById(e.charId):null, it=e.itemId?careById(e.itemId):null; return `<div class="irow"><div class="ie">${evPic(e)}</div><div class="ii"><b>${esc(e.title)}</b><small>${c?esc(c.name):"모든 캐릭터"} · ${EV_TRIG[e.trigger]}${e.trigger==="item"?` (${it?esc(it.emoji+" "+it.name):"아이템 없음"})`:e.trigger==="random"?` ${e.chance||10}%`:(e.trigger==="time"||e.trigger==="stat")?` · ${esc(evCondText(e))}`:""}${e.once?" · 1회":" · 하루 1번"}</small></div><button class="btn ghost sm" data-act="evSheet" data-id="${e.id}">수정</button></div>`; }).join("")}</div>`:'<div class="empty">아직 이벤트 카드가 없어요.</div>'}
+  <h2>땅이 들썩이는 이벤트</h2><div class="card"><div class="field" style="margin:0"><label for="spRate">얼마나 자주 생길까요? (3시간마다 사람마다 따로 정해져요)</label><select id="spRate" style="max-width:220px">${[["often","자주 (65%)"],["normal","보통 (45%)"],["rare","가끔 (25%)"]].map(([k,l])=>`<option value="${k}" ${(state.sproutRate||"normal")===k?"selected":""}>${l}</option>`).join("")}</select></div>
+  <p class="hint">땅에서는 ‘땅이 들썩일 때’ 카드나 음식 아이템(장터 아이템 중 종류가 특별식인 것)이 나와요.</p><div class="actions"><button class="btn sm" data-act="spRateSave">저장</button></div></div>`; }
+function eventSheet(id){ const e=id?evById(id):null; pendingPhoto=null; dropPhoto=false;
+  openSheet(`<h3>${e?"이벤트 카드 수정":"이벤트 카드 만들기"}</h3>${photoField(e?.photo||null,"세로로 긴 그림(3:4)이 카드에 잘 맞아요.")}
+  <div class="field"><label for="evEmoji">그림이 없을 때 이모지</label><input id="evEmoji" maxlength="4" value="${esc(e?.emoji||"🎴")}"></div>
+  <div class="field"><label for="evTitle">제목</label><input id="evTitle" maxlength="30" value="${esc(e?.title||"")}" placeholder="예: 딸기 파르페의 감동"></div>
+  <div class="field"><label for="evText">설명문</label><textarea id="evText" maxlength="400" placeholder="예: {이름}이(가) 딸기 파르페를 한 입 먹더니 눈을 반짝였다. ‘{나}, 이거 정말 맛있는 음식이야!’">${esc(e?.text||"")}</textarea></div>
+  <div class="field"><label for="evChar">캐릭터</label><select id="evChar"><option value="">모든 캐릭터</option>${state.chars.map(c=>`<option value="${c.id}" ${e?.charId===c.id?"selected":""}>${esc(c.name)}</option>`).join("")}</select></div>
+  <div class="field"><label for="evTrig">언제 나올까요?</label><select id="evTrig">${Object.entries(EV_TRIG).map(([k,l])=>`<option value="${k}" ${(e?.trigger||"random")===k?"selected":""}>${l}</option>`).join("")}</select></div>
+  <div class="field" id="evItemF" ${(e?.trigger||"random")==="item"?"":"hidden"}><label for="evItem">아이템</label><select id="evItem">${state.careItems.map(it=>`<option value="${it.id}" ${e?.itemId===it.id?"selected":""}>${esc(it.emoji)} ${esc(it.name)}</option>`).join("")||'<option value="">아이템이 없어요</option>'}</select></div>
+  <div class="field" id="evChanceF" ${(e?.trigger||"random")==="random"?"":"hidden"}><label for="evChance">확률 (%) — 6시간마다 캐릭터별로 판정</label><input id="evChance" type="number" min="1" max="100" value="${e?.chance||10}"></div>
+  <div id="evTimeF" ${(e?.trigger||"random")==="time"?"":"hidden"}><div class="field"><label for="evTime">시각 (그 1분 안에 키우기 탭이 열려 있으면)</label><input id="evTime" type="time" value="${esc(e?.time||"04:44")}"></div>
+    <div class="field"><label>요일 (아무것도 안 고르면 매일)</label><div class="prefchips">${WD.map((w,i)=>`<label><input type="checkbox" name="evWd" value="${i}" ${(e?.wdays||[]).includes(i)?"checked":""}>${w}</label>`).join("")}</div></div></div>
+  <div id="evStatF" ${(e?.trigger||"random")==="stat"?"":"hidden"}><div class="field"><label for="evStat">무엇을 볼까요?</label><select id="evStat">${EV_STATS.map(([k,l])=>`<option value="${k}" ${(e?.stat||"feedToday")===k?"selected":""}>${l}</option>`).join("")}</select></div>
+    <div class="field" id="evStatItemF" ${(e?.stat||"")==="givenItem"?"":"hidden"}><label for="evStatItem">아이템</label><select id="evStatItem">${state.careItems.map(it=>`<option value="${it.id}" ${e?.itemId===it.id?"selected":""}>${esc(it.emoji)} ${esc(it.name)}</option>`).join("")||'<option value="">아이템이 없어요</option>'}</select></div>
+    <div class="field" style="display:flex;gap:10px"><div style="flex:1"><label for="evN">숫자</label><input id="evN" type="number" min="0" value="${e?.n??3}"></div><div style="flex:1"><label for="evOp">비교</label><select id="evOp">${EV_OPS.map(([k,l])=>`<option value="${k}" ${(e?.op||">=")===k?"selected":""}>${l}</option>`).join("")}</select></div></div>
+    <p class="hint">예: ‘오늘 밥 준 횟수 3 이상’ → 하루에 밥을 세 번째 줄 때 나와요. ‘배부름 10 이하’ → 많이 굶었을 때 나와요. 같은 날엔 캐릭터마다 한 번만 나와요.</p></div>
+  <div class="field" style="display:flex;gap:10px"><div style="flex:1"><label for="evMood">기분 변화</label><input id="evMood" type="number" value="${e?.mood||0}"></div><div style="flex:1"><label for="evGrow">성장 보너스</label><input id="evGrow" type="number" min="0" value="${e?.grow||0}"></div></div>
+  <div class="field"><label style="display:flex;gap:8px;align-items:center;color:var(--ink)"><input type="checkbox" id="evOnce" ${e?.once?"checked":""} style="width:auto"> 사람마다 한 번만 나와요</label></div>
+  <div class="actions"><button class="btn pink" data-act="evSave" data-id="${e?.id||""}">${e?"저장":"만들기"}</button>${e?`<button class="btn ghost" data-act="evDel" data-id="${e.id}">삭제</button>`:""}${closeBtn}</div>`);
+  $("#evTrig").addEventListener("change",ev=>{ const v=ev.target.value; $("#evItemF").hidden=v!=="item"; $("#evChanceF").hidden=v!=="random"; $("#evTimeF").hidden=v!=="time"; $("#evStatF").hidden=v!=="stat"; });
+  $("#evStat").addEventListener("change",ev=>{ $("#evStatItemF").hidden=ev.target.value!=="givenItem"; }); }
+function sproutPool(m){ const pets=alivePets(); const evs=(state.events||[]).filter(e=>e.trigger==="sprout"&&!(e.once&&(m.eventAlbum||{})[e.id])&&pets.some(p=>evFor(e,p))).map(e=>({kind:"event",id:e.id}));
+  const foods=state.careItems.filter(it=>itemType(it)==="food").map(it=>({kind:"item",id:it.id})); return [...evs,...evs,...foods]; } // 카드가 조금 더 자주
 function sproutNow(m){
-  if(!m||!state.sprouts?.length) return null; const slot=Math.floor(Date.now()/SP_SLOT);
+  if(!m) return null; const slot=Math.floor(Date.now()/SP_SLOT);
   const st=m.sprout&&m.sprout.slot===slot?m.sprout:null; if(st&&st.done) return null;
   if(!st){ const r=hash(m.id+":sp:"+slot)%1000/1000; if(!testOn()&&r>=spRate()) return null; }
-  const maps=SP_MAPS.filter(id=>state.sprouts.some(x=>(x.maps||[]).includes(id))); if(!maps.length) return null;
-  const map=st?st.map:maps[hash(m.id+":map:"+slot)%maps.length];
-  let sp=st?state.sprouts.find(x=>x.id===st.id):null;
-  if(!sp){ const L=state.sprouts.filter(x=>(x.maps||[]).includes(map)); const tot=L.reduce((a,x)=>a+(+x.weight||0),0); let t=hash(m.id+":pick:"+slot)%10000/10000*tot; for(const x of L){ t-=(+x.weight||0); if(t<0){ sp=x; break; } } sp=sp||L[0]; }
-  return sp?{slot,map,sp,opened:!!st}:null;
+  const pool=sproutPool(m); if(!pool.length) return null;
+  const map=st?st.map:SP_MAPS[hash(m.id+":map:"+slot)%SP_MAPS.length];
+  let pick=st&&st.kind?{kind:st.kind,id:st.id}:pool[hash(m.id+":pick:"+slot)%pool.length];
+  if(pick.kind==="event"&&!evById(pick.id)) pick=pool[0]; if(pick.kind==="item"&&!careById(pick.id)) pick=pool[0];
+  return {slot,map,pick,opened:!!st};
 }
 const spGrade=w=>w<1?["전설","#FF5FA2"]:w<2?["드묾","#B36BFF"]:w<3?["보통","#4FA3FF"]:["흔함","#4FCFA8"];
 function spPic(sp,cls){ return isBlob(sp.photo)?`<img class="${cls||""}" src="${blobURL(sp.photo)}" alt="">`:`<span class="${cls||""}">${esc(sp.emoji||"🍽️")}</span>`; }
 function sproutScene(ev){
-  const sp=ev.sp, [gl,gc]=spGrade(+sp.weight||1), pets=alivePets(), item=sp.itemId&&careById(sp.itemId);
-  $("#gameSlot").innerHTML=`<div class="spfx" role="dialog" aria-modal="true" aria-label="음식이 솟아났어요" style="--gc:${gc}">
-    <div class="sp-sky"></div><div class="sp-rays"></div><div class="sp-ground"><i class="sp-crack a"></i><i class="sp-crack b"></i><i class="sp-crack c"></i></div>
-    <div class="sp-food">${spPic(sp,"sp-img")}</div>
-    ${Array.from({length:18},(_,i)=>`<i class="sp-dirt" style="--dx:${(Math.cos(i/18*6.28)*(80+Math.random()*90))|0}px;--dy:${-(60+Math.random()*120)|0}px;--d:${(1.4+Math.random()*.2).toFixed(2)}s">${i%3?"●":"✦"}</i>`).join("")}
-    <div class="sp-card"><div class="sp-tag">${gl}</div><div class="sp-cpic">${spPic(sp)}</div><b class="sp-name">${esc(sp.name)}</b><p class="sp-text">${esc(sp.text||"")}</p>
-      <div class="sp-acts">${pets.map(p=>`<button class="btn pink sm" data-act="spEat" data-id="${p.id}">${esc(p.nick)}에게 먹이기</button>`).join("")}${item?`<button class="btn ghost sm" data-act="spTake">${esc(item.emoji)} 가져가기</button>`:""}</div>
-      <small class="hint" style="margin:0">이벤트 장면이 도감에 모였어요 · ${sp.food?`배부름 +${sp.food} `:""}${sp.mood?`기분 ${sp.mood>0?"+":""}${sp.mood} `:""}${sp.grow?`성장 +${sp.grow}`:""}</small></div>
-    <button class="gx-skip" data-act="spClose">닫기</button></div>`;
-}
-function spViewSheet(id){ const sp=state.sprouts.find(x=>x.id===id); if(!sp) return; const n=me().sproutCards?.[id]||0, [gl,gc]=spGrade(+sp.weight||1);
-  openSheet(`<div class="spview" style="--gc:${gc}"><div class="sp-tag">${gl}</div><div class="spv-pic">${spPic(sp)}</div><h3 style="text-align:center;margin:8px 0 4px">${esc(sp.name)}</h3><p style="text-align:center;margin:0 0 6px;white-space:pre-wrap">${esc(sp.text||"")}</p>
-  <p class="hint" style="text-align:center">${n}번 만났어요 · 나오는 곳: ${(sp.maps||[]).map(k=>BASE_MAPS.find(b=>b[0]===k)?.[1]||k).join(", ")}</p></div><div class="actions">${closeBtn}</div>`); }
-function sproutBookHTML(){ const m=me(), L=state.sprouts||[], got=L.filter(x=>(m.sproutCards?.[x.id]||0)>0).length;
-  if(!L.length) return '<div class="empty">방장이 솟아나는 음식을 등록하면 여기에 모여요.</div>';
-  return `<div class="album-head"><b>🌱 솟아난 음식 도감</b><span>${got} / ${L.length}</span></div><div class="prog"><i style="width:${got/L.length*100}%"></i></div>
-  <div class="agrid">${L.map(x=>{ const n=m.sproutCards?.[x.id]||0, [gl,gc]=spGrade(+x.weight||1); return n?`<button class="acard spc" style="--rc:${gc}" data-act="spView" data-id="${x.id}"><div class="pic">${spPic(x)}</div><div class="nm">${esc(x.name)}</div><span class="st" style="color:#fff">${gl}</span>${n>1?`<span class="cnt">×${n}</span>`:""}</button>`:`<div class="acard locked"><div class="pic">?</div><div class="nm">???</div></div>`; }).join("")}</div>
-  <p class="hint">솟아나는 음식은 3시간마다 어딘가에서 랜덤으로 생겨요. 키우기 탭에서 장소를 돌아다니며 땅이 들썩이는 곳을 찾아보세요.</p>`; }
-function sproutSheet(id){ const x=id?state.sprouts.find(y=>y.id===id):null; pendingPhoto=null; dropPhoto=false; const w=+x?.weight||3;
-  openSheet(`<h3>${x?"솟아나는 음식 수정":"솟아나는 음식 추가"}</h3>${photoField(x?.photo||null,"이벤트 장면과 도감 카드에 쓰는 그림이에요. 없으면 아이콘이 나와요.")}
-  <div class="two"><div class="field"><label for="spName">이름</label><input id="spName" maxlength="20" value="${esc(x?.name||"")}" placeholder="예: 땅에서 솟은 푸딩"></div>
-  <div class="field"><label for="spEmoji">아이콘</label><input id="spEmoji" maxlength="4" value="${esc(x?.emoji||"🍮")}"></div></div>
-  <div class="field"><label for="spText">이벤트 내용</label><textarea id="spText" maxlength="300" placeholder="예: 들판 한가운데 흙이 볼록 솟더니…">${esc(x?.text||"")}</textarea></div>
-  <div class="field"><label>나오는 곳</label><div class="days">${SP_MAPS.map(k=>`<label style="width:auto;padding:0 10px"><input type="checkbox" class="spMap" value="${k}" ${(x?.maps||["field"]).includes(k)?"checked":""}><span>${BASE_MAPS.find(b=>b[0]===k)?.[2]||""} ${BASE_MAPS.find(b=>b[0]===k)?.[1]||k}</span></label>`).join("")}</div></div>
-  <div class="field"><label for="spW">얼마나 자주</label><select id="spW">${[[4,"흔함"],[3,"보통"],[1.5,"드묾"],[.5,"전설"]].map(([v,l])=>`<option value="${v}" ${Math.abs(w-v)<.01||(v===3&&![4,3,1.5,.5].some(z=>Math.abs(w-z)<.01))?"selected":""}>${l}</option>`).join("")}</select></div>
-  <div class="two"><div class="field"><label for="spFood">배부름</label><input id="spFood" type="number" min="-100" max="100" value="${x?.food??30}"></div><div class="field"><label for="spMood">기분</label><input id="spMood" type="number" min="-100" max="100" value="${x?.mood??10}"></div></div>
-  <div class="two"><div class="field"><label for="spGrow">성장</label><input id="spGrow" type="number" min="-100" max="200" value="${x?.grow??5}"></div>
-  <div class="field"><label for="spItem">가져가기 아이템 (선택)</label><select id="spItem"><option value="">없음 (먹기만)</option>${state.careItems.filter(it=>["food","gift","ingredient"].includes(itemType(it))).map(it=>`<option value="${it.id}" ${x?.itemId===it.id?"selected":""}>${esc(it.emoji)} ${esc(it.name)}</option>`).join("")}</select></div></div>
-  <div class="actions"><button class="btn pink" data-act="spSave" data-id="${x?.id||""}">${x?"저장":"추가"}</button>${x?`<button class="btn ghost" data-act="spDel" data-id="${x.id}">삭제</button>`:""}${closeBtn}</div>`); }
+  const pk=ev.pick, pets=alivePets();
+  if(pk.kind==="event"){ const e=evById(pk.id); const p=pets.find(x=>evFor(e,x))||pets[0]; const m=me(), isNew=!(m.eventAlbum||{})[e.id]; const who=viewerId;
+    commit(s=>{ const mm=s.members.find(x=>x.id===who); if(!mm?.sprout||mm.sprout.done) return; mm.sprout.done=true; const x=s.pets.find(y=>y.id===p?.id); fireEvent(s,who,e,x,"sprout"); },{replay:true});
+    $("#gameSlot").innerHTML=""; showEvent(e,p,isNew); return; }
+  const it=careById(pk.id); const who=viewerId;
+  commit(s=>{ const mm=s.members.find(x=>x.id===who); if(!mm?.sprout||mm.sprout.done) return; mm.sprout.done=true; mm.items[it.id]=(mm.items[it.id]||0)+1; },{replay:true});
+  $("#gameSlot").innerHTML=""; fxOverlay({kind:"pet",title:"땅에서 솟아났어요!",pic:esc(it.emoji),name:it.name,sub:"인벤토리에 넣었어요. 캐릭터에게 줘 보세요.",rewards:["아이템 +1"],btn:"좋아!"}); }
 function recipeSheet(id){ const r=id?(state.recipes||[]).find(x=>x.id===id):null; const ing=ING(), fd=FOODS();
   const sel=(i,opt)=>`<select id="rc${i}">${opt?'<option value="">없음</option>':""}${ing.map(it=>`<option value="${it.id}" ${r?.ins?.[i]===it.id?"selected":""}>${esc(it.emoji)} ${esc(it.name)}</option>`).join("")}</select>`;
   openSheet(`<h3>${r?"레시피 수정":"레시피 추가"}</h3>${ing.length?"":'<p class="hint">먼저 키우기 아이템에서 종류가 ‘요리 재료’인 아이템을 등록해 주세요.</p>'}
@@ -3640,9 +3821,7 @@ function kitchenAdminHTML(){ const R=state.recipes||[], S=state.sprouts||[];
   return `<h2>요리 레시피 <span class="count">${R.length}</span><button class="h2btn" data-act="rcSheet">＋ 추가</button></h2>
   ${R.length?`<div class="card">${R.map(r=>{ const o=careById(r.out); return `<div class="irow"><div class="ie">${esc(o?.emoji||"❔")}</div><div class="ii"><b>${esc(o?.name||"(지운 요리)")}</b><small>${r.ins.map(id=>{ const it=careById(id); return it?esc(it.emoji+" "+it.name):"(지운 재료)"; }).join(" + ")}</small></div><button class="btn ghost sm" data-act="rcSheet" data-id="${r.id}">수정</button></div>`; }).join("")}</div>`:'<div class="empty">레시피가 없어요.</div>'}
   <p class="hint">요리 재료는 아래 ‘키우기 아이템’에서 종류를 ‘요리 재료’로 등록하고, 장터 가격을 정하면 장터에 나와요.</p>
-  <h2>솟아나는 음식 <span class="count">${S.length}</span><button class="h2btn" data-act="spSheet">＋ 추가</button></h2>
-  <div class="card"><div class="field" style="margin:0"><label for="spRate">얼마나 자주 솟아날까요? (3시간마다 사람마다 따로 정해져요)</label><select id="spRate" style="max-width:220px">${[["often","자주 (65%)"],["normal","보통 (45%)"],["rare","가끔 (25%)"]].map(([k,l])=>`<option value="${k}" ${(state.sproutRate||"normal")===k?"selected":""}>${l}</option>`).join("")}</select></div><div class="actions"><button class="btn sm" data-act="spRateSave">저장</button></div>
-  ${S.map(x=>{ const [gl,gc]=spGrade(+x.weight||1); return `<div class="irow"><div class="ie">${isBlob(x.photo)?`<img src="${blobURL(x.photo)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:12px">`:esc(x.emoji)}</div><div class="ii"><b>${esc(x.name)}</b> <span class="chip" style="background:${gc};color:#fff">${gl}</span><small>${(x.maps||[]).map(k=>BASE_MAPS.find(b=>b[0]===k)?.[1]||k).join(", ")} · 배부름 ${x.food||0} · 기분 ${x.mood||0}</small></div><button class="btn ghost sm" data-act="spSheet" data-id="${x.id}">수정</button></div>`; }).join("")}</div>`; }
+  `; }
 /* ---------- 놀아주기: 숨바꼭질 ---------- */
 const HIDE_SPOTS=["🛋️","📦","🪴","🛏️","🧺","🚪"];
 function startPlay(pid){
@@ -3671,7 +3850,7 @@ function playPick(i){ const g=game; if(!g||g.kind!=="play"||g.phase!=="pick") re
   const h=$("#hsHint"); if(h) h.textContent=ok?"찾았다! 🎉":"여기 숨어 있었어요!"; const sc=$("#hsScore"); if(sc) sc.textContent=`찾음 ${g.found}`;
   g.to.push(setTimeout(()=>{ if(!game) return; if(g.round>=3) endPlay(); else playRound(); },1300)); }
 function endPlay(){ const g=game; if(!g) return; const p=state.pets.find(x=>x.id===g.pid); const mood=g.found*5+(g.found===3?5:0);
-  commit(s=>{ const x=s.pets.find(y=>y.id===g.pid); if(!x||playWait(x)>0) return; const P=freshen(x); x.lastPlay=Date.now(); setPetStats(x,{mood:P.mood+mood,hunger:P.hunger-3}); addGxp(x,2+g.found); x.traits["활발"]=(x.traits["활발"]||0)+1; },{replay:true});
+  commit(s=>{ const x=s.pets.find(y=>y.id===g.pid); if(!x||playWait(x)>0) return; const P=freshen(x); x.lastPlay=Date.now(); petInc(x,"playN"); setPetStats(x,{mood:P.mood+mood,hunger:P.hunger-3}); addGxp(x,2+g.found); x.traits["활발"]=(x.traits["활발"]||0)+1; fulfillAsk(s,x,"play"); },{replay:true});
   gameEnd(); fxOverlay({kind:g.found?"clear":"fail",title:g.found===3?"숨바꼭질 달인!":g.found?"재미있었다!":"하나도 못 찾았어요…",pic:petPicHTML(p),name:`${p.nick}을(를) ${g.found}번 찾았어요`,sub:"",rewards:[`기분 +${mood}`,`성장 +${2+g.found}`,"#활발 +1"],btn:"또 놀자!"}); setTimeout(flushPetLv,60); }
 /* ---------- 편지 ---------- */
 let letterBusy=false, letterTry=0;
@@ -3697,7 +3876,7 @@ async function checkLetters(){
 ${state.world||DEFAULT_WORLD}
 
 [캐릭터]
-이름: ${p.nick} / 성격: ${c.personality||"-"} / 배경: ${c.story||"-"} / 좋아하는 것: ${c.likes||"-"} / 싫어하는 것: ${c.dislikes||"-"}
+이름: ${p.nick} / 성격: ${c.personality||"-"} / 배경: ${c.story||"-"} / 좋아하는 것: ${c.likes||"-"}${(c.fav||[]).length?` (특히 ${c.fav.map(id=>careById(id)?.name).filter(Boolean).join(", ")})`:""} / 싫어하는 것: ${c.dislikes||"-"}${(c.hate||[]).length?` (특히 ${c.hate.map(id=>careById(id)?.name).filter(Boolean).join(", ")})`:""}
 말하기: ${speechRule(c)}
 상태: ${P.stage} Lv.${P.lvl}, 함께한 지 ${P.days}일, 배부름 ${P.hunger}, 기분 ${P.mood} / 성향: ${topTraits(p).join(", ")||"없음"}
 최근 있었던 일: ${(p.log||[]).slice(0,2).map(x=>x.story.slice(0,120)).join(" / ")||"특별한 일 없음"}
@@ -3722,10 +3901,11 @@ function careFx(kind,p,emoji,done){
   const close=(bonus)=>{ if(!cfx||cfx.over) return; cfx.over=true; cfx.timers.forEach(t=>{clearInterval(t);clearTimeout(t);}); const d=cfx.done; cfx=null; $("#gameSlot").innerHTML=""; d(bonus||0); if(renderLater){ renderLater=false; render(); } };
   cfx.close=close;
   if(kind==="food"){
-    $("#gameSlot").innerHTML=`<div class="carefx" role="dialog" aria-modal="true" aria-label="밥 먹이기"><div class="cf-room cf-food">
-      <div class="cf-wall"><span class="cf-frame">🖼️</span><span class="cf-hang">🍳</span></div>
-      <div class="cf-petwrap" id="cfPet"><span class="cf-pet">${pic}</span><span class="cf-bib">🧣</span></div>
-      <div class="cf-table"><span class="cf-plate"><span class="cf-dish" id="cfFood">${esc(emoji)}</span></span><span class="cf-cup">🥛</span></div>
+    const D=careDeco("food"), bgF=isBlob(state.maps?.["care:food"])?` style="background:url('${blobURL(state.maps["care:food"])}') center/cover"`:"";
+    $("#gameSlot").innerHTML=`<div class="carefx" role="dialog" aria-modal="true" aria-label="밥 먹이기"><div class="cf-room cf-food"${bgF}>
+      <div class="cf-wall"><span class="cf-frame">${esc(D.wall)}</span><span class="cf-hang">${esc(D.hang)}</span></div>
+      <div class="cf-petwrap" id="cfPet"><span class="cf-pet">${pic}</span><span class="cf-bib">${esc(D.bib)}</span></div>
+      <div class="cf-table"><span class="cf-plate"><span class="cf-dish" id="cfFood">${esc(emoji)}</span></span><span class="cf-cup">${esc(D.cup)}</span></div>
       <div class="cf-say" id="cfSay">냠?</div></div>
       <div class="cf-ui"><div class="cf-hint">${esc(p.nick)}이(가) 맛있게 먹는 중…</div><button class="cf-skip" data-act="cfSkip">건너뛰기</button></div></div>`;
     Object.assign(cfx,{bites:4,perf:4});
@@ -3737,8 +3917,9 @@ function careFx(kind,p,emoji,done){
     cfx.timers.push(setTimeout(()=>cfx&&cfx.close(0),4400));
   } else {
     const spots=Array.from({length:6},(_,i)=>({x:22+Math.random()*56,y:18+Math.random()*58,hp:4}));
-    $("#gameSlot").innerHTML=`<div class="carefx" role="dialog" aria-modal="true" aria-label="씻기기"><div class="cf-room cf-bath">
-      <span class="cf-shower" id="cfShower">🚿</span><span class="cf-towel">🧺</span><span class="cf-duck">🦆</span>
+    const D=careDeco("bath"), bgB=isBlob(state.maps?.["care:bath"])?` style="background:url('${blobURL(state.maps["care:bath"])}') center/cover"`:"";
+    $("#gameSlot").innerHTML=`<div class="carefx" role="dialog" aria-modal="true" aria-label="씻기기"><div class="cf-room cf-bath"${bgB}>
+      <span class="cf-shower" id="cfShower">${esc(D.shower)}</span><span class="cf-towel">${esc(D.towel)}</span><span class="cf-duck">${esc(D.duck)}</span>
       <div class="cf-petwrap rub" id="cfPet"><span class="cf-pet">${pic}</span>${spots.map((sp,i)=>`<i class="cf-dirt" data-i="${i}" style="left:${sp.x}%;top:${sp.y}%"></i>`).join("")}</div>
       <div class="cf-tub"><span class="cf-water"></span></div><div class="cf-say" id="cfSay">근질근질…</div></div>
       <div class="cf-ui"><div class="cf-hint">${esc(emoji)} 손가락으로 얼룩을 문질러 지워 주세요 · 남은 얼룩 <b id="cfLeft">6</b></div>
@@ -3897,7 +4078,19 @@ function chapterSheet(cid,chId){
 }
 
 /* ---------- feed / repeat / due / attendance / backup ---------- */
-function notify(s,to,icon,text){ s.feed=s.feed||[]; s.feed.unshift({id:uid(),to,icon,text,ts:Date.now()}); s.feed=s.feed.slice(0,150); }
+/* ---------- ntfy 푸시 (서버 없이) ----------
+   방마다 비밀 주제 이름을 만들어 두고, 가족은 ntfy 앱에서 그 주제를 구독해요. 앱은 피드 알림이 생길 때 ntfy.sh로 바로 보내요. */
+const NTFY_BASE="https://ntfy.sh";
+const rnd=n=>{ const a=new Uint8Array(n); try{ crypto.getRandomValues(a); }catch(e){ for(let i=0;i<n;i++) a[i]=Math.random()*256|0; } return [...a].map(b=>"abcdefghijklmnopqrstuvwxyz0123456789"[b%36]).join(""); };
+function ensureNtfy(s){ s.ntfy=s.ntfy||{on:true,all:"sw-"+rnd(14),m:{}}; s.members.forEach(mm=>{ if(!s.ntfy.m[mm.id]) s.ntfy.m[mm.id]="sw-"+rnd(14); }); return s.ntfy; }
+const ntfyTopics=()=>state?.ntfy||null;
+let ntfyQ=[];
+function notify(s,to,icon,text){ s.feed=s.feed||[]; s.feed.unshift({id:uid(),to,icon,text,ts:Date.now()}); s.feed=s.feed.slice(0,150); if(!replaying) ntfyQ.push({to,icon,text}); }
+async function ntfySend(topic,title,text,icon){ try{ await fetch(NTFY_BASE,{method:"POST",body:JSON.stringify({topic,title,message:text,click:location.href.split("#")[0],tags:icon?[icon]:[],priority:3})}); }catch(e){} }
+function flushNtfy(){ if(!ntfyQ.length) return; const q=ntfyQ.splice(0); const T=ntfyTopics(); if(!T||T.on===false||backend!=="fb") return;
+  for(const n of q){ const title=`시스템창 · ${nameOf(viewerId)}`; const targets=new Set();
+    if(n.to==="all") targets.add(T.all); else if(n.to==="owners") state.members.filter(isOwner).forEach(m=>{ if(m.id!==viewerId&&T.m[m.id]) targets.add(T.m[m.id]); }); else if(n.to!==viewerId&&T.m[n.to]) targets.add(T.m[n.to]);
+    targets.forEach(t=>ntfySend(t,title,`${n.icon||""} ${n.text}`.trim())); } }
 function myFeed(){ const m=me(); if(!m) return []; return (state.feed||[]).filter(f=>f.to===viewerId||f.to==="all"||(f.to==="owners"&&isOwner(m))); }
 function feedUnread(){ const m=me(); return myFeed().filter(f=>f.ts>(m?.feedSeen||0)).length; }
 function feedSheet(){
@@ -3908,7 +4101,7 @@ function feedSheet(){
 const endOfDay=()=>{ const d=new Date(); d.setHours(23,59,59,0); return d.getTime(); };
 const DOW="일월화수목금토";
 function repeatDue(r){ if(r.paused) return false; const t=dkey(Date.now()); if(r.lastSpawn===t) return false; return r.freq==="daily"||(r.freq==="weekly"&&(r.days||[]).includes(new Date().getDay())); }
-function needsMaint(){ const now=Date.now(); return state.lastPrune!==dkey(now)||(state.repeats||[]).some(repeatDue)||state.quests.some(q=>q.due&&now>q.due&&(q.status==="open"||q.status==="in_progress")); }
+function needsMaint(){ const now=Date.now(); return state.lastPrune!==dkey(now)||(state.repeats||[]).some(repeatDue)||state.quests.some(q=>q.due&&now>q.due&&((q.status==="open"&&!q.overdue)||q.status==="in_progress")); }
 function maintenance(s){
   const now=Date.now(), t=dkey(now);
   (s.repeats||[]).forEach(r=>{ if(!repeatDue(r)) return; r.lastSpawn=t;
@@ -3917,6 +4110,7 @@ function maintenance(s){
     s.quests=s.quests.filter(q=>!(q.repeatId===r.id&&q.status==="open"));
     s.quests.push({id:uid(),title:r.title,desc:r.desc,creatorId:r.creatorId,rewardXp:r.rewardXp,rewardCoins:r.rewardCoins,rewardTitleId:r.rewardTitleId||null,rewardTickets:r.rewardTickets||null,rewardItems:r.rewardItems||null,status:"open",assigneeId:null,createdAt:now,due,repeatId:r.id,late}); });
   s.quests.forEach(q=>{ if(!(q.due&&now>q.due&&(q.status==="open"||q.status==="in_progress"))) return;
+    if(q.status==="open"&&q.repeatId){ const r=(s.repeats||[]).find(x=>x.id===q.repeatId); if(r&&r.freq==="weekly"){ if(!q.overdue){ q.overdue=true; notify(s,"all","⏰",`주간 퀘스트 ‘${q.title}’이(가) 아직 아무도 안 해서 연체됐어요. 이번 주 안에 해 주세요`); } return; } } // 주간 반복: 아무도 안 받았으면 없애지 않고 '연체'로 남겨요
     const had=q.assigneeId; q.status="expired"; q.expiredAt=now; if(q.ext&&q.ext.status==="accepted") q.ext=null;
     dropEdit(s,q,"기한이 지나서 수정 요청이 취소됐어요");
     const c=s.members.find(x=>x.id===q.creatorId); if(c&&!isOwner(c)&&q.rewardCoins){ c.coins+=q.rewardCoins; notify(s,c.id,"↩️",`‘${q.title}’ 기한이 지나서 건 코인 ${q.rewardCoins}개가 돌아왔어요`); }
@@ -3980,12 +4174,18 @@ function attendCard(m){
   return `<button class="attend" data-act="attend"><span class="at-ic">📅</span><span class="at-b"><b>오늘 출석하기</b><small>${cont?`🔥 ${next}일째 연속!`:"출석하고 보상 받기"} · 7일마다 큰 보상</small><span class="at-dots">${dots}</span></span><span class="at-go">출석</span></button>`;
 }
 function backupSheet(){
-  const json=JSON.stringify(state);
-  openSheet(`<h3>백업</h3><p class="hint" style="margin-top:-6px">아래 내용을 통째로 복사해서 메모장 등에 보관하세요. 사진은 이 앱 안에 저장되어 있어서 이 앱에서만 다시 보여요.</p>
-  <textarea id="bkOut" readonly style="width:100%;min-height:140px;font-size:.72rem;border-radius:14px;border:2px solid var(--line);background:var(--field);padding:10px">${esc(json)}</textarea>
-  <div class="actions"><button class="btn pink" data-act="bkCopy">복사하기</button>${closeBtn}</div>
-  <h3 style="margin-top:18px">백업에서 되돌리기</h3><textarea id="bkIn" placeholder="복사해 둔 백업 내용을 붙여 넣어 주세요" style="width:100%;min-height:100px;font-size:.72rem;border-radius:14px;border:2px solid var(--line);background:var(--field);padding:10px"></textarea>
-  <div class="actions"><button class="btn ghost" data-act="bkRestore">되돌리기</button></div>`);
+  const kb=Math.round(byteLen(state)/1024), last=state.lastBackup?fmtTime(state.lastBackup):"아직 없음";
+  openSheet(`<h3>백업</h3><p class="hint" style="margin-top:-6px">방의 모든 기록(멤버·퀘스트·코인·캐릭터·카드·이벤트)을 파일 하나로 저장해요. 사진은 주소만 들어 있어요. 현재 크기 약 ${kb}KB · 마지막 백업 ${last}</p>
+  <div class="actions"><button class="btn pink" data-act="bkDownload">📥 백업 파일 저장</button><button class="btn ghost sm" data-act="bkCopy">텍스트로 복사</button></div>
+  <h3 style="margin-top:18px">백업에서 되돌리기</h3><p class="hint" style="margin-top:-6px">백업 파일을 고르면 지금 방의 기록이 그 파일 내용으로 바뀌어요. 되돌리기 전에 지금 상태도 한 번 저장해 두세요.</p>
+  <div class="actions"><label class="btn ghost" for="bkFile" style="margin:0">📂 백업 파일 고르기</label><input type="file" id="bkFile" accept=".json,application/json" hidden></div>
+  <details style="margin-top:10px"><summary class="hint" style="cursor:pointer">텍스트로 붙여 넣기 ▾</summary><textarea id="bkIn" placeholder="복사해 둔 백업 내용을 붙여 넣어 주세요" style="width:100%;min-height:100px;font-size:.72rem;border-radius:14px;border:2px solid var(--line);background:var(--field);padding:10px;margin-top:8px"></textarea>
+  <div class="actions"><button class="btn ghost sm" data-act="bkRestore">붙여 넣은 내용으로 되돌리기</button></div></details>
+  <div class="actions" style="margin-top:14px">${closeBtn}</div>`);
+  $("#bkFile").addEventListener("change",async ev=>{ const f=ev.target.files[0]; if(!f) return; let obj; try{ obj=JSON.parse(await f.text()); }catch(e){ return toast("백업 파일을 읽지 못했어요. JSON 파일이 맞는지 확인해 주세요."); }
+    if(!obj||!Array.isArray(obj.members)) return toast("이 앱의 백업 파일이 아니에요.");
+    if(!(await ask(`‘${f.name}’ (멤버 ${obj.members.length}명, 퀘스트 ${(obj.quests||[]).length}개) 내용으로 되돌릴까요? 지금 기록은 사라져요.`,"되돌리기"))) return;
+    delete obj._t; commitFull(normalize(obj)); closeSheet(); toast("백업에서 되돌렸어요."); });
 }
 
 /* ---------- pet admin ---------- */
@@ -3994,17 +4194,23 @@ function charSheet(id){
   const f=(k,l,ph,ta)=>`<div class="field"><label for="ch_${k}">${l}</label>${ta?`<textarea id="ch_${k}" maxlength="600" placeholder="${ph}">${esc(c?.[k]||"")}</textarea>`:`<input id="ch_${k}" maxlength="80" value="${esc(c?.[k]||"")}" placeholder="${ph}">`}</div>`;
   openSheet(`<h3>${c?"캐릭터 수정":"캐릭터 등록"}</h3>${photoField(c?.photo||null,"맵을 돌아다닐 그림이에요. 배경이 투명한 PNG가 가장 예뻐요.")}
   <p class="hint" style="margin-top:-4px">같은 캐릭터는 한 사람당 한 명만 키울 수 있어요. 또 얻으면 키우는 캐릭터가 성장해요.</p>${f("name","이름","예: 모모")}${f("personality","성격","예: 겁이 많지만 친구를 위해서는 용감해짐",true)}${f("story","배경 이야기","예: 풀숲 끝 작은 집에서 혼자 살다가 주인을 만났다",true)}
-  ${f("likes","좋아하는 것","예: 딸기 케이크, 낮잠")}${f("dislikes","싫어하는 것","예: 천둥, 매운 음식")}<div class="field"><label for="ch_talk">말하기</label><select id="ch_talk"><option value="talk" ${c?.talk!=="mute"?"selected":""}>말을 해요</option><option value="mute" ${c?.talk==="mute"?"selected":""}>말을 못 해요 (소리·의성어만)</option></select></div>
+  ${f("likes","좋아하는 것 (이야기용 설명)","예: 딸기 케이크, 낮잠")}${f("dislikes","싫어하는 것 (이야기용 설명)","예: 천둥, 매운 음식")}
+  ${state.careItems.length?`<div class="field"><label>💗 좋아하는 아이템 (주면 춤추고 보너스)</label><div class="prefchips">${state.careItems.filter(it=>["food","wash","gift"].includes(itemType(it))).map(it=>`<label><input type="checkbox" name="fav" value="${it.id}" ${(c?.fav||[]).includes(it.id)?"checked":""}>${esc(it.emoji)} ${esc(it.name)}</label>`).join("")}</div></div>
+  <div class="field"><label>💢 싫어하는 아이템 (주면 싫어하고 효과 반감)</label><div class="prefchips">${state.careItems.filter(it=>["food","wash","gift"].includes(itemType(it))).map(it=>`<label><input type="checkbox" name="hate" value="${it.id}" ${(c?.hate||[]).includes(it.id)?"checked":""}>${esc(it.emoji)} ${esc(it.name)}</label>`).join("")}</div></div>`:'<p class="hint">장터 아이템을 만들면 좋아하는/싫어하는 아이템도 고를 수 있어요.</p>'}<div class="field"><label for="ch_talk">말하기</label><select id="ch_talk"><option value="talk" ${c?.talk!=="mute"?"selected":""}>말을 해요</option><option value="mute" ${c?.talk==="mute"?"selected":""}>말을 못 해요 (소리·의성어만)</option></select></div>
   ${f("speech","말투 (말을 하는 경우)","예: 문장 끝에 ‘~냥’을 붙임")}
   <div class="field"><label style="display:flex;gap:8px;align-items:center;color:var(--ink)"><input type="checkbox" id="ch_hideEmo" ${c?.hideEmo?"checked":""} style="width:auto"> 맵에서 상태 아이콘(💗🍙💨💤) 숨기기</label></div>
   <div class="field"><label for="ch_sounds">자주 내는 소리·말버릇 (쉼표로 구분)</label><input id="ch_sounds" maxlength="200" value="${esc(c?.sounds||"")}" placeholder="예: 야하!, 우라?, 하…, 프르르"><p class="hint">말풍선에 이 중에서 골라서 띄우고, AI 이야기에도 그대로 써요.</p></div>
   <p class="hint">집 그림은 저장한 뒤 목록의 ‘집’ 버튼으로 넣어요.</p>
   <div class="actions"><button class="btn pink" data-act="saveChar" data-id="${c?.id||""}">${c?"저장":"등록"}</button>${c?`<button class="btn ghost" data-act="delChar" data-id="${c.id}">삭제</button>`:""}${closeBtn}</div>`);
 }
+function decoSheet(k){ const d=careDeco(k); const L=k==="food"?[["wall","벽 액자"],["hang","벽걸이"],["bib","턱받이"],["cup","컵"]]:[["shower","샤워기"],["towel","수건 바구니"],["duck","장난감"]];
+  openSheet(`<h3>${k==="food"?"밥 먹이기":"씻기기"} 장면 아이콘</h3><p class="hint" style="margin-top:-6px">이모지 하나씩 넣어 주세요. 비우면 기본값으로 돌아가요.</p>
+  ${L.map(([f,n])=>`<div class="field"><label for="dc_${f}">${n} (기본 ${CARE_DECO_DEF[k][f]})</label><input id="dc_${f}" maxlength="4" value="${esc(d[f])}"></div>`).join("")}
+  <div class="actions"><button class="btn pink" data-act="decoSave" data-k="${k}">저장</button>${closeBtn}</div>`); }
 function bgSheet(key){
   pendingPhoto=null; dropPhoto=false;
   const isHouse=key.startsWith("house:"); const c=isHouse?charById(key.slice(6)):null;
-  const cur=isHouse?c?.house:state.maps?.[key]; const name=isHouse?`${c.name}의 집`:BASE_MAPS.find(x=>x[0]===key)?.[1];
+  const cur=isHouse?c?.house:state.maps?.[key]; const name=isHouse?`${c.name}의 집`:(BASE_MAPS.find(x=>x[0]===key)||CARE_SCENES.find(x=>x[0]===key))?.[1];
   openSheet(`<h3>${esc(name)} 배경</h3>${photoField(cur||null,"가로로 긴 그림이 잘 어울려요. 없으면 기본 그림이 나와요.")}
   <div class="actions"><button class="btn pink" data-act="saveBg" data-k="${esc(key)}">저장</button>${closeBtn}</div>`);
 }
@@ -4065,7 +4271,8 @@ function petAdminHTML(){
   <div class="field" style="margin:8px 0 0"><label for="ruleHours">배부름 0이 된 뒤 몇 시간이 지나면 쓰러질까요? (쓰러진 뒤 12시간 안에 밥을 주지 않으면 떠나요)</label><input id="ruleHours" type="number" min="6" max="720" value="${rules().hours}" style="max-width:120px"></div>
   <div class="actions"><button class="btn sm" data-act="ruleSave">저장</button></div><p class="hint">이야기 선택지의 ‘떠날 확률’은 이 설정과 상관없이 적용돼요. 떠난 아이는 소생 아이템으로 깨울 수 있어요.</p></div>`,
   place:`${examArtHTML()}
-  <h2>장소 배경</h2><div class="card">${BASE_MAPS.map(([k,n,ic])=>`<div class="irow charrow"><div class="ie">${th(state.maps?.[k])}</div><div class="ii"><b>${ic} ${n}</b><small>${state.maps?.[k]?"내 그림 사용 중":"기본 그림"}</small></div><button class="btn ghost sm" data-act="bgSheet" data-k="${k}">바꾸기</button></div>`).join("")}<p class="hint">집은 캐릭터마다 따로 넣어요.</p></div>`,
+  <h2>장소 배경</h2><div class="card">${BASE_MAPS.map(([k,n,ic])=>`<div class="irow charrow"><div class="ie">${th(state.maps?.[k])}</div><div class="ii"><b>${ic} ${n}</b><small>${state.maps?.[k]?"내 그림 사용 중":"기본 그림"}</small></div><button class="btn ghost sm" data-act="bgSheet" data-k="${k}">바꾸기</button></div>`).join("")}<p class="hint">집은 캐릭터마다 따로 넣어요.</p></div>
+  <h2>밥·목욕 장면</h2><div class="card">${CARE_SCENES.map(([k,n,ic])=>`<div class="irow charrow"><div class="ie">${th(state.maps?.[k])}</div><div class="ii"><b>${ic} ${n}</b><small>${state.maps?.[k]?"내 배경 사용 중":"기본 배경"}</small></div><div class="cbtns"><button class="btn ghost sm" data-act="bgSheet" data-k="${k}">배경</button><button class="btn ghost sm" data-act="decoSheet" data-k="${k.slice(5)}">아이콘</button></div></div>`).join("")}<p class="hint">배경은 세로로 긴 그림(3:2.5 정도)이 잘 맞아요. 아이콘은 장면에 놓이는 작은 소품 이모지예요.</p></div>`,
   char:`<h2>캐릭터 <span class="count">${state.chars.length}</span><button class="h2btn" data-act="charSheet">＋ 등록</button></h2>
   ${state.chars.length?`<div class="card">${state.chars.map(c=>`<div class="irow charrow"><div class="ie">${isBlob(c.photo)?`<img src="${blobURL(c.photo)}" alt="">`:"🐾"}</div><div class="ii"><b>${esc(c.name)}</b><small>${esc(c.personality||"성격 미정")}</small></div><div class="cbtns">
     <button class="btn ghost sm" data-act="charSheet" data-id="${c.id}">수정</button><button class="btn ghost sm" data-act="bgSheet" data-k="house:${c.id}">집</button><button class="btn ghost sm" data-act="animSheet" data-id="${c.id}">동작</button><button class="btn ghost sm" data-act="chList" data-id="${c.id}">이야기${(c.chapters||[]).length?` ${(c.chapters||[]).length}`:""}</button><button class="btn mint sm" data-act="giveCharSheet" data-id="${c.id}">입양</button></div></div>`).join("")}</div>`:'<div class="empty">상점·가챠·직접 입양으로 줄 캐릭터를 등록해 주세요.</div>'}`,
@@ -4080,10 +4287,11 @@ function petAdminHTML(){
   <h2>키우기 아이템 <span class="count">${state.careItems.length}</span><button class="h2btn" data-act="careSheet">＋ 등록</button></h2>
   ${state.careItems.length?`<div class="card">${state.careItems.map(it=>`<div class="irow"><div class="ie">${esc(it.emoji)}</div><div class="ii"><b>${esc(it.name)}</b><small>${ITEM_TYPES[itemType(it)]} · ${itemEffectTxt(it)}${it.acorn>0?` · ${esc((shops().find(x=>x.id===shopOf(it))||{}).name||"")} 🌰${it.acorn}`:""}</small></div>
     <button class="btn ghost sm" data-act="careSheet" data-id="${it.id}">수정</button><button class="btn mint sm" data-act="giveCareSheet" data-id="${it.id}">주기</button></div>`).join("")}</div>`:'<div class="empty">특별식, 특별 목욕용품, 선물을 등록해 주세요.</div>'}`};
-  const cats=[["char","🐾","캐릭터"],["items","🧺","아이템·장터"],["kitchen","🍳","요리·이벤트"],["place","🗺️","장소·시험"],["rules","⚙️","규칙"]];
+  const cats=[["char","🐾","캐릭터"],["items","🧺","아이템·장터"],["kitchen","🍳","요리"],["events","🎴","이벤트"],["place","🗺️","장소·시험"],["rules","⚙️","규칙"]];
   if(!cats.some(c=>c[0]===petSeg)) petSeg="char";
+  P.events=eventAdminHTML();
   const nav=`<div class="subseg" role="tablist">${cats.map(([k,ic,l])=>`<button role="tab" aria-selected="${petSeg===k}" class="${petSeg===k?"on":""}" data-act="petSeg" data-k="${k}"><span>${ic}</span>${l}</button>`).join("")}</div>`;
-  const desc={char:"캐릭터를 등록하고, 가족이 키우는 캐릭터를 관리해요.",items:"장터 가게와 키우기 아이템(밥·목욕용품·선물·재료)을 관리해요.",kitchen:"요리 레시피와 랜덤으로 솟아나는 음식 이벤트를 관리해요.",place:"장소 배경 사진과 시험장 그림을 바꿔요.",rules:"테스트 모드, AI 연결, 도토리 배율, 떠남 규칙, 세계관을 정해요."}[petSeg];
+  const desc={char:"캐릭터를 등록하고, 가족이 키우는 캐릭터를 관리해요.",items:"장터 가게와 키우기 아이템(밥·목욕용품·선물·재료)을 관리해요.",kitchen:"요리 레시피를 관리해요.",events:"이벤트 카드와 땅이 들썩이는 이벤트를 관리해요.",place:"장소 배경 사진과 시험장 그림을 바꿔요.",rules:"테스트 모드, AI 연결, 도토리 배율, 떠남 규칙, 세계관을 정해요."}[petSeg];
   return nav+`<p class="hint subdesc">${desc}</p>`+(petSeg==="char"?P.char+P.pets:P[petSeg]);
 }
 function itemsInvHTML(){
@@ -4167,6 +4375,9 @@ function settingsHTML(){
     ${isOwner(m)&&m.id===loginId&&!m.recov?'<p class="hint">복구 코드를 만들어 두면 비밀번호를 잊어도 다시 들어올 수 있어요.</p>':""}
     ${myTitlesHTML(m)}
     ${backend==="fb"?`<div class="card" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><div style="flex:1;min-width:160px"><b style="font-family:var(--head)">🏠 방 코드</b><div class="codebox" style="font-size:1.15rem;padding:8px;margin-top:6px">${roomPretty(roomCode)}</div><p class="hint" style="margin:6px 0 0">가족이 이 코드로 같은 방에 들어와요. 다른 사람에게는 알려 주지 마세요.</p></div><div class="actions" style="margin:0;flex-direction:column"><button class="btn ghost sm" data-act="roomCopy">복사</button><button class="btn ghost sm" data-act="roomLeave">다른 방으로</button></div></div>`:""}
+    ${backend==="fb"&&ntfyTopics()?`<div class="card"><b style="font-family:var(--head)">🔔 푸시 알림 (ntfy)</b><p class="hint" style="margin:6px 0 8px">무료 앱 <b>ntfy</b>를 설치하고 아래 두 주제를 구독하면, 심사 요청·캐릭터 부탁·공지 같은 알림이 폰으로 와요. 버튼을 누르면 ntfy 앱(또는 웹)에서 바로 구독할 수 있어요.</p>
+      <div class="actions" style="margin:0"><a class="btn mint sm" href="${NTFY_BASE}/${ntfyTopics().all}" target="_blank" rel="noopener" data-ext="1">가족 전체 알림 구독</a><a class="btn mint sm" href="${NTFY_BASE}/${ntfyTopics().m[m.id]||""}" target="_blank" rel="noopener" data-ext="1">내 알림 구독</a><button class="btn ghost sm" data-act="ntfyCopy">주제 이름 복사</button></div>
+      <p class="hint" style="margin:8px 0 0">주제 이름은 비밀번호나 마찬가지예요. 가족 밖으로 보내지 마세요.${isOwner(m)?` · 방장: <button class="btn ghost sm" data-act="ntfyToggle">${ntfyTopics().on===false?"알림 보내기 켜기":"알림 보내기 끄기"}</button>`:""}</p></div>`:""}
     <details class="card aidev"><summary><b>🤖 이 기기 전용 AI 키 (선택)</b><small>${devKey()?"이 기기 키 사용 중":"비워 두면 가족 공용 설정을 써요"}</small></summary>
       <div class="field" style="margin:10px 0 0"><label for="devKeyIn">Claude API 키</label><input id="devKeyIn" type="password" autocomplete="off" placeholder="sk-ant-..." value="${devKey()?"••••••••":""}"></div>
       <p class="hint">이 휴대폰(브라우저)에만 저장돼요. 가족 공용 키 대신 내 키로 AI를 쓰고 싶을 때만 넣어 주세요.</p>
@@ -4190,7 +4401,7 @@ function settingsHTML(){
     body=`<div class="actions" style="margin:4px 0 6px"><button class="btn pink" data-act="newTitle">＋ 칭호 만들기</button></div>
     <p class="hint">만든 칭호는 퀘스트 보상으로 걸거나 멤버에게 바로 줄 수 있어요.</p>
     ${state.titles.length?state.titles.map(t=>{const holders=state.members.filter(x=>x.ownedTitles.includes(t.id)).map(x=>x.name);
-      return `<div class="card">${ttlHTML(t.name,t.effect)}<div class="meta" style="margin-top:8px">${holders.length?`가진 사람: ${esc(holders.join(", "))}`:"아직 가진 사람이 없어요"}</div>
+      return `<div class="card">${ttlHTML(t.name,t.effect)}${tcondText(t)?`<span class="chip" style="margin-left:8px">🎯 ${esc(tcondText(t))}</span>`:""}<div class="meta" style="margin-top:8px">${holders.length?`가진 사람: ${esc(holders.join(", "))}`:"아직 가진 사람이 없어요"}</div>
       <div class="actions"><button class="btn mint sm" data-act="giveTitle" data-id="${t.id}">주기·회수</button><button class="btn ghost sm" data-act="editTitle" data-id="${t.id}">✏️ 수정</button><button class="btn ghost sm" data-act="delTitle" data-id="${t.id}">삭제</button></div></div>`;}).join("")
     :'<div class="empty" style="margin-top:12px">아직 만든 칭호가 없어요.</div>'}`;
   }
@@ -4203,9 +4414,9 @@ function settingsHTML(){
       return `<div class="card"><div style="display:flex;gap:12px;align-items:center"><div class="minipack" style="--pc:${esc(pk.color)};width:44px;height:62px;font-size:.55rem"></div>
       <div style="flex:1;min-width:0"><div class="qt">${esc(pk.name)}</div><div class="meta">카드 ${pk.cards.length}장 · 확률 합계 ${+sum.toFixed(2)}</div></div>
       <button class="btn ghost sm" data-act="packSheet" data-id="${pk.id}">수정</button></div>
-      <div style="margin-top:10px">${pk.cards.map(c=>`<button class="crow" data-act="cardSheet" data-p="${pk.id}" data-id="${c.id}" style="--rc:${rc(c.rarity)}">
+      <details class="packfold" style="margin-top:10px"><summary class="hint" style="cursor:pointer">카드 ${pk.cards.length}장 보기 ▾</summary><div style="margin-top:8px">${pk.cards.map(c=>`<button class="crow" data-act="cardSheet" data-p="${pk.id}" data-id="${c.id}" style="--rc:${rc(c.rarity)}">
         <div class="th">${cardPic(c)}</div><div class="info"><div class="qt" style="font-size:.95rem">${esc(c.name)}</div>${gradeChip(c.rarity)}</div>
-        <div class="pct">${fmtPct(pct(pk,c))}</div></button>`).join("")}</div>
+        <div class="pct">${fmtPct(pct(pk,c))}</div></button>`).join("")}</div></details>
       <div class="actions"><button class="btn pink sm" data-act="cardSheet" data-p="${pk.id}">＋ 카드 추가</button><button class="btn ghost sm" data-act="giveTicketSheet" data-id="${pk.id}">티켓 주기</button></div></div>`;}).join("")
     :'<div class="empty" style="margin-top:12px">아직 가챠 팩이 없어요.</div>'}`;
   }
@@ -4320,14 +4531,40 @@ function goodsSheet(id){
   <div class="field"><label for="gStock">수량</label><input id="gStock" type="number" min="0" value="${g&&g.stock!==null?g.stock:""}" placeholder="비우면 무제한" inputmode="numeric"></div></div>
   <div class="actions"><button class="btn pink" data-act="saveGoods" data-id="${g?.id||""}">${g?"저장":"올리기"}</button>${g?`<button class="btn ghost" data-act="delGoods" data-id="${g.id}">내리기</button>`:""}${closeBtn}</div>`);
 }
+const TCOND=[["none","조건 없음 (직접 주기·퀘스트 보상)"],["level","내 레벨이 N 이상"],["quests","퀘스트 N개 클리어"],["streak","출석 연속 N일"],["coins","퀘스트·출석으로 번 코인 누적 N"],["petlv","캐릭터 한 명이 Lv.N 이상"],["pets","키우는 캐릭터 N명 이상"],["time","정확히 HH:MM에 앱 열기"],["album","가챠 팩 카드 전부 모으기"],["star","카드 하나를 5성(최고)으로"]];
+const tcondText=t=>{ const c=t.cond; if(!c||c.type==="none") return ""; const n=c.n||0; return {level:`레벨 ${n} 이상`,quests:`퀘스트 ${n}개 클리어`,streak:`출석 연속 ${n}일`,coins:`코인 누적 ${n}`,petlv:`캐릭터 Lv.${n}`,pets:`캐릭터 ${n}명`,time:`${c.time||"--:--"}에 접속`,album:`‘${packById(c.packId)?.name||"?"}’ 전부 모으기`,star:"카드 5성 달성"}[c.type]||""; };
+function condMet(s,m,c){ if(!c||c.type==="none") return false; const n=+c.n||0;
+  switch(c.type){
+    case "level": return levelInfo(m.xp).lvl>=n;
+    case "quests": return s.quests.filter(q=>q.status==="done"&&q.assigneeId===m.id).length+(m.questDoneArch||0)>=n;
+    case "streak": return (m.attend?.streak||0)>=n;
+    case "coins": return Object.values(s.stats||{}).reduce((a,d)=>a+((d[m.id]||{}).c||0),0)>=n;
+    case "petlv": return s.pets.some(p=>p.ownerId===m.id&&!p.dead&&petCalc(p).lvl>=n);
+    case "pets": return s.pets.filter(p=>p.ownerId===m.id&&!p.dead).length>=n;
+    case "time": { const d=new Date(); return c.time===`${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`; }
+    case "album": { const pk=s.packs.find(x=>x.id===c.packId); return !!pk&&pk.cards.length>0&&pk.cards.every(cd=>(m.album||{})[cd.id]>0); }
+    case "star": return Object.values(m.stars||{}).some(v=>v>=5);
+  } return false; }
+let titleFxBusy=false;
+function checkTitleConds(){ if(!state||!loaded||titleFxBusy) return; const m=me(); if(!m) return;
+  const won=state.titles.filter(t=>t.cond&&t.cond.type!=="none"&&!m.ownedTitles.includes(t.id)&&condMet(state,m,t.cond)); if(!won.length) return;
+  titleFxBusy=true; const ids=won.map(t=>t.id);
+  commit(s=>{ const mm=s.members.find(x=>x.id===m.id); if(!mm) return; ids.forEach(id=>{ const t=s.titles.find(x=>x.id===id); if(t&&!mm.ownedTitles.includes(id)&&condMet(s,mm,t.cond)){ mm.ownedTitles.push(id); notify(s,"all","🏅",`${mm.name} 님이 ‘${t.name}’ 칭호를 얻었어요 (${tcondText(t)})`); } }); },{replay:true});
+  const t=won[0]; fxOverlay({kind:"lv",title:"칭호 획득!",pic:`<div style="transform:scale(1.6);display:inline-block">${ttlHTML(t.name,t.effect)}</div>`,name:t.name,sub:tcondText(t)+(won.length>1?` 외 ${won.length-1}개`:""),rewards:[],btn:"멋져!"}); setTimeout(()=>{ titleFxBusy=false; },1500); }
 function titleSheet(id){
-  const t=id?titleById(id):null, fx0=t?t.effect:"rainbow";
+  const t=id?titleById(id):null, fx0=t?t.effect:"rainbow"; const c=t?.cond||{type:"none"};
   openSheet(`<h3>${t?"칭호 수정":"칭호 만들기"}</h3>
   <div class="preview"><span id="tPrev">${ttlHTML(t?t.name:"칭호 이름",fx0)}</span></div>
   <div class="field"><label for="tName">칭호 이름</label><input id="tName" maxlength="16" value="${esc(t?.name||"")}" placeholder="예: 설거지의 신"></div>
   <div class="field"><label>효과</label><div class="fxpick">${EFFECTS.map(([k,l],i)=>`<input type="radio" name="fx" id="fx-${k}" value="${k}" ${k===fx0?"checked":""}><label for="fx-${k}">${ttlHTML(l,k)}</label>`).join("")}</div></div>
+  <div class="field"><label for="tCond">자동 지급 조건</label><select id="tCond">${TCOND.map(([k,l])=>`<option value="${k}" ${c.type===k?"selected":""}>${l}</option>`).join("")}</select></div>
+  <div class="field" id="tCondN" ${["level","quests","streak","coins","petlv","pets"].includes(c.type)?"":"hidden"}><label for="tN">N</label><input id="tN" type="number" min="1" value="${c.n||1}"></div>
+  <div class="field" id="tCondT" ${c.type==="time"?"":"hidden"}><label for="tTime">시각</label><input id="tTime" type="time" value="${esc(c.time||"04:44")}"><p class="hint">그 시각에 앱이 열려 있으면(1분 안) 받아요.</p></div>
+  <div class="field" id="tCondP" ${c.type==="album"?"":"hidden"}><label for="tPack">팩</label><select id="tPack">${state.packs.map(p=>`<option value="${p.id}" ${c.packId===p.id?"selected":""}>${esc(p.name)}</option>`).join("")||'<option value="">팩이 없어요</option>'}</select></div>
+  <p class="hint">조건을 달성하면 자동으로 받고 연출이 떠요. 조건이 없어도 퀘스트 보상이나 ‘주기’로 줄 수 있어요.</p>
   ${t?'<p class="hint">고치면 이미 가진 사람의 칭호도 함께 바뀌어요.</p>':""}
   <div class="actions"><button class="btn pink" data-act="saveTitle" data-id="${t?.id||""}">${t?"저장":"만들기"}</button>${closeBtn}</div>`);
+  $("#tCond").addEventListener("change",ev=>{ const v=ev.target.value; $("#tCondN").hidden=!["level","quests","streak","coins","petlv","pets"].includes(v); $("#tCondT").hidden=v!=="time"; $("#tCondP").hidden=v!=="album"; });
 }
 function updateTitlePreview(){ const n=$("#tName")?.value.trim()||"칭호 이름"; const fx=document.querySelector('input[name=fx]:checked')?.value||"none"; const p=$("#tPrev"); if(p) p.innerHTML=ttlHTML(n,fx); }
 function giveTitleSheet(tid){
@@ -4551,7 +4788,7 @@ function showGacha10(pk,list){
 /* ---------- photos ---------- */
 function cleanupPhoto(pid){ // delete only if nothing still points at it
   if(!assets||!pid||!state) return;
-  if((state.sprouts||[]).some(x=>x.photo===pid)||state.shop.some(g=>g.photo===pid)||state.orders.some(o=>o.photo===pid)||state.packs.some(p=>p.art===pid||p.cards.some(c=>c.photo===pid))||state.quests.some(q=>q.submitPhoto===pid)||state.chars.some(c=>c.photo===pid||c.house===pid||Object.values(c.anim||{}).includes(pid))||Object.values(state.maps||{}).includes(pid)||Object.values(state.examArt||{}).some(L=>(L||[]).includes(pid))||Object.values(state.examBg||{}).includes(pid)||state.pets.some(x=>x.form===pid)||state.chars.some(c=>(c.chapters||[]).some(ch=>ch.choices.some(o=>o.form===pid)))) return;
+  if((state.events||[]).some(x=>x.photo===pid)||(state.sprouts||[]).some(x=>x.photo===pid)||state.shop.some(g=>g.photo===pid)||state.orders.some(o=>o.photo===pid)||state.packs.some(p=>p.art===pid||p.cards.some(c=>c.photo===pid))||state.quests.some(q=>q.submitPhoto===pid)||state.chars.some(c=>c.photo===pid||c.house===pid||Object.values(c.anim||{}).includes(pid))||Object.values(state.maps||{}).includes(pid)||Object.values(state.examArt||{}).some(L=>(L||[]).includes(pid))||Object.values(state.examBg||{}).includes(pid)||state.pets.some(x=>x.form===pid)||state.chars.some(c=>(c.chapters||[]).some(ch=>ch.choices.some(o=>o.form===pid)))) return;
   assets.delete(pid).catch(()=>{});
 }
 async function shrink(file){
@@ -4636,7 +4873,8 @@ const acts={
       if(!owner) s.members.find(x=>x.id===viewerId).coins-=coins; bump(s,viewerId,"questPost"); });
     closeSheet(); toast(owner?"퀘스트를 등록했어요.":`코인 ${coins}개를 걸고 등록했어요.`);
   },
-  accept(el){ commit(s=>{const q=s.quests.find(x=>x.id===el.dataset.id); if(q&&q.status==="open"){q.status="in_progress";q.assigneeId=viewerId; bump(s,viewerId,"questAccept"); notify(s,q.creatorId,"🙋",`${nameOf(viewerId)} 님이 ‘${q.title}’을(를) 수락했어요`);}}); toast("수락했어요. 홈에서 볼 수 있어요."); },
+  accept(el){ const q0=state.quests.find(x=>x.id===el.dataset.id); if(!q0) return; const self=q0.creatorId===viewerId; if(self&&!isOwner(me())) return toast("자기가 올린 퀘스트는 직접 할 수 없어요.");
+    commit(s=>{const q=s.quests.find(x=>x.id===el.dataset.id); if(q&&q.status==="open"){q.status="in_progress";q.assigneeId=viewerId; if(q.overdue){ q.due=null; } bump(s,viewerId,"questAccept"); if(!self) notify(s,q.creatorId,"🙋",`${nameOf(viewerId)} 님이 ‘${q.title}’을(를) 수락했어요`);}}); toast(self?"내가 하기로 했어요. 끝나면 ‘완료 제출’을 누르면 바로 클리어돼요.":"수락했어요. 퀘스트 탭 ‘내 진행’에서 볼 수 있어요."); },
   async cancelQuest(el){ if(!(await ask("이 퀘스트 등록을 취소할까요?"))) return;
     commit(s=>{const i=s.quests.findIndex(x=>x.id===el.dataset.id); if(i<0) return; const q=s.quests[i]; const c=s.members.find(x=>x.id===q.creatorId); if(c&&!isOwner(c)) c.coins+=q.rewardCoins; s.quests.splice(i,1);}); toast("등록을 취소했어요."); },
   async giveup(el){ if(!(await ask("포기할까요? 다시 모집 중으로 돌아가요."))) return; const qid=el.dataset.id, who=viewerId;
@@ -4686,16 +4924,15 @@ const acts={
     let ph; try{ ph=await uploadPending(el,"제출하기"); }catch(e){ return; }
     { const q1=state.quests.find(x=>x.id===qid); if(!q1||q1.edit||q1.status!=="in_progress"){ if(ph) cleanupPhoto(ph); return toast("그 사이 퀘스트 상태가 바뀌어 제출하지 못했어요."); } }
     const old=state.quests.find(x=>x.id===qid)?.submitPhoto||null;
-    commit(s=>{const q=s.quests.find(x=>x.id===qid); if(q&&!q.edit){q.status="review";q.submitNote=note;q.rejectNote=""; if(ph) q.submitPhoto=ph; bump(s,viewerId,"questSubmit"); notify(s,q.creatorId,"📮",`${nameOf(viewerId)} 님이 ‘${q.title}’ 완료를 제출했어요. 심사해 주세요`);}});
+    const self=state.quests.find(x=>x.id===qid)?.creatorId===viewerId;
+    commit(s=>{const q=s.quests.find(x=>x.id===qid); if(q&&!q.edit){ q.submitNote=note;q.rejectNote=""; if(ph) q.submitPhoto=ph; bump(s,viewerId,"questSubmit");
+      if(self){ q.selfClear=true; grantQuest(s,q); notify(s,"all","🙋",`${nameOf(viewerId)} 님이 자기 퀘스트 ‘${q.title}’을(를) 직접 끝냈어요 (셀프 클리어)`); }
+      else { q.status="review"; notify(s,q.creatorId,"📮",`${nameOf(viewerId)} 님이 ‘${q.title}’ 완료를 제출했어요. 심사해 주세요`); } }},{reason:self?"퀘스트 보상 (셀프 클리어)":undefined});
     if(ph&&old&&old!==ph) cleanupPhoto(old);
-    pendingPhoto=null; closeSheet(); toast("제출했어요. 심사를 기다려요."); },
+    pendingPhoto=null; closeSheet(); toast(self?"셀프 클리어! 보상을 받았어요.":"제출했어요. 심사를 기다려요."); },
   viewPhoto(el){ openSheet(`<img class="bigphoto" src="${blobURL(esc(el.dataset.id))}" alt="완료 사진"><div class="actions">${closeBtn}</div>`); },
   approve(el){ let who="";
-    commit(s=>{const q=s.quests.find(x=>x.id===el.dataset.id); if(!q||q.status!=="review") return; const a=s.members.find(x=>x.id===q.assigneeId);
-      if(a){ a.xp+=q.rewardXp; a.coins+=q.rewardCoins; who=a.name; addStat(s,a.id,{c:q.rewardCoins||0,x:q.rewardXp||0,q:1}); if(q.rewardTitleId&&s.titles.some(t=>t.id===q.rewardTitleId)&&!a.ownedTitles.includes(q.rewardTitleId)) a.ownedTitles.push(q.rewardTitleId);
-        if(q.rewardTickets&&s.packs.some(p=>p.id===q.rewardTickets.packId)){ a.tickets=a.tickets||{}; a.tickets[q.rewardTickets.packId]=(a.tickets[q.rewardTickets.packId]||0)+q.rewardTickets.count; }
-        if(q.rewardItems&&s.careItems.some(c=>c.id===q.rewardItems.itemId)){ a.items=a.items||{}; a.items[q.rewardItems.itemId]=(a.items[q.rewardItems.itemId]||0)+q.rewardItems.count; } }
-      q.status="done"; q.doneAt=Date.now(); q.result={type:"clear",to:q.assigneeId,seen:false}; bump(s,q.assigneeId,"questClear"); bump(s,viewerId,"questReview"); notify(s,q.assigneeId,"🏆",`‘${q.title}’ 클리어! 보상을 받았어요`);}); toast(`${who} 님에게 보상을 줬어요. 다음에 들어오면 결과가 떠요.`); },
+    commit(s=>{const q=s.quests.find(x=>x.id===el.dataset.id); if(!q||q.status!=="review") return; who=grantQuest(s,q); bump(s,viewerId,"questReview"); notify(s,q.assigneeId,"🏆",`‘${q.title}’ 클리어! 보상을 받았어요`);}); toast(`${who} 님에게 보상을 줬어요. 다음에 들어오면 결과가 떠요.`); },
   reject(el){ noteSheet("reject",el.dataset.id); },
   doReject(el){ const note=$("#noteIn").value.trim(); if(!note) return toast("반려 사유를 적어 주세요.");
     commit(s=>{const q=s.quests.find(x=>x.id===el.dataset.id); if(q){q.status="in_progress";q.rejectNote=note;q.result={type:"fail",to:q.assigneeId,note,seen:false}; bump(s,viewerId,"questReview"); notify(s,q.assigneeId,"🌧️",`‘${q.title}’이(가) 반려됐어요: ${note}`);}}); closeSheet(); toast("반려했어요."); },
@@ -4781,22 +5018,33 @@ const acts={
   async buy(el){ let buyAdopt=null;
     const g=state.shop.find(x=>x.id===el.dataset.id), m=me(); if(!g) return;
     if(m.coins<g.price) return toast("코인이 부족해요.");
+    let n=parseInt(el.dataset.n||"1",10)||1;
+    if((g.kind==="ticket"||g.kind==="care")&&!el.dataset.n){ // 개수 고르기
+      const maxN=Math.max(1,Math.min(99,Math.floor(m.coins/Math.max(1,g.price)),g.stock===null?99:g.stock));
+      openSheet(`<h3>${esc(g.name)}</h3><p class="hint" style="margin-top:-6px">한 개에 코인 ${g.price} · 최대 ${maxN}개</p>
+        <div class="field"><label for="buyN">개수</label><div class="row-inp"><button type="button" class="btn ghost sm" data-act="buyNStep" data-d="-1">−</button><input id="buyN" class="inp" type="number" min="1" max="${maxN}" value="1" style="text-align:center"><button type="button" class="btn ghost sm" data-act="buyNStep" data-d="1">＋</button></div></div>
+        <p class="hint" id="buyTot">합계 코인 ${g.price}</p>
+        <div class="actions"><button class="btn pink" data-act="buy" data-id="${g.id}" data-n="1" id="buyGo">구매하기</button>${closeBtn}</div>`);
+      const inp=$("#buyN"); const upd=()=>{ let v=Math.max(1,Math.min(maxN,parseInt(inp.value,10)||1)); inp.value=v; $("#buyTot").textContent=`합계 코인 ${v*g.price}`; $("#buyGo").dataset.n=v; }; inp.addEventListener("input",upd); inp._upd=upd; return; }
+    if(g.kind!=="ticket"&&g.kind!=="care") n=1;
+    if(m.coins<g.price*n) return toast("코인이 부족해요.");
       if(g.kind==="ticket"&&!packById(g.packId)) return toast("이 티켓의 팩이 없어졌어요. 방장에게 알려 주세요.");
     if(g.kind==="care"&&!careById(g.careId)) return toast("이 아이템이 없어졌어요. 방장에게 알려 주세요.");
     if(g.kind==="char"&&!charById(g.charId)) return toast("이 캐릭터가 없어졌어요. 방장에게 알려 주세요.");
-    if(!(await ask(`${g.name}을(를) 코인 ${g.price}개로 살까요?`))) return;
+    closeSheet(); if(!(await ask(`${g.name}${n>1?` ${n}개`:""}을(를) 코인 ${g.price*n}개로 살까요?`))) return;
     commit(s=>{ const gg=s.shop.find(x=>x.id===g.id), mm=s.members.find(x=>x.id===viewerId);
-      if(!gg||mm.coins<gg.price||(gg.stock!==null&&gg.stock<=0)) return;
+      if(!gg||mm.coins<gg.price*n||(gg.stock!==null&&gg.stock<n)) return;
       const isTk=(gg.kind==="ticket"&&s.packs.some(p=>p.id===gg.packId))||(gg.kind==="care"&&s.careItems.some(c=>c.id===gg.careId))||(gg.kind==="char"&&s.chars.some(c=>c.id===gg.charId));
-      if(gg.kind==="care"&&isTk) mm.items[gg.careId]=(mm.items[gg.careId]||0)+(gg.careN||1);
+      if(gg.kind==="care"&&isTk) mm.items[gg.careId]=(mm.items[gg.careId]||0)+(gg.careN||1)*n;
       if(gg.kind==="char"&&isTk) buyAdopt=adoptInto(s,viewerId,gg.charId,`${gg.name} 중복 구매로 성장 +20`);
-      mm.coins-=gg.price; if(gg.stock!==null) gg.stock--;
-      if(isTk&&gg.kind==="ticket"){ mm.tickets[gg.packId]=(mm.tickets[gg.packId]||0)+(gg.qty||1); }
-      s.orders.push({id:uid(),itemId:gg.id,name:gg.name,emoji:gg.emoji,photo:gg.photo||null,price:gg.price,buyerId:viewerId,status:isTk?"confirmed":"requested",auto:isTk,ts:Date.now()}); if(!isTk) notify(s,"owners","🛍️",`${mm.name} 님이 ‘${gg.name}’을(를) 샀어요. 지급해 주세요`); });
+      mm.coins-=gg.price*n; if(gg.stock!==null) gg.stock-=n;
+      if(isTk&&gg.kind==="ticket"){ mm.tickets[gg.packId]=(mm.tickets[gg.packId]||0)+(gg.qty||1)*n; }
+      s.orders.push({id:uid(),itemId:gg.id,name:gg.name+(n>1?` ×${n}`:""),emoji:gg.emoji,photo:gg.photo||null,price:gg.price*n,qty:n,buyerId:viewerId,status:isTk?"confirmed":"requested",auto:isTk,ts:Date.now()}); if(!isTk) notify(s,"owners","🛍️",`${mm.name} 님이 ‘${gg.name}’을(를) 샀어요. 지급해 주세요`); });
     const pic=isBlob(g.photo)?`<img src="${blobURL(g.photo)}" alt="">`:esc(g.emoji);
     const sub=g.kind==="ticket"?"티켓을 인벤토리에 넣었어요.":g.kind==="care"?"아이템을 인벤토리에 넣었어요.":g.kind==="char"?(buyAdopt?.dup?`이미 키우고 있어서 ${buyAdopt.pet.nick}이(가) 성장 +20!`:"새 캐릭터가 생겼어요! 키우기 탭에서 찾아보세요."):"방장에게 알림이 갔어요.\n물건을 받으면 상점에서 ‘받았어요’를 눌러 주세요.";
-    fxOverlay({kind:"buy",title:"구매 완료!",pic,name:g.name,sub,rewards:[`코인 -${g.price}`,`남은 코인 ${me().coins}`],btn:"좋아요"}); setTimeout(flushPetLv,60);
+    fxOverlay({kind:"buy",title:"구매 완료!",pic,name:g.name+(n>1?` ×${n}`:""),sub,rewards:[`코인 -${g.price*n}`,`남은 코인 ${me().coins}`],btn:"좋아요"}); setTimeout(flushPetLv,60);
   },
+  buyNStep(el){ const inp=$("#buyN"); if(!inp) return; inp.value=(parseInt(inp.value,10)||1)+parseInt(el.dataset.d,10); if(inp._upd) inp._upd(); },
   deliver(el){ commit(s=>{const o=s.orders.find(x=>x.id===el.dataset.id); if(o&&o.status==="requested"){o.status="delivered";o.deliveredAt=Date.now(); notify(s,o.buyerId,"🎁",`‘${o.name}’이(가) 지급됐어요. 받았으면 ‘받았어요’를 눌러 주세요`);}}); toast("지급 완료로 바꿨어요. 구매자가 확정하면 끝나요."); },
   async cancelOrder(el){ if(!(await ask("이 주문을 취소하고 코인을 돌려줄까요?"))) return;
     commit(s=>{const o=s.orders.find(x=>x.id===el.dataset.id); if(!o||o.status!=="requested") return; o.status="cancelled";
@@ -4807,8 +5055,9 @@ const acts={
   editTitle(el){ titleSheet(el.dataset.id); },
   saveTitle(el){ const name=$("#tName").value.trim(); if(!name) return toast("칭호 이름을 입력해 주세요."); const id=el?.dataset?.id;
     const effect=document.querySelector('input[name=fx]:checked')?.value||"none";
-    if(id){ commit(s=>{ const t=s.titles.find(x=>x.id===id); if(t){ t.name=name; t.effect=effect; } }); closeSheet(); return toast("칭호를 고쳤어요."); }
-    commit(s=>{s.titles.push({id:uid(),name,effect,createdAt:Date.now()});}); closeSheet(); toast("칭호를 만들었어요."); },
+    const type=$("#tCond")?.value||"none"; const cond={type}; if(["level","quests","streak","coins","petlv","pets"].includes(type)) cond.n=Math.max(1,parseInt($("#tN").value,10)||1); if(type==="time") cond.time=$("#tTime").value||"04:44"; if(type==="album"){ cond.packId=$("#tPack").value; if(!cond.packId) return toast("가챠 팩을 먼저 만들어 주세요."); }
+    if(id){ commit(s=>{ const t=s.titles.find(x=>x.id===id); if(t){ t.name=name; t.effect=effect; t.cond=cond; } }); closeSheet(); return toast("칭호를 고쳤어요."); }
+    commit(s=>{s.titles.push({id:uid(),name,effect,cond,createdAt:Date.now()});}); closeSheet(); toast("칭호를 만들었어요."); },
   async takeTitle(el){ const tid=el.dataset.id, mid=el.dataset.m; if(!(await ask(`${nameOf(mid)} 님에게서 이 칭호를 회수할까요?`,"회수하기"))) return;
     commit(s=>{ const x=s.members.find(y=>y.id===mid); if(!x) return; x.ownedTitles=x.ownedTitles.filter(i=>i!==tid); if(x.titleId===tid) x.titleId=null; }); giveTitleSheet(tid); toast("칭호를 회수했어요."); },
   giveTitle(el){ giveTitleSheet(el.dataset.id); },
@@ -4838,14 +5087,14 @@ const acts={
   mapGo(el){ curMap+=parseInt(el.dataset.d,10); selPet=null; render(); },
   petPat(){ const p=state.pets.find(x=>x.id===selPet); if(!p) return; const now=Date.now();
     if(petLeft(p,"pat")<=0){ popHearts("💕",2); return toast(`오늘은 ${PET_CAP.pat}번 다 쓰다듬었어요. 내일 또 해 주세요.`); }
-    commit(s=>{ const x=s.pets.find(y=>y.id===p.id); if(!x||petLeft(x,"pat")<=0) return; const P=freshen(x); x.lastPat=now; petInc(x,"pat"); addGxp(x,2); setPetStats(x,{mood:P.mood+8}); bump(s,viewerId,"pat"); },{replay:true});
+    commit(s=>{ const x=s.pets.find(y=>y.id===p.id); if(!x||petLeft(x,"pat")<=0) return; const P=freshen(x); x.lastPat=now; petInc(x,"pat"); addGxp(x,2); setPetStats(x,{mood:P.mood+8}); bump(s,viewerId,"pat"); fulfillAsk(s,x,"pat"); },{replay:true});
     stageFx(p.id,"pat"); petDo(p.id,"patted"); flushPetLv(); },
   careSheetOpen(el){ careSheetOpen(el.dataset.k); },
   careBasic(el){ const k=el.dataset.k, p=state.pets.find(x=>x.id===selPet); if(!p) return; const lk=k==="food"?"feed":"wash";
     if(petLeft(p,lk)<=0) return toast("오늘은 다 했어요. 내일 또 해 주세요."); closeSheet();
     careFx(k,p,k==="food"?"🍙":"🧼",bonus=>{ const now=Date.now(), who=viewerId;
       commit(s=>{ const x=s.pets.find(y=>y.id===p.id); if(!x||petLeft(x,lk)<=0) return; const P=freshen(x); petInc(x,lk);
-        if(k==="food"){ x.lastFeed=now; setPetStats(x,{hunger:P.hunger+25,mood:P.mood+2+bonus}); } else { x.lastWash=now; setPetStats(x,{clean:P.clean+35,mood:P.mood+2+bonus}); } addGxp(x,1); bump(s,who,k==="food"?"feed":"wash"); },{replay:true});
+        if(k==="food"){ x.lastFeed=now; setPetStats(x,{hunger:P.hunger+25,mood:P.mood+2+bonus}); } else { x.lastWash=now; setPetStats(x,{clean:P.clean+35,mood:P.mood+2+bonus}); } addGxp(x,1); bump(s,who,k==="food"?"feed":"wash"); fulfillAsk(s,x,k==="food"?"feed":"wash"); },{replay:true});
       setTimeout(()=>{ stageFx(p.id,k); petDo(p.id,k==="food"?"eat":"bath"); flushPetLv(); },50); toast((k==="food"?"주먹밥을 먹였어요.":"보송보송하게 씻겼어요.")+(bonus?` 기분 +${bonus} 보너스!`:"")); }); },
   cfSkip(){ if(cfx) cfx.close(0); },
   petGive(el){ const p=state.pets.find(x=>x.id===selPet), it=careById(el.dataset.id), m=me(); if(!p||!it||!(m.items[it.id]>0)) return;
@@ -4859,19 +5108,23 @@ const acts={
         if(ty==="wear"){ if(x.wear&&s.careItems.some(c=>c.id===x.wear)) mm.items[x.wear]=(mm.items[x.wear]||0)+1; x.wear=it.id; }
         else { x.furn=[...(x.furn||[]),it.id].slice(0,FURN_MAX); }
         setPetStats(x,{mood:P.mood+(it.mood||0)}); x.given[it.id]=(x.given[it.id]||0)+1; },{replay:true});
-      closeSheet(); setTimeout(()=>stageFx(p.id,"gift",it.emoji),50); return toast(ty==="wear"?`${jo(it.name,"을","를")} 입혀 줬어요.`:`${jo(it.name,"을","를")} 집에 놓았어요.`); }
+      closeSheet(); setTimeout(()=>{ stageFx(p.id,"gift",it.emoji); evOnItem(p.id,it.id); },50); return toast(ty==="wear"?`${jo(it.name,"을","를")} 입혀 줬어요.`:`${jo(it.name,"을","를")} 집에 놓았어요.`); }
     if(ty==="freeze"&&(it.lock!=="unlock")===!!p.frozen) return toast(p.frozen?"이미 성장이 멈춰 있어요.":"지금은 성장이 멈춰 있지 않아요.");
     if((ty==="food"||ty==="wash")&&!el.dataset.done){ closeSheet(); careFx(ty,p,it.emoji,bonus=>{ acts.petGive({dataset:{id:it.id,done:"1",bonus:String(bonus)}}); }); return; }
-    const bonus=+(el.dataset.bonus||0), who=viewerId;
+    const bonus=+(el.dataset.bonus||0), who=viewerId, pref=prefOf(p,it);
     commit(s=>{ const x=s.pets.find(y=>y.id===p.id), mm=s.members.find(y=>y.id===who); if(!x||!mm||!(mm.items[it.id]>0)) return; const P=freshen(x);
       mm.items[it.id]--; if(mm.items[it.id]<=0) delete mm.items[it.id];
-      setPetStats(x,{hunger:P.hunger+(it.food||0),clean:P.clean+(it.clean||0),mood:P.mood+(it.mood||0)+bonus});
+      const k=pref==="hate"?.5:1, extra=pref==="fav"?10:pref==="hate"?-5:0; if(ty==="food") petInc(x,"feedItem"); if(ty==="wash") petInc(x,"washItem");
+      setPetStats(x,{hunger:P.hunger+(it.food||0)*k,clean:P.clean+(it.clean||0)*k,mood:P.mood+(it.mood||0)*k+bonus+extra});
+      if(pref==="fav"){ addGxp(x,3,`좋아하는 ${it.name}을(를) 받고 신났어요`); x.traits["행복"]=(x.traits["행복"]||0)+1; }
+      else if(pref==="hate"){ x.growth=x.growth||[]; x.growth.unshift({ts:Date.now(),kind:"bonus",text:`싫어하는 ${it.name}을(를) 받고 시무룩했어요`}); }
+      if(pref!=="hate") fulfillAsk(s,x,ty==="food"?"feed":ty==="wash"?"wash":"gift",it.id);
       if(ty==="freeze"){ const lock=it.lock!=="unlock"; x.frozen=lock; x.growth=x.growth||[]; x.growth.unshift({ts:Date.now(),kind:"lock",text:lock?`${it.name}(으)로 성장을 멈췄어요`:`${it.name}(으)로 다시 자라기 시작했어요`}); }
       else addGxp(x,it.grow||0);
       if(ty==="food"){ x.lastFeed=Date.now(); bump(s,viewerId,"feed"); } if(ty==="wash"){ x.lastWash=Date.now(); bump(s,viewerId,"wash"); }
       if(it.trait) x.traits[it.trait]=(x.traits[it.trait]||0)+1; x.given[it.id]=(x.given[it.id]||0)+1;
       x.recent=[it.name,...(x.recent||[])].slice(0,8); },{replay:true});
-    closeSheet(); setTimeout(()=>{ stageFx(p.id,ty,it.emoji); if(ty==="food") petDo(p.id,"eat"); if(ty==="wash") petDo(p.id,"bath"); flushPetLv(); },50);
+    closeSheet(); setTimeout(()=>{ stageFx(p.id,ty,it.emoji); if(ty==="food") petDo(p.id,"eat"); if(ty==="wash") petDo(p.id,"bath"); const w=$(`#petStage [data-id="${p.id}"]`); if(w&&pref){ w.classList.add(pref==="fav"?"dance":"yuck"); setTimeout(()=>w.classList.remove("dance","yuck"),2200); } if(pref==="fav") popHearts("💗",6); if(pref) toast(pref==="fav"?`${p.nick}이(가) 제일 좋아하는 거예요! 춤을 춰요 💃`:`${p.nick}은(는) 이걸 싫어해요… 효과가 반으로 줄었어요.`); flushPetLv(); evOnItem(p.id,it.id); },50);
     toast(ty==="freeze"?(it.lock!=="unlock"?"성장을 멈췄어요. 지금 모습 그대로 지내요.":"다시 자라기 시작해요."):`${it.name}을(를) 줬어요.`);
   },
   petAI(){ runPetAI(); },
@@ -4961,27 +5214,19 @@ const acts={
     commit(s=>{ const x=s.pets.find(y=>y.id===pid); if(!x||petLeft(x,"letter")<=0) return; petInc(x,"letter"); x.letters=[{id:uid(),from:who,text,ts:now,due:now+(testOn()?15000:LETTER_WAIT),reply:null},...(x.letters||[])].slice(0,15); },{replay:true});
     closeSheet(); toast(testOn()?"편지를 보냈어요. 잠시 뒤 답장이 와요.":"편지를 보냈어요. 몇 시간 뒤 답장이 와요."); },
   spOpen(){ const m=me(), ev=sproutNow(m); if(!ev) return; const who=viewerId;
-    if(!ev.opened) commit(s=>{ const mm=s.members.find(x=>x.id===who); if(!mm||(mm.sprout&&mm.sprout.slot===ev.slot)) return; mm.sprout={slot:ev.slot,map:ev.map,id:ev.sp.id,done:false}; mm.sproutCards={...(mm.sproutCards||{}),[ev.sp.id]:((mm.sproutCards||{})[ev.sp.id]||0)+1}; },{replay:true});
-    sproutScene(ev); },
-  spEat(el){ const ev=sproutNow(me()); if(!ev) return; const pid=el.dataset.id, sp=ev.sp, who=viewerId;
-    commit(s=>{ const mm=s.members.find(x=>x.id===who), x=s.pets.find(y=>y.id===pid); if(!mm?.sprout||mm.sprout.done||!x) return; mm.sprout.done=true; const P=freshen(x);
-      setPetStats(x,{hunger:P.hunger+(+sp.food||0),mood:P.mood+(+sp.mood||0)}); addGxp(x,+sp.grow||0); x.growth=x.growth||[]; x.growth.unshift({ts:Date.now(),kind:"event",text:`🌱 ${sp.emoji} ${sp.name}을(를) 먹었어요`}); x.recent=[sp.name,...(x.recent||[])].slice(0,8); },{replay:true});
-    $("#gameSlot").innerHTML=""; const p=state.pets.find(x=>x.id===pid);
-    fxOverlay({kind:"pet",title:"냠냠!",pic:spPic(sp),name:`${p?.nick||""}이(가) ${sp.name}을(를) 먹었어요`,sub:"",rewards:[sp.food?`배부름 +${sp.food}`:"",sp.mood?`기분 ${sp.mood>0?"+":""}${sp.mood}`:"",sp.grow?`성장 +${sp.grow}`:""].filter(Boolean),btn:"맛있었다!"}); setTimeout(flushPetLv,60); },
-  spTake(){ const ev=sproutNow(me()); if(!ev||!ev.sp.itemId) return; const sp=ev.sp, it=careById(sp.itemId), who=viewerId; if(!it) return;
-    commit(s=>{ const mm=s.members.find(x=>x.id===who); if(!mm?.sprout||mm.sprout.done) return; mm.sprout.done=true; mm.items[it.id]=(mm.items[it.id]||0)+1; },{replay:true});
-    $("#gameSlot").innerHTML=""; toast(`${it.emoji} ${it.name}을(를) 인벤토리에 넣었어요.`); },
+    if(!ev.opened) commit(s=>{ const mm=s.members.find(x=>x.id===who); if(!mm||(mm.sprout&&mm.sprout.slot===ev.slot)) return; mm.sprout={slot:ev.slot,map:ev.map,kind:ev.pick.kind,id:ev.pick.id,done:false}; },{replay:true});
+    setTimeout(()=>sproutScene(ev),50); },
   spClose(){ $("#gameSlot").innerHTML=""; render(); },
-  spView(el){ spViewSheet(el.dataset.id); },
-  spSheet(el){ sproutSheet(el.dataset.id||null); },
-  async spSave(el){ const name=$("#spName").value.trim(); if(!name) return toast("이름을 입력해 주세요."); const maps=[...document.querySelectorAll(".spMap:checked")].map(x=>x.value); if(!maps.length) return toast("나오는 곳을 하나 이상 골라 주세요.");
-    const id=el.dataset.id, old=id?state.sprouts.find(x=>x.id===id)?.photo||null:null; let ph; try{ ph=await uploadPending(el,id?"저장":"추가"); }catch(e){ return; }
-    const sn=k=>{ const v=parseInt($(k).value,10); return Number.isFinite(v)?v:0; };
-    const data={name,emoji:$("#spEmoji").value.trim()||"🍽️",text:$("#spText").value.trim(),maps,weight:parseFloat($("#spW").value)||3,food:sn("#spFood"),mood:sn("#spMood"),grow:sn("#spGrow"),itemId:$("#spItem").value||null}; if(ph!==undefined) data.photo=ph;
-    commit(s=>{ s.sprouts=s.sprouts||[]; if(id){ const x=s.sprouts.find(y=>y.id===id); if(x) Object.assign(x,data); } else s.sprouts.push({id:uid(),photo:null,...data}); });
-    if(old&&("photo" in data)&&data.photo!==old) dropPhotos([old]); pendingPhoto=null; dropPhoto=false; closeSheet(); toast(id?"수정했어요.":"추가했어요."); },
-  async spDel(el){ if(!(await ask("이 솟아나는 음식을 지울까요? 모두의 도감에서도 사라져요."))) return; const id=el.dataset.id, ph=state.sprouts.find(x=>x.id===id)?.photo;
-    commit(s=>{ s.sprouts=(s.sprouts||[]).filter(x=>x.id!==id); s.members.forEach(m=>{ if(m.sproutCards) delete m.sproutCards[id]; }); }); if(ph) dropPhotos([ph]); closeSheet(); toast("지웠어요."); },
+  evSheet(el){ eventSheet(el.dataset.id||null); },
+  evView(el){ evViewSheet(el.dataset.id); },
+  async evSave(el){ const id=el.dataset.id||null, title=$("#evTitle").value.trim(); if(!title) return toast("제목을 입력해 주세요."); const trigger=$("#evTrig").value;
+    const stat=$("#evStat").value, data={title,text:$("#evText").value.trim(),emoji:$("#evEmoji").value.trim()||"🎴",charId:$("#evChar").value||"",trigger,itemId:trigger==="item"?$("#evItem").value:trigger==="stat"&&stat==="givenItem"?$("#evStatItem").value:"",time:$("#evTime").value||"04:44",wdays:[...document.querySelectorAll('input[name=evWd]:checked')].map(x=>+x.value),stat,op:$("#evOp").value,n:Math.max(0,parseInt($("#evN").value,10)||0),chance:Math.max(1,Math.min(100,parseInt($("#evChance").value,10)||10)),mood:parseInt($("#evMood").value,10)||0,grow:Math.max(0,parseInt($("#evGrow").value,10)||0),once:$("#evOnce").checked};
+    if((trigger==="item"||(trigger==="stat"&&stat==="givenItem"))&&!data.itemId) return toast("아이템을 골라 주세요.");
+    const old=id?evById(id)?.photo||null:null; let ph; try{ ph=await uploadPending(el,id?"저장":"만들기"); }catch(e){ return; } if(ph!==undefined) data.photo=ph;
+    commit(s=>{ s.events=s.events||[]; if(id){ const x=s.events.find(y=>y.id===id); if(x) Object.assign(x,data); } else s.events.push({id:uid(),photo:null,...data,createdAt:Date.now()}); });
+    if(old&&("photo" in data)&&data.photo!==old) cleanupPhoto(old); pendingPhoto=null; dropPhoto=false; closeSheet(); toast(id?"이벤트 카드를 고쳤어요.":"이벤트 카드를 만들었어요."); },
+  async evDel(el){ if(!(await ask("이 이벤트 카드를 지울까요? 모두의 앨범에서도 사라져요."))) return; const id=el.dataset.id, old=evById(id)?.photo;
+    commit(s=>{ s.events=(s.events||[]).filter(x=>x.id!==id); s.members.forEach(m=>{ if(m.eventAlbum) delete m.eventAlbum[id]; }); }); if(old) cleanupPhoto(old); closeSheet(); toast("지웠어요."); },
   spRateSave(){ const v=$("#spRate").value; commit(s=>{ s.sproutRate=v; }); toast("저장했어요."); },
   rcSheet(el){ recipeSheet(el.dataset.id||null); },
   rcSave(el){ const ins=[0,1,2].map(i=>$("#rc"+i)?.value).filter(Boolean); if(ins.length<2) return toast("재료를 2개 이상 골라 주세요."); const out=$("#rcOut")?.value; if(!out) return toast("완성 요리를 골라 주세요.");
@@ -5038,7 +5283,10 @@ const acts={
     fxOverlay({kind:"clear",title:big?"7일 연속 출석!":"출석 완료!",pic:big?"🎉":"📅",name:`🔥 ${streak}일째 연속`,sub:big?"일주일 내내 와 줘서 고마워요!":`${7-streak%7}일 더 오면 큰 보상이 있어요`,rewards:rw,btn:"좋아요"}); },
   atSave(){ const v=Math.max(0,Math.min(100,num("#atCoin"))); commit(s=>{ s.attendCoins=v; }); toast("출석 보상을 저장했어요."); },
   backup(){ backupSheet(); },
-  bkCopy(){ const t=$("#bkOut"); t.select(); (navigator.clipboard?.writeText(t.value)||Promise.reject()).then(()=>toast("복사했어요.")).catch(()=>{ try{ document.execCommand("copy"); toast("복사했어요."); }catch(e){ toast("길게 눌러서 직접 복사해 주세요."); } }); },
+  bkDownload(){ const d=new Date(), pad=n=>String(n).padStart(2,"0"), name=`시스템창-백업-${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}.json`;
+    const obj=structuredClone(state); delete obj._t; const blob=new Blob([JSON.stringify(obj)],{type:"application/json"}); const u=URL.createObjectURL(blob); const a=document.createElement("a"); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(u),4000);
+    commit(s=>{ s.lastBackup=Date.now(); }); toast("백업 파일을 저장했어요. 다운로드 폴더를 확인해 주세요."); },
+  bkCopy(){ const obj=structuredClone(state); delete obj._t; const v=JSON.stringify(obj); (navigator.clipboard?.writeText(v)||Promise.reject()).then(()=>toast("백업 내용을 복사했어요.")).catch(()=>toast("복사가 막혀 있어요. ‘백업 파일 저장’을 이용해 주세요.")); },
   async bkRestore(){ const raw=$("#bkIn").value.trim(); if(!raw) return toast("백업 내용을 붙여 넣어 주세요."); let data; try{ data=JSON.parse(raw); }catch(e){ return toast("백업 내용이 올바르지 않아요."); }
     if(!data||!Array.isArray(data.members)) return toast("백업 내용이 올바르지 않아요.");
     if(!(await ask("지금 데이터를 백업 내용으로 바꿀까요? 지금 데이터는 사라져요.","되돌리기"))) return;
@@ -5089,6 +5337,8 @@ const acts={
     closeSheet(); if(used){ toast("이 카드로는 이미 캐릭터를 데려온 적이 있어요. 같은 카드로 또 입양할 수는 없어요."); return; } if(r&&!r.dup){ tab="pet"; render(); toast("새 캐릭터가 생겼어요! 어디 있는지 찾아보세요."); } else if(r){ toast(`이미 키우고 있어서 ${r.pet.nick}이(가) 성장했어요.`); flushPetLv(); } },
   saveWorld(){ const w=$("#worldIn").value.trim(); commit(s=>{ s.world=w||DEFAULT_WORLD; }); toast("세계관을 저장했어요."); },
   bgSheet(el){ bgSheet(el.dataset.k); },
+  decoSheet(el){ decoSheet(el.dataset.k); },
+  decoSave(el){ const k=el.dataset.k, o={}; for(const f of Object.keys(CARE_DECO_DEF[k])){ const v=($("#dc_"+f)?.value||"").trim(); if(v) o[f]=v; } commit(s=>{ s.careDeco=s.careDeco||{}; s.careDeco[k]=o; }); closeSheet(); toast("아이콘을 저장했어요."); },
   async saveBg(el){ const key=el.dataset.k; const isHouse=key.startsWith("house:");
     const old=isHouse?charById(key.slice(6))?.house:state.maps?.[key];
     let ph; try{ ph=await uploadPending(el,"저장"); }catch(e){ return; }
@@ -5099,7 +5349,8 @@ const acts={
   async saveChar(el){ const v=k=>$("#ch_"+k).value.trim(); const name=v("name"); if(!name) return toast("이름을 입력해 주세요.");
     const id=el.dataset.id, old=id?charById(id)?.photo||null:null;
     let ph; try{ ph=await uploadPending(el,id?"저장":"등록"); }catch(e){ return; }
-    const data={name,personality:v("personality"),story:v("story"),likes:v("likes"),dislikes:v("dislikes"),speech:v("speech"),talk:$("#ch_talk").value,sounds:v("sounds"),hideEmo:$("#ch_hideEmo").checked}; if(ph!==undefined) data.photo=ph;
+    const fav=[...document.querySelectorAll('input[name=fav]:checked')].map(x=>x.value), hate=[...document.querySelectorAll('input[name=hate]:checked')].map(x=>x.value).filter(x=>!fav.includes(x));
+    const data={name,fav,hate,personality:v("personality"),story:v("story"),likes:v("likes"),dislikes:v("dislikes"),speech:v("speech"),talk:$("#ch_talk").value,sounds:v("sounds"),hideEmo:$("#ch_hideEmo").checked}; if(ph!==undefined) data.photo=ph;
     commit(s=>{ if(id) Object.assign(s.chars.find(c=>c.id===id),data); else s.chars.push({id:uid(),photo:null,house:null,...data,createdAt:Date.now()}); });
     if(old&&("photo" in data)&&data.photo!==old) cleanupPhoto(old);
     pendingPhoto=null; dropPhoto=false; closeSheet(); toast(id?"캐릭터를 수정했어요.":"캐릭터를 등록했어요."); },
@@ -5121,6 +5372,11 @@ const acts={
   rkC(el){ rkCat=el.dataset.k; render(); },
   /* checklist */
   ckCat(el){ ckCat=el.dataset.c; render(); },
+  async ntfyCopy(){ const T=ntfyTopics(); if(!T) return; const v=`가족 전체: ${T.all}\n내 알림: ${T.m[viewerId]||""}`; try{ await navigator.clipboard.writeText(v); toast("주제 이름을 복사했어요."); }catch(e){ toast(v); } },
+  ntfyToggle(){ commit(s=>{ const T=ensureNtfy(s); T.on=T.on===false; }); toast(ntfyTopics()?.on===false?"ntfy 알림 보내기를 껐어요.":"ntfy 알림 보내기를 켰어요."); },
+  albumSort(el){ albumSort=el.dataset.k; render(); },
+  askGo(el){ const p=state.pets.find(x=>x.id===el.dataset.id); const a=p&&askActive(p); if(!a) return; goPet(p.id);
+    setTimeout(()=>{ if(a.kind==="feed") careSheetOpen("food"); else if(a.kind==="wash") careSheetOpen("wash"); else if(a.kind==="gift") careSheetOpen("gift"); else if(a.kind==="pat") acts.petPat(); else if(a.kind==="play") startPlay(p.id); },120); },
   testLowStats(){ if(!testOn()) return; commit(s=>{ s.pets.filter(p=>p.ownerId===viewerId&&!p.dead).forEach(p=>setPetStats(p,{hunger:30,clean:30,mood:30})); },{replay:true}); toast("테스트용으로 배부름·청결·기분을 30으로 맞췄어요."); },
   ckCatSheet(){ ckCatSheet(); },
   async ckCatDel(el){ const c=el.dataset.c; if(!(await ask(`‘${c}’ 카테고리를 지울까요? 안의 항목은 ‘${CK_DEFAULT}’으로 옮겨져요.`,"지우기"))) return;
@@ -5159,7 +5415,7 @@ const acts={
 
 document.addEventListener("pointerdown",ev=>{ if(game?.kind==="battle"&&game.phase==="timing"&&ev.target.closest(".gm")&&!ev.target.closest(".gmx")){ ev.preventDefault(); battleStrike(); } });
 document.addEventListener("click",ev=>{
-  const tb=ev.target.closest("#tabs button"); if(tb){ const was=tab; tab=tb.dataset.tab; if(tab==="pet"&&was!=="pet") landPet(); if(tab==="quests"&&was!=="quests") questSeg=progressN()?"progress":"open"; render(); window.scrollTo(0,0); return; }
+  const tb=ev.target.closest("#tabs button"); if(tb){ const was=tab; tab=tb.dataset.tab; if(tab==="pet"&&was!=="pet"){ landPet(); setTimeout(greetPets,300); setTimeout(evRandomCheck,900); } if(tab==="quests"&&was!=="quests") questSeg=progressN()?"progress":"open"; render(); window.scrollTo(0,0); return; }
   const el=ev.target.closest("[data-act]"); if(!el) return; const fn=acts[el.dataset.act]; if(fn){ curAct=el.dataset.act; fn(el,ev); }
 });
 document.addEventListener("change",ev=>{
@@ -5191,6 +5447,7 @@ document.addEventListener("change",ev=>{
 });
 document.addEventListener("input",ev=>{ if(ev.target.id==="tName") updateTitlePreview(); });
 document.addEventListener("submit",ev=>{
+  if(ev.target.id==="chatForm"){ ev.preventDefault(); const t=$("#chatIn").value.trim(); if(!t) return; $("#chatIn").value=""; sendChat(ev.target.dataset.id,t); return; }
   if(ev.target.id==="ckCatForm"){ ev.preventDefault(); const c=$("#ckCatIn").value.trim(); if(!c) return;
     if(ckCats(viewerId).includes(c)) return toast("이미 있는 카테고리예요.");
     if(ckCats(viewerId).length>=12) return toast("카테고리는 12개까지 만들 수 있어요.");
@@ -5207,12 +5464,13 @@ function quietRefresh(){ if(!state||!loaded||document.hidden) return; if(typeof 
   const ae=document.activeElement; if(ae&&/^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName)) return;
   const y=window.scrollY; render(); window.scrollTo(0,y); }
 setInterval(quietRefresh,60000);
+setInterval(()=>{ try{ if(state&&loaded&&state.titles.some(t=>t.cond?.type==="time")) checkTitleConds(); if(state&&loaded&&(state.events||[]).some(e=>e.trigger==="time")) evCondCheck(); }catch(e){} },20000);
 document.addEventListener("visibilitychange",()=>{ document.documentElement.classList.toggle("paused",document.hidden); if(!document.hidden) setTimeout(quietRefresh,300); });
 window.addEventListener("offline",()=>showNetBar());
 window.addEventListener("online",()=>{ hideNetBar(); if(netFail){ loaded=false; render(); init(); } else if(pend.length) flush(); });
 if(!navigator.onLine) showNetBar();
 // 앱 안의 링크가 바깥 브라우저로 나가지 않게: 다른 주소로 가는 <a>는 막아요 (현재 외부 링크는 없지만 안전장치)
-document.addEventListener("click",ev=>{ const a=ev.target.closest("a[href]"); if(!a) return; let u; try{ u=new URL(a.getAttribute("href"),location.href); }catch(e){ return; } if(u.origin!==location.origin){ ev.preventDefault(); } },true);
+document.addEventListener("click",ev=>{ const a=ev.target.closest("a[href]"); if(!a||a.dataset.ext) return; let u; try{ u=new URL(a.getAttribute("href"),location.href); }catch(e){ return; } if(u.origin!==location.origin){ ev.preventDefault(); } },true);
 document.addEventListener("keydown",ev=>{ if(ev.key!=="Escape") return; const fb=$(".fxo .btn"); if(fb){ fb.click(); return; } if($(".gx.t-done")){ acts.gxClose(); return; } if($("#modalSlot").innerHTML) closeSheet(); });
 init();
 })();
