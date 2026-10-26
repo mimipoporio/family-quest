@@ -785,6 +785,14 @@ nav.tabs .dot{top:2px;left:calc(50% + 8px)}
 .evc .tg{position:absolute;top:6px;left:6px;font-size:.68rem;background:var(--pink);color:#fff;border-radius:999px;padding:1px 7px}
 .spfx .sp-ground{animation:none}
 .spfx .sp-crack{display:none}
+.rknav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:-4px 0 10px;font-family:var(--head)}
+.wkt{width:100%;border-collapse:collapse;font-size:.85rem;min-width:280px}
+.wkt th,.wkt td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+.wkt th:first-child,.wkt td:first-child{text-align:left}
+.wkt thead th{color:var(--sub);font-weight:400;font-size:.78rem}
+.wkt tr.on td{background:var(--pink-soft);font-weight:700}
+.wkt .lnk{border:none;background:none;color:var(--ink);font:inherit;padding:0;text-align:left;cursor:pointer}
+.wkt .lnk small{display:block;color:var(--sub);font-size:.7rem;font-weight:400}
 .chatbox{background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:12px;margin-bottom:12px;box-shadow:0 5px 0 var(--line)}
 .chatbox .ch-h{display:flex;align-items:center;justify-content:space-between;font-family:var(--head);margin-bottom:6px}
 .chatbox .ch-h small{font-family:var(--body);color:var(--sub);font-size:.75rem}
@@ -1209,6 +1217,10 @@ nav.tabs .dot{top:2px;left:calc(50% + 8px)}
 .feeditem:first-of-type{border-top:none}
 .feeditem .fi{font-size:1.3rem}
 .feeditem small{color:var(--sub);font-size:.72rem}
+button.feeditem{width:100%;text-align:left;background:none;border-left:0;border-right:0;border-bottom:0;color:inherit;font:inherit;cursor:pointer;align-items:center}
+button.feeditem .ft{flex:1;min-width:0}
+.feeditem .fgo{color:var(--sub);font-size:1.3rem;padding:0 4px}
+button.feeditem:active{background:var(--pink-soft);border-radius:14px}
 .feeditem.new{background:var(--pink-soft);border-radius:14px;padding:10px;border-top-color:transparent;margin-bottom:4px}
 .attend{display:flex;align-items:center;gap:12px;width:100%;text-align:left;margin-top:14px;border:none;border-radius:22px;padding:12px 14px;background:linear-gradient(120deg,#FFE7A8,#FFD0E4);color:#4A3B2A;box-shadow:0 5px 0 #F2C77A;animation:sbglow 2.4s ease-in-out infinite}
 .attend .at-ic{font-size:1.8rem}
@@ -1781,6 +1793,48 @@ h2 .count{background:var(--pink-soft)}
 .pb-book .act-grid .actbtn .at b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .pb-book .act-grid:has(> .actbtn:only-child){grid-template-columns:1fr;justify-items:center}
 .pb-book .act-grid .actbtn:only-child .at b{max-width:none}
+/* 퀘스트 현황 · 벌칙 · 방장 경고 */
+.chip.pen{background:#FFE4E4;color:#C0392B}
+.note.ownwarn{background:#FFF3D6;color:#8A5A00}
+.ownalert{border-color:#FFC94D;background:#FFF8E4}
+:root[data-theme="dark"] .ownalert,:root[data-theme="dark"] .note.ownwarn{background:#3E3420;color:#FFE08A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ownalert,:root:not([data-theme="light"]) .note.ownwarn{background:#3E3420;color:#FFE08A}}
+.brow .bhead{display:flex;align-items:center;gap:10px}
+.brow .bhead>div:not(.av){flex:1;min-width:0;display:flex;flex-direction:column}
+.brow .bhead .av{width:38px;height:38px;border-radius:50%;background:var(--pink-soft);display:grid;place-items:center;font-family:var(--head);flex:none;overflow:hidden}
+.brow .bhead .av img{width:100%;height:100%;object-fit:cover}
+.blist li .chip{align-self:flex-start}
+.brow .bhead b{font-family:var(--head);font-weight:400}
+.brow .bhead small{color:var(--sub);font-size:.76rem}
+.bcnt{min-width:28px;height:28px;border-radius:999px;background:var(--pink-soft);color:var(--pinkd);display:grid;place-items:center;font-family:var(--head)}
+.blist{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.blist li{background:var(--field);border-radius:12px;padding:8px 10px;display:flex;flex-direction:column}
+.blist small{color:var(--sub);font-size:.76rem}
+.card.qflash{box-shadow:0 0 0 3px var(--pink),0 10px 26px var(--sh)!important;transition:box-shadow .3s}
+/* 코인·도토리 안내 */
+.qhelp{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);background:var(--surface);color:var(--sub);font-family:var(--head);font-size:.85rem;line-height:1;display:inline-grid;place-items:center;padding:0;margin-left:6px;flex:none}
+.qhelp:active{background:var(--pink-soft)}
+.acthead .ah-r{display:flex;align-items:center}
+h2 .qhelp{margin-left:2px}
+.ocats{display:flex;gap:5px;padding:2px 0 8px}
+.ocats::-webkit-scrollbar{display:none}
+.ocats button{flex:1 1 auto;min-width:0;justify-content:center;white-space:nowrap;border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 6px;font-size:.8rem;color:var(--sub);display:flex;align-items:center;gap:4px}
+.ocats button.on{border-color:var(--pink);background:var(--pink-soft);color:var(--ink);font-weight:700}
+.ocats .n{font-size:.7rem;background:var(--bg);border-radius:999px;padding:0 5px}
+.osort{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin:0 0 10px;font-size:.85rem;color:var(--sub)}
+.osort select{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 10px;font-size:.85rem}
+.chip s{opacity:.55}
+.failalert{border-color:var(--warn);background:var(--pink-soft)}
+.mg-place{margin:-4px 0 4px;font-size:.85rem;background:var(--field);border-radius:12px;padding:8px 12px}
+.mguide{display:flex;flex-direction:column;gap:6px;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:8px 10px;margin:0 0 12px}
+.mg-row{display:flex;align-items:center;gap:10px;padding:4px 6px;border-radius:12px;opacity:.7}
+.mg-row.on{opacity:1;background:var(--pink-soft)}
+.mg-row>div{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.mg-row b{font-family:var(--head);font-weight:400;font-size:.95rem}
+.mg-row small{font-size:.76rem;color:var(--sub)}
+.mg-row small u{text-decoration:none;color:var(--ink);font-weight:700}
+.mg-ic{font-size:1.3rem;width:28px;text-align:center}
+.mg-here{font-size:.7rem;font-weight:700;background:var(--pink);color:#3A1220;border-radius:999px;padding:1px 8px}
 /* 내 캐릭터 바로 가기 */
 .mypets{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px;margin:0 -2px;scrollbar-width:none}
 .mypets::-webkit-scrollbar{display:none}
@@ -1906,7 +1960,7 @@ let db=null, ref=null, assets=null, offline=false, state=null, loaded=false;
 /* ---------- Firebase (앱용 공유 DB) ----------
    방 코드(8자리)가 곧 가족의 열쇠예요. 모든 데이터는 rooms/<방코드>/ 아래에 저장돼요. */
 const FB_CONFIG={apiKey:"AIzaSyC7PcW2jG32Ebb78UDaEQ2IPyt9MDelAs8",authDomain:"family-quest-ad893.firebaseapp.com",projectId:"family-quest-ad893",storageBucket:"family-quest-ad893.firebasestorage.app",messagingSenderId:"649105509020",appId:"1:649105509020:web:4968ea04c5e6215f1c3b59"};
-const FB_VER="13.0.0"; const APP_VER="v81";
+const FB_VER="13.0.0"; const APP_VER="v90";
 let netFail=false; let fb=null, fs=null, roomCode=null, gate=false, gateBusy=false, backend="none";
 const roomNorm=c=>String(c||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
 const roomValid=c=>/^[A-HJ-NP-Z2-9]{8}$/.test(c);
@@ -1951,8 +2005,8 @@ function cloudinaryAssets(){ if(!CLOUDINARY.cloud||/여기에/.test(CLOUDINARY.c
     delete:()=>Promise.resolve() }; }
 function blobURL(id){ return /^https:\/\//.test(id||"")?id:`/_blob/${id}`; }
 let pendingPhoto=null, dropPhoto=false;
-let rkPeriod="week", rkCat="total";
-let albumSort="grade"; let tab="home", questSeg="open", ckCat="all", setSeg="me", petSeg="char", bagSeg="tickets", albumOf=null;
+let rkPeriod="week", rkCat="total", rkOff=0;
+let albumSort="grade"; let openCat="all", openSort="new"; let tab="home", questSeg="open", ckCat="all", setSeg="me", petSeg="char", bagSeg="tickets", albumOf=null;
 let viewerId=null, saveChain=Promise.resolve();
 
 const $=s=>document.querySelector(s);
@@ -1994,6 +2048,15 @@ function addStat(s,mid,add,ts){
   r.c+=add.c||0; r.x+=add.x||0; r.q+=add.q||0;
   const keys=Object.keys(s.stats).sort(); while(keys.length>400) delete s.stats[keys.shift()];
 }
+// 기간 범위 (off: 몇 기간 전인지. 0=이번, 1=지난)
+function periodRange(p,off){ const d=new Date(); d.setHours(0,0,0,0); let a,b;
+  if(p==="day"){ a=new Date(d); a.setDate(a.getDate()-off); b=new Date(a); b.setDate(b.getDate()+1); }
+  else if(p==="week"){ const wd=(d.getDay()+6)%7; a=new Date(d); a.setDate(d.getDate()-wd-off*7); b=new Date(a); b.setDate(a.getDate()+7); }
+  else if(p==="month"){ a=new Date(d.getFullYear(),d.getMonth()-off,1); b=new Date(a.getFullYear(),a.getMonth()+1,1); }
+  else { a=new Date(d.getFullYear()-off,0,1); b=new Date(a.getFullYear()+1,0,1); }
+  return [dkey(a.getTime()),dkey(b.getTime())]; }
+function periodLabel(p,off){ const [a,b]=periodRange(p,off); const f=k=>`${+k.slice(5,7)}/${+k.slice(8,10)}`; const e=new Date(b); e.setDate(e.getDate()-1); const eb=dkey(e.getTime());
+  if(p==="day") return off===0?"오늘":off===1?"어제":f(a); if(p==="week") return `${off===0?"이번 주":off===1?"지난 주":off+"주 전"} · ${f(a)}~${f(eb)}`; if(p==="month") return `${+a.slice(0,4)}년 ${+a.slice(5,7)}월`; return `${+a.slice(0,4)}년`; }
 function periodStart(p){ const d=new Date(); d.setHours(0,0,0,0);
   if(p==="week"){ const wd=(d.getDay()+6)%7; d.setDate(d.getDate()-wd); }
   if(p==="month") d.setDate(1);
@@ -2087,18 +2150,18 @@ function broke(b,a){ if(!b||!a) return false; const bm=new Map((b.members||[]).m
 let brokeN=0;
 function rebase(){ let s=server?structuredClone(server):null;
   for(const op of pend){ if(op.full){ s=structuredClone(op.full); continue; } if(!s) continue;
-    try{ if(op.fn){ const t=structuredClone(s), b=structuredClone(s); replaying=true; try{ op.fn(t); } finally{ replaying=false; } logCoins(b,t,op.reason); if(!broke(s,t)) s=t; } else { const t=applyDiff(structuredClone(s),op.d); if(t&&!broke(s,t)) s=t; } }catch(e){} }
+    try{ if(op.fn){ const t=structuredClone(s), b=structuredClone(s); replaying=true; try{ op.fn(t); } finally{ replaying=false; } logCoins(b,t,op.reason); if(op.neg||!broke(s,t)) s=t; } else { const t=applyDiff(structuredClone(s),op.d); if(t&&(op.neg||!broke(s,t))) s=t; } }catch(e){} }
   return s; }
 // replay:true → 최신 데이터 위에서 함수를 다시 실행 (자동 정리·기한 처리처럼 '조건을 보고' 바꾸는 일)
 function commit(mut,opt){
   opt=opt||{}; if(!state) return;
   const before=state, next=structuredClone(state); mut(next);
-  if(broke(before,next)){ toast("코인이나 도토리가 부족해서 할 수 없어요."); return false; }
+  if(!opt.allowNeg&&broke(before,next)){ toast("코인이나 도토리가 부족해서 할 수 없어요."); return false; }
   logCoins(before,next,opt.reason);
   state=next; render(); flushNtfy();
   if(!ref){ lsSet("fq-state",JSON.stringify(state)); return; }
-  if(opt.replay) pend.push({fn:bindViewer(mut),reason:opt.reason||REASON[curAct]||"기타"}); // 사유는 '지금 누른 버튼' 기준으로 고정
-  else { const d=diff(before,next); if(d===undefined) return; pend.push({d}); }
+  if(opt.replay) pend.push({fn:bindViewer(mut),reason:opt.reason||REASON[curAct]||"기타",neg:!!opt.allowNeg}); // 사유는 '지금 누른 버튼' 기준으로 고정
+  else { const d=diff(before,next); if(d===undefined) return; pend.push({d,neg:!!opt.allowNeg}); }
   flush();
 }
 function commitFull(obj){ state=obj; render(); if(!ref){ lsSet("fq-state",JSON.stringify(obj)); return; } pend.push({full:structuredClone(obj)}); flush(); }
@@ -2175,8 +2238,8 @@ async function flush(){
       for(const op of batch){
         if(op.full){ fresh=structuredClone(op.full); continue; }
         if(!fresh){ lost++; continue; }
-        try{ if(op.fn){ const t=structuredClone(fresh), b=structuredClone(fresh); replaying=true; try{ op.fn(t); } finally{ replaying=false; } logCoins(b,t,op.reason); if(broke(fresh,t)) brokeN++; else fresh=t; }
-          else { const t=applyDiff(structuredClone(fresh),op.d); if(!t) lost++; else if(broke(fresh,t)) brokeN++; else fresh=t; } }catch(e){ lost++; }
+        try{ if(op.fn){ const t=structuredClone(fresh), b=structuredClone(fresh); replaying=true; try{ op.fn(t); } finally{ replaying=false; } logCoins(b,t,op.reason); if(!op.neg&&broke(fresh,t)) brokeN++; else fresh=t; }
+          else { const t=applyDiff(structuredClone(fresh),op.d); if(!t) lost++; else if(!op.neg&&broke(fresh,t)) brokeN++; else fresh=t; } }catch(e){ lost++; }
       }
       if(fresh) await writeSplit(P,fresh); // 실제로 써진 뒤에야 대기 목록에서 지워요 (쓰기 실패 시 '다시 시도' 가능)
       pend.splice(0,batch.length); spliced=true;
@@ -2211,6 +2274,7 @@ async function wipeAll(){ while(flushing) await sleep(150); await takeLock(); co
 async function init(){
   netFail=false; hideNetBar(); viewerId=lsGet("fq-viewer"); loginId=lsGet("fq-login"); roomCode=roomNorm(lsGet("fq-room")); if(!roomValid(roomCode)) roomCode=null; render();
   const hasClaude=typeof claude!=="undefined"&&claude&&typeof claude.use==="function";
+  if(hasClaude) claude.use("downloads").then(d=>{ dlFn=d; }).catch(()=>{ dlFn=null; });
   if(hasClaude) claude.use("sample").then(f=>{ sampleFn=f; if(tab==="pet") render(); }).catch(()=>{ sampleFn=null; });
   // 1) Firebase
   let okFb=false; try{ okFb=await loadFirebase(); }catch(e){ okFb=false; }
@@ -2260,7 +2324,11 @@ function enterRoom(code){ roomCode=code; lsSet("fq-room",code); lsSet("fq-login"
 function leaveRoom(){ ["fq-room","fq-login","fq-viewer"].forEach(k=>lsSet(k,"")); location.reload(); }
 /* 퀘스트 보상 지급 + 완료 처리 (심사 승인과 셀프 클리어가 함께 써요) */
 function grantQuest(s,q){ const a=s.members.find(x=>x.id===q.assigneeId); let who="";
-  if(a){ a.xp+=q.rewardXp; a.coins+=q.rewardCoins; who=a.name; addStat(s,a.id,{c:q.rewardCoins||0,x:q.rewardXp||0,q:1}); if(q.rewardTitleId&&s.titles.some(t=>t.id===q.rewardTitleId)&&!a.ownedTitles.includes(q.rewardTitleId)) a.ownedTitles.push(q.rewardTitleId);
+  const px=effXp(q,q.assigneeId), pc=effCoins(q,q.assigneeId); q.paidXp=px; q.paidCoins=pc;
+  if(pc<(q.rewardCoins||0)){ const c=s.members.find(x=>x.id===q.creatorId); if(c&&!isOwner(c)) c.coins+=(q.rewardCoins||0)-pc; } // 멤버가 건 코인 중 줄어든 만큼은 돌려줘요
+  if(a){ a.xp+=px; a.coins+=pc; who=a.name; addStat(s,a.id,{c:pc,x:px,q:1});
+    // 방장·공동 방장이 퀘스트를 끝내면 그 보상만큼 일반 멤버 모두에게서 각각 코인이 빠져요 (마이너스 가능)
+    if(isOwner(a)&&pc>0){ s.members.filter(m=>m.role==="member").forEach(m=>{ m.coins=(m.coins||0)-pc; notify(s,m.id,"💸",`방장 ${a.name} 님이 ‘${q.title}’을(를) 끝내서 코인 ${pc}개가 빠졌어요`,"q:"+q.id); }); q.ownerPen=pc; } if(q.rewardTitleId&&s.titles.some(t=>t.id===q.rewardTitleId)&&!a.ownedTitles.includes(q.rewardTitleId)) a.ownedTitles.push(q.rewardTitleId);
     if(q.rewardTickets&&s.packs.some(p=>p.id===q.rewardTickets.packId)){ a.tickets=a.tickets||{}; a.tickets[q.rewardTickets.packId]=(a.tickets[q.rewardTickets.packId]||0)+q.rewardTickets.count; }
     if(q.rewardItems&&s.careItems.some(c=>c.id===q.rewardItems.itemId)){ a.items=a.items||{}; a.items[q.rewardItems.itemId]=(a.items[q.rewardItems.itemId]||0)+q.rewardItems.count; } }
   q.status="done"; q.doneAt=Date.now(); q.result={type:"clear",to:q.assigneeId,seen:false}; bump(s,q.assigneeId,"questClear"); return who; }
@@ -2408,9 +2476,11 @@ function profileHTML(m){
   <div class="nums"><span>경험치 ${L.cur} / ${L.need}</span><span>Lv.${L.lvl+1}까지 ${L.need-L.cur}</span></div></div></section>`;
 }
 function rewardChips(q){
+  const who=q.status==="open"?viewerId:q.assigneeId, cut=["open","in_progress","review"].includes(q.status)&&q.rewardXp!==undefined&&cutFor(q,who)&&who===viewerId;
+  if(cut) q={...q,rewardXp:effXp(q,who),rewardCoins:effCoins(q,who),_cut:{x:q.rewardXp,c:q.rewardCoins}};
   const t=q.rewardTitleId&&titleById(q.rewardTitleId);
   const tk=q.rewardTickets&&packById(q.rewardTickets.packId); const ci=q.rewardItems&&careById(q.rewardItems.itemId);
-  return `<div class="rewards">${q.rewardXp?`<span class="chip x">✦ 경험치 ${q.rewardXp}</span>`:""}${q.rewardCoins?`<span class="chip c">● 코인 ${q.rewardCoins}</span>`:""}${tk?`<span class="chip">🎫 ${esc(tk.name)} 티켓 ${q.rewardTickets.count}장</span>`:""}${ci?`<span class="chip">${esc(ci.emoji)} ${esc(ci.name)} ×${q.rewardItems.count}</span>`:""}${t?`<span class="chip">칭호</span>${ttlHTML(t.name,t.effect)}`:""}</div>`;
+  return `<div class="rewards">${q.rewardXp?`<span class="chip x">✦ 경험치 ${q._cut?`<s>${q._cut.x}</s> `:""}${q.rewardXp}</span>`:""}${q.rewardCoins?`<span class="chip c">● 코인 ${q._cut?`<s>${q._cut.c}</s> `:""}${q.rewardCoins}</span>`:""}${q._cut?'<span class="chip pen">내가 실패했던 퀘스트라 보상 -30%</span>':""}${tk?`<span class="chip">🎫 ${esc(tk.name)} 티켓 ${q.rewardTickets.count}장</span>`:""}${ci?`<span class="chip">${esc(ci.emoji)} ${esc(ci.name)} ×${q.rewardItems.count}</span>`:""}${t?`<span class="chip">칭호</span>${ttlHTML(t.name,t.effect)}`:""}</div>`;
 }
 function questCard(q){
   let actions="", extra="";
@@ -2423,6 +2493,10 @@ function questCard(q){
   if(q.rejectNote&&q.status==="in_progress") extra+=`<div class="note bad">반려 사유: ${esc(q.rejectNote)}</div>`;
   if(q.submitNote&&(q.status==="review"||q.status==="done")) extra+=`<div class="note">제출 메모: ${esc(q.submitNote)}</div>`;
   if(isBlob(q.submitPhoto)&&(q.status==="review"||q.status==="done"||q.rejectNote)) extra+=`<button class="qphoto" data-act="viewPhoto" data-id="${q.submitPhoto}" aria-label="완료 사진 크게 보기"><img src="${blobURL(q.submitPhoto)}" alt="완료 사진" loading="lazy" onerror="this.parentNode.remove()"></button>`;
+  if(failOf(q)>0&&(q.status==="open"||q.status==="in_progress")) extra+=`<div class="rewards"><span class="chip pen">⚠️ 안 하면 코인 -${failOf(q)}</span>${q.status==="in_progress"&&giveupBase(q)?`<span class="chip">${nearFail(q)?`지금 포기하면 -${giveupBase(q)}`:`마감 3시간 전부터 포기하면 -${giveupBase(q)}`}</span>`:""}</div>`;
+  if(nearFail(q)&&q.assigneeId===viewerId) extra+=`<div class="note bad">⏰ 마감까지 ${Math.max(1,Math.ceil((q.due-Date.now())/60000))<60?Math.max(1,Math.ceil((q.due-Date.now())/60000))+"분":Math.ceil((q.due-Date.now())/3600000)+"시간"} 남았어요! 안 하면 실패${failOf(q)?`하고 코인 -${failOf(q)}`:"해요"}.</div>`;
+  if(ownerDoing(q)&&q.rewardCoins>0) extra+=`<div class="note ownwarn">👑 ${esc(nameOf(q.assigneeId))} 님(방장)이 하는 중이에요. 방장이 끝내면 멤버 모두 코인 -${q.rewardCoins}씩!</div>`;
+  if(ownerDoing(q)&&me()?.role==="member"&&q.creatorId!==viewerId) actions+=`<button class="btn pink sm" data-act="steal" data-id="${q.id}">🏃 내가 먼저 해서 제출</button>`;
   let meta=`${esc(nameOf(q.creatorId))} 님이 등록`;
   if(q.assigneeId) meta+=` · ${q.status==="done"?"완료":"수행"}: ${esc(nameOf(q.assigneeId))}`;
   const cls=q.status==="review"?"review":(q.rejectNote&&q.status==="in_progress"?"rejected":"");
@@ -2432,7 +2506,7 @@ function questCard(q){
   const stamp=q.status==="expired"?'<span class="stamp bad">기한 지남</span>':q.status==="review"?'<span class="stamp">심사중</span>':q.status==="done"?`<span class="stamp ok">${q.selfClear?"셀프 클리어":"완료"}</span>`:(q.rejectNote&&q.status==="in_progress")?'<span class="stamp bad">반려</span>':"";
   if(q.ext?.status==="accepted"&&q.status!=="expired") extra=`<div class="rewards"><span class="chip ext">⏳ 연장됨 · 보상 조정</span></div>`+extra;
   extra+=extBlock(q)+editBlock(q);
-  return `<article class="card q ${cls}">${stamp}<div class="qt">${esc(q.title)}</div><div class="meta">${st} · ${meta}</div>
+  return `<article class="card q ${cls}" data-qid="${q.id}">${stamp}<div class="qt">${esc(q.title)}</div><div class="meta">${st} · ${meta}</div>
   ${q.desc?`<div class="desc">${esc(q.desc)}</div>`:""}${rewardChips(q)}${extra}${actions?`<div class="actions">${actions}</div>`:""}</article>`;
 }
 const qlist=(a,e)=>a.length?a.map(questCard).join(""):`<div class="empty">${e}</div>`;
@@ -2464,7 +2538,7 @@ function applyEdit(s,q){ const e=q.edit; if(!e) return; const c=s.members.find(x
   if(c&&!isOwner(c)){ const back=(q.rewardCoins||0)+(e.held||0)-(e.rewardCoins||0); if(back>0) c.coins+=back; }
   QF.forEach(k=>{ q[k]=e[k]??null; }); q.desc=q.desc||""; q.edit=null; }
 function dropEdit(s,q,msg){ const e=q.edit; if(!e) return; const c=s.members.find(x=>x.id===q.creatorId);
-  if(c&&e.held) c.coins+=e.held; q.edit=null; if(msg&&q.creatorId) notify(s,q.creatorId,"✏️",`‘${q.title}’ ${msg}`); }
+  if(c&&e.held) c.coins+=e.held; q.edit=null; if(msg&&q.creatorId) notify(s,q.creatorId,"✏️",`‘${q.title}’ ${msg}`,"q:"+q.id); }
 function editQuestSheet(qid){
   const q=state.quests.find(x=>x.id===qid); if(!q) return; const m=me(), owner=isOwner(member(q.creatorId)), req=q.status==="in_progress";
   const sel=(cur,opts)=>opts.map(([v,l])=>`<option value="${v}" ${v===(cur||"")?"selected":""}>${l}</option>`).join("");
@@ -2497,7 +2571,9 @@ function homeHTML(){
   const waiting=Q.filter(q=>q.assigneeId===viewerId&&q.status==="review");
   const judge=Q.filter(q=>q.creatorId===viewerId&&(q.status==="review"||(q.status==="expired"&&q.ext?.status==="requested")));
   const late=Q.filter(q=>q.assigneeId===viewerId&&q.status==="expired"&&(!q.ext||q.ext.status==="requested"||q.ext.status==="offered")&&Date.now()-(q.expiredAt||0)<7*86400000);
-  let alerts=needyPets().map(({p,n})=>`<button class="alert petalert lv${n.lv}" data-act="goPet" data-id="${p.id}"><span class="pa-pic">${petPicHTML(p)}</span><span><b>${needLine(p,n)}</b><br>눌러서 바로 밥 주러 가요.</span></button>`).join("");
+  const ownJobs=m.role==="member"?Q.filter(q=>ownerDoing(q)&&q.rewardCoins>0):[];
+  let alerts=ownJobs.map(q=>`<button class="alert ownalert" data-act="goQuestOpen" data-id="${q.id}">👑 <span><b>방장이 ‘${esc(q.title)}’ 퀘스트를 수행 중이에요!</b><br>먼저 처리하고 보고하세요. 방장이 끝내면 멤버 모두 코인 -${q.rewardCoins}${q.creatorId===viewerId?"":" · 다 했으면 눌러서 제출"}</span></button>`).join("")+needyPets().map(({p,n})=>`<button class="alert petalert lv${n.lv}" data-act="goPet" data-id="${p.id}"><span class="pa-pic">${petPicHTML(p)}</span><span><b>${needLine(p,n)}</b><br>눌러서 바로 밥 주러 가요.</span></button>`).join("");
+  alerts=Q.filter(q=>q.assigneeId===viewerId&&nearFail(q)).map(q=>`<button class="alert failalert" data-act="goQuestId" data-id="${q.id}">⏰ <span><b>‘${esc(q.title)}’ 곧 실패해요!</b><br>마감 ${fmtDue(q.due)}${failOf(q)?` · 안 하면 코인 -${failOf(q)}`:""}${giveupPen(q)?` · 못 하면 지금 포기 -${giveupPen(q)}`:""}</span></button>`).join("")+alerts;
   if(owner&&pendingForOwner()) alerts+=`<button class="alert" data-act="goOrders">🔔 <span><b>구매 요청 ${pendingForOwner()}건</b><br>물건을 주고 ‘지급 완료’를 눌러 주세요.</span></button>`;
   const eReq=Q.filter(q=>q.assigneeId===viewerId&&q.status==="in_progress"&&q.edit).length;
   if(judge.length) alerts+=`<button class="alert" data-act="goQuests" data-k="review">⚖️ <span><b>심사·검토 기다리는 퀘스트 ${judge.length}건</b><br>가족이 기다리고 있어요. 눌러서 심사하러 가요.</span></button>`;
@@ -2516,7 +2592,15 @@ function myProgress(){ const Q=state.quests; return {
   late:Q.filter(q=>q.assigneeId===viewerId&&q.status==="expired"&&(!q.ext||q.ext.status==="requested"||q.ext.status==="offered")&&Date.now()-(q.expiredAt||0)<7*86400000) }; }
 const progressN=()=>{ const p=myProgress(); return p.doing.length+p.waiting.length+p.late.length; };
 function reviewList(){ const Q=state.quests; return Q.filter(q=>q.creatorId===viewerId&&(q.status==="review"||(q.status==="expired"&&q.ext?.status==="requested"))); }
-function segHTML(){ const pn=progressN(), rn=reviewList().length; return [["progress",`내 진행${pn?`<span class="dot">${pn}</span>`:""}`],["open","모집 중"],["review",`심사${rn?`<span class="dot">${rn}</span>`:""}`],["mine","내가 올린"],["done","기록"]].map(([k,l])=>`<button class="${questSeg===k?"on":""}" data-act="qseg" data-k="${k}">${l}</button>`).join(""); }
+function segHTML(){ const pn=progressN(), rn=reviewList().length; return [["progress",`내 진행${pn?`<span class="dot">${pn}</span>`:""}`],["open","모집 중"],...(isOwner(me())?[["board","현황"]]:[]),["review",`심사${rn?`<span class="dot">${rn}</span>`:""}`],["mine","내가 올린"],["done","기록"]].map(([k,l])=>`<button class="${questSeg===k?"on":""}" data-act="qseg" data-k="${k}">${l}</button>`).join(""); }
+function boardHTML(){ const Q=state.quests, now=Date.now();
+  const rows=state.members.map(m=>{ const doing=Q.filter(q=>q.assigneeId===m.id&&q.status==="in_progress"), rev=Q.filter(q=>q.assigneeId===m.id&&q.status==="review");
+    const fails=m.fails||0;
+    const li=q=>`<li><b>${esc(q.title)}${q.repeatId?" 🔁":""}</b><small>${q.status==="review"?"✅ 완료 제출 · 심사 기다리는 중":q.due?`⏰ ${dueText(q)}${q.due-now<3*3600000?" · 곧 마감":""}`:"기한 없음"}${failOf(q)>0&&q.status==="in_progress"?` · 안 하면 -${failOf(q)}`:""}</small></li>`;
+    return `<div class="card brow"><div class="bhead">${avSmall(m)}<div><b>${esc(m.name)}</b><small>${m.role==="owner"?"방장":m.role==="co"?"공동 방장":"멤버"} · 코인 ${m.coins||0} · 실패 ${fails}회</small></div><span class="bcnt">${doing.length+rev.length}</span></div>
+      ${doing.length||rev.length?`<ul class="blist">${[...doing,...rev].map(li).join("")}</ul>`:'<p class="hint" style="margin:6px 0 0">지금 하고 있는 퀘스트가 없어요.</p>'}</div>`; }).join("");
+  const open=Q.filter(q=>q.status==="open").length;
+  return `<p class="hint" style="margin:0 0 8px">누가 어떤 퀘스트를 받아서 하고 있는지 보여요 · 아무도 안 받은 퀘스트 ${open}개</p>${rows}`; }
 function questsHTML(){
   const Q=state.quests; let a;
   if(questSeg==="progress"){ const p=myProgress();
@@ -2524,13 +2608,23 @@ function questsHTML(){
       (p.late.length?`<h2 style="margin-top:4px">⏳ 기한이 지난 퀘스트 <span class="count">${p.late.length}</span></h2>${qlist(p.late,"")}`:"")+
       `<h2 style="margin-top:4px">진행 중 <span class="count">${p.doing.length}</span></h2>${qlist(p.doing,"‘모집 중’에서 수락한 퀘스트가 여기에 와요.")}`+
       `<h2>심사 받는 중 <span class="count">${p.waiting.length}</span></h2>${qlist(p.waiting,"완료 제출한 퀘스트가 여기서 심사를 기다려요.")}`; }
-  if(questSeg==="open") a=Q.filter(q=>q.status==="open");
+  let openBar="";
+  if(questSeg==="open"){ const all=Q.filter(q=>q.status==="open"), catOf=q=>q.overdue||q.reopened?"again":q.repeatId?"repeat":"once";
+    const cats=[["all","전체"],["repeat","반복"],["once","일회성"],["again","다시 올라온"]];
+    if(!cats.some(c=>c[0]===openCat)) openCat="all";
+    a=openCat==="all"?all:all.filter(q=>catOf(q)===openCat);
+    const val=q=>effCoins(q,viewerId)*10+effXp(q,viewerId);
+    a=a.slice().sort(openSort==="reward"?(x,y)=>val(y)-val(x):openSort==="due"?(x,y)=>(x.due||Infinity)-(y.due||Infinity)||(y.createdAt||0)-(x.createdAt||0):(x,y)=>(y.reopened||y.createdAt||0)-(x.reopened||x.createdAt||0));
+    openBar=`<div class="ocats">${cats.map(([k,l])=>{ const n=k==="all"?all.length:all.filter(q=>catOf(q)===k).length; return `<button class="${openCat===k?"on":""}" data-act="openCat" data-k="${k}">${l}<span class="n">${n}</span></button>`; }).join("")}</div>
+    <div class="osort"><label for="openSort">정렬</label><select id="openSort">${[["new","새로 올라온 순"],["reward","보상 많은 순"],["due","마감 가까운 순"]].map(([k,l])=>`<option value="${k}" ${openSort===k?"selected":""}>${l}</option>`).join("")}</select></div>`; }
+  else if(questSeg==="board") return `<div class="seg">${segHTML()}</div>${boardHTML()}`;
   else if(questSeg==="review") a=reviewList();
   else if(questSeg==="mine") a=Q.filter(q=>q.creatorId===viewerId&&(q.status==="open"||q.status==="in_progress"));
   else a=Q.filter(q=>q.status==="done"||q.status==="expired").slice(-30).reverse();
   const seg=segHTML();
   const e={open:"모집 중인 퀘스트가 없어요. ＋ 버튼으로 올려 보세요.",review:"심사할 퀘스트가 없어요. 가족이 완료를 제출하면 여기에 와요.",mine:"직접 올린 퀘스트가 아직 없어요. (심사 대기 중인 것은 ‘심사’에 있어요)",done:"완료된 퀘스트가 여기에 쌓여요."}[questSeg];
-  return `<div class="seg">${seg}</div>${qlist(a,e)}`;
+  const od=questSeg==="open"&&me()?.role==="member"?Q.filter(q=>ownerDoing(q)&&q.rewardCoins>0):[];
+  return `<div class="seg">${seg}</div>${od.length?`<h2 style="margin-top:8px">👑 방장이 하는 중 <span class="count">${od.length}</span></h2><p class="hint" style="margin-top:-4px">방장이 끝내면 멤버 모두 코인이 빠져요. 내가 먼저 끝냈다면 ‘내가 먼저 해서 제출’로 보고하세요!</p>${od.map(questCard).join("")}<h2>모집 중</h2>`:""}${openBar}${qlist(a,openCat!=="all"&&questSeg==="open"?"이 분류에는 모집 중인 퀘스트가 없어요.":e)}`;
 }
 
 /* ---------- shop ---------- */
@@ -2549,8 +2643,8 @@ function shopHTML(){
   const m=me(), owner=isOwner(m);
   const items=state.shop.filter(g=>!g.hidden);
   const mine=state.orders.filter(o=>o.buyerId===viewerId&&o.status!=="confirmed"&&o.status!=="cancelled").reverse();
-  const head=owner?`<p class="hint" style="margin-top:0">＋ 버튼으로 상품을 올려요. 구매 요청은 관리 탭에서 처리해요.</p>`
-    :`<div class="card" style="display:flex;justify-content:space-between;align-items:center"><span>내 코인</span><b style="font-family:var(--head);font-size:1.2rem">${coinHTML(m.coins)}</b></div>`;
+  const head=(owner?`<p class="hint" style="margin-top:0">＋ 버튼으로 상품을 올려요. 구매 요청은 관리 탭에서 처리해요.</p>`
+    :`<div class="card" style="display:flex;justify-content:space-between;align-items:center"><span>내 코인</span><b style="font-family:var(--head);font-size:1.2rem">${coinHTML(m.coins)}</b></div>`);
   const grid=items.length?`<div class="shop">${items.map(g=>{
     const out=g.stock!==null&&g.stock<=0;
     return `<div class="goods ${out?"soldout":""}">${picHTML(g.photo,g.emoji)}<div class="gn">${esc(g.name)}</div>
@@ -2559,7 +2653,7 @@ function shopHTML(){
     ${owner?`<div class="actions" style="margin-top:6px"><button class="btn ghost sm" data-act="editGoods" data-id="${g.id}">수정</button></div>`
       :`<button class="btn pink sm" style="margin-top:8px" data-act="buy" data-id="${g.id}" ${out||m.coins<g.price?"disabled":""}>${out?"품절":m.coins<g.price?"코인 부족":"구매하기"}</button>`}</div>`;}).join("")}</div>`
     :`<div class="empty">${owner?"아직 상품이 없어요. ＋ 버튼으로 첫 상품을 올려 보세요.":"아직 상품이 없어요. 방장이 올리면 여기에 보여요."}</div>`;
-  return head+(mine.length?`<h2>내 주문 <span class="count">${mine.length}</span></h2>${mine.map(o=>orderCard(o,"buyer")).join("")}`:"")+`<h2>상품</h2>${grid}`;
+  return head+(mine.length?`<h2>내 주문 <span class="count">${mine.length}</span></h2>${mine.map(o=>orderCard(o,"buyer")).join("")}`:"")+`<h2>상품${helpBtn("coin")}</h2>${grid}`;
 }
 
 /* ---------- bag ---------- */
@@ -3053,6 +3147,7 @@ function growthAlbumHTML(){
 let fxQ=[];
 let fxThen=null;
 function fxOverlay(o){
+  if((o.kind==="event"||o.defer)&&fxBusy()){ setTimeout(()=>fxOverlay(o),1500); return; }
   if($("#fxSlot").innerHTML){ fxQ.push(o); return; }
   fxThen=o.then||null;
   const fc={clear:"#FFC94D",fail:"#7C8DB5",buy:"#4FCFA8",lv:"#FF7EB3",pet:"#FFC94D",star:"#FFC400"}[o.kind]||"#FF7EB3";
@@ -3086,7 +3181,7 @@ function questResultCheck(){
   if($("#fxSlot").innerHTML||$("#gxSlot").innerHTML||!state) return;
   const q=state.quests.find(x=>x.result&&!x.result.seen&&x.result.to===viewerId); if(!q) return;
   if(q.result.type==="clear"){
-    const rw=[]; if(q.rewardXp) rw.push(`경험치 +${q.rewardXp}`); if(q.rewardCoins) rw.push(`코인 +${q.rewardCoins}`);
+    const gx=q.paidXp??q.rewardXp, gc=q.paidCoins??q.rewardCoins; const rw=[]; if(gx) rw.push(`경험치 +${gx}`); if(gc) rw.push(`코인 +${gc}`);
     const t=q.rewardTitleId&&titleById(q.rewardTitleId); if(t) rw.push(ttlHTML(t.name,t.effect));
     const tk=q.rewardTickets&&packById(q.rewardTickets.packId); if(tk) rw.push(`🎫 ${tk.name} ×${q.rewardTickets.count}`);
     const ci=q.rewardItems&&careById(q.rewardItems.itemId); if(ci) rw.push(`${ci.emoji} ${ci.name} ×${q.rewardItems.count}`);
@@ -3100,6 +3195,7 @@ const fmtDue=ts=>{ const d=new Date(ts); return `${d.getMonth()+1}/${d.getDate()
 function extBlock(q){
   if(q.status!=="expired"||!q.assigneeId) return "";
   const E=q.ext, mineA=q.assigneeId===viewerId, mineC=q.creatorId===viewerId;
+  if(!E&&isDailyQ(q)) return mineA?`<div class="extbox"><div>⏰ 기한이 지났어요. 매일 반복 퀘스트는 연장할 수 없어요. 내일 새로 올라오면 다시 도전해 주세요.</div></div>`:"";
   if(!E){ return mineA?`<div class="extbox"><div>⏰ 기한이 지났어요. ${esc(nameOf(q.creatorId))} 님에게 기한을 늘려 달라고 부탁할 수 있어요.</div><div class="actions"><button class="btn pink sm" data-act="extReq" data-id="${q.id}">⏳ 연장 신청</button></div></div>`:""; }
   if(E.status==="requested") return mineC?`<div class="extbox ask"><b>⏳ ${esc(nameOf(q.assigneeId))} 님의 연장 신청</b><div>원하는 새 기한: ${fmtDue(E.want)}</div>${E.msg?`<div class="extmsg">“${esc(E.msg)}”</div>`:""}
       <div class="actions"><button class="btn pink sm" data-act="extReview" data-id="${q.id}">검토하기</button><button class="btn ghost sm" data-act="extReject" data-id="${q.id}">거절</button></div></div>`
@@ -3158,10 +3254,15 @@ const OWNER_MISSIONS=[["questPost","퀘스트 1개 올리기",1],["questReview",
 function myMissions(){ const day=dkey(Date.now()); const pick=(arr,n,salt)=>[...arr.keys()].sort((a,b)=>hash(viewerId+day+salt+a)-hash(viewerId+day+salt+b)).slice(0,n).map(i=>arr[i]);
   const life=isOwner(me())?OWNER_MISSIONS:LIFE_MISSIONS;
   return [...pick(MISSIONS,2,"P").map(x=>Object.assign([...x],{life:false})),...pick(life,2,"L").map(x=>Object.assign([...x],{life:true}))]; }
+function moneyGuide(here,place){ const row=(k,ic,n,earn,spend)=>`<div class="mg-row ${here===k?"on":""}"><span class="mg-ic">${ic}</span><div><b>${n}</b><small>${earn}<br>👉 <u>${spend}</u></small></div>${here===k?'<span class="mg-here">여기</span>':""}</div>`;
+  return `<div class="mguide">${row("coin","🪙","코인","퀘스트를 하면 받아요","상점에서 실제 보상으로 바꿔요")}${row("acorn","🌰","도토리","미니게임·의뢰·출석으로 모아요","장터·라멘집·검정 응시료에 써요")}</div>`+placeNote(place); }
+function placeNote(p){ const t={market:"여기 장터에서는 도토리로 키우기 아이템을 사요.",ramen:`여기 라멘집에서는 한 그릇에 🌰 ${RAMEN_FEE}개를 내요.`,exam:`여기 시험장에서는 응시료로 🌰 ${EXAM_FEE}개를 내요.`,field:"여기서는 미니게임을 해서 도토리를 모아요.",hunt:"여기서는 미니게임을 해서 도토리를 모아요.",forest:"여기서는 미니게임을 해서 도토리를 모아요.",guild:"여기서는 의뢰를 끝내고 도토리를 받아요."}[p];
+  return t?`<p class="mg-place">📍 ${t}</p>`:""; }
+const helpBtn=(k,p)=>`<button class="qhelp" data-act="moneyHelp" data-k="${k}" data-p="${p||""}" aria-label="코인과 도토리 설명 보기">?</button>`;
 function acornHTML(n){ return `<span class="acorn">🌰 ${n}</span>`; }
 function activityHTML(m){
   const me_=me(), d=today(me_), left=k=>testOn()?99:DAILY_CAP[k]-playsUsed(d,k);
-  const head=`<div class="acthead"><b>이곳에서 할 수 있는 일</b>${acornHTML(me_.acorns||0)}</div>`;
+  const head=`<div class="acthead"><b>이곳에서 할 수 있는 일</b><span class="ah-r">${acornHTML(me_.acorns||0)}${helpBtn("acorn",m.id)}</span></div>`;
   const btn=(act,ic,t,sub,dis,badge)=>{ const n=badge!=null?badge:((String(sub).match(/오늘 (\d+)번 남음/)||[])[1]||"");
     return `<button class="actbtn" data-act="${act}" ${dis?"disabled":""} title="${esc(String(sub).replace(/<[^>]+>/g,""))}"><span class="ai">${ic}${n!==""?`<i class="ai-n">${esc(n)}</i>`:""}</span><span class="at"><b>${t}</b><small>${sub}</small></span></button>`; };
   let body="";
@@ -3171,7 +3272,7 @@ function activityHTML(m){
   else if(m.id==="exam") body=btn("gExam\" data-k=\"weed","🌿","잡초 뽑기 검정","독초를 가려내는 눈이 필요해요 · 🌰 "+EXAM_FEE+" · 캐릭터마다 하루 한 번",false)+'<div style="height:8px"></div>'+btn("gExam\" data-k=\"hunt","⚔️","토벌 검정","5급부터 1급까지 · 🌰 "+EXAM_FEE+" · 캐릭터마다 하루 한 번",false)+'<div style="height:8px"></div>'+btn("gExam\" data-k=\"sake","🍶","술 자격 검정","같은 술 짝 맞추기 · 5급부터 1급까지 · 🌰 "+EXAM_FEE,false)+'<div style="height:8px"></div>'+btn("gPracticeOpen","🎯","연습장","난이도를 골라 마음껏 연습 · 보상 없음",false);
   else if(m.id==="ramen") body=btn("gRamen","🍜","로우 라멘 주문하기","주문이 어렵기로 유명한 가게 · 🌰 "+RAMEN_FEE+" · 오늘 "+left("ramen")+"번 남음",(me_.acorns||0)<RAMEN_FEE||left("ramen")<=0);
   else if(m.id==="market"){ const open=shops().filter(sh=>shopGoods(sh.id).length);
-    body=open.length?open.map(sh=>btn(`gShop" data-id="${esc(sh.id)}`,esc(sh.emoji||"🛒"),esc(sh.name),esc(sh.desc||"")+` · 물건 ${shopGoods(sh.id).length}개`,false,String(shopGoods(sh.id).length))).join(""):'<p class="hint">장터에 문을 연 가게가 없어요.</p>'; }
+    body=(open.length?open.map(sh=>btn(`gShop" data-id="${esc(sh.id)}`,esc(sh.emoji||"🛒"),esc(sh.name),esc(sh.desc||"")+` · 물건 ${shopGoods(sh.id).length}개`,false,String(shopGoods(sh.id).length))).join(""):'<p class="hint">장터에 문을 연 가게가 없어요.</p>'); }
   else if(m.id==="guild"){ const ms=myMissions(); const doneAll=ms.every(([k,,n])=>(d.c[k]||0)>=n);
     body=`<div class="hint" style="margin:-4px 0 6px">오늘의 의뢰 · 매일 바뀌어요</div>`+ms.map(mm=>{ const [k,t,n]=mm; const v=Math.min(n,d.c[k]||0), ok=v>=n, got=d.claimed.includes(k);
       return `<div class="mission ${got?"got":""}"><span class="mi">${ok?"✅":"📜"}</span><div class="mt"><b>${t}</b><span class="mtag ${mm.life?"life":"pet"}">${mm.life?"생활":"키우기"}</span><div class="mp"><i style="width:${v/n*100}%"></i></div><small>${v}/${n}</small></div>
@@ -3728,7 +3829,7 @@ function bondTick(){ if(!state||!loaded) return; const pets=alivePets(); if(pets
   commit(s=>{ pairs.forEach(([ai,bi])=>{ const a=s.pets.find(x=>x.id===ai), b=s.pets.find(x=>x.id===bi); if(!a||!b) return; if((a.bondSlot||{})[bi]===slot) return;
     a.bond=a.bond||{}; b.bond=b.bond||{}; a.bondSlot=a.bondSlot||{}; b.bondSlot=b.bondSlot||{}; const was=BOND_LV(a.bond[bi]||0)[0];
     a.bond[bi]=(a.bond[bi]||0)+1; b.bond[ai]=(b.bond[ai]||0)+1; a.bondSlot[bi]=slot; b.bondSlot[ai]=slot; const now_=BOND_LV(a.bond[bi])[0];
-    if(now_!==was){ const t=`${a.nick}와(과) ${b.nick}이(가) ${now_}이(가) 됐어요`; [a,b].forEach(x=>{ x.growth=x.growth||[]; x.growth.unshift({ts:Date.now(),kind:"bonus",text:"💞 "+t}); }); notify(s,a.ownerId,"💞",t); } }); },{replay:true}); }
+    if(now_!==was){ const t=`${a.nick}와(과) ${b.nick}이(가) ${now_}이(가) 됐어요`; [a,b].forEach(x=>{ x.growth=x.growth||[]; x.growth.unshift({ts:Date.now(),kind:"bonus",text:"💞 "+t}); }); notify(s,a.ownerId,"💞",t,"p:"+a.id); } }); },{replay:true}); }
 function bondChips(p){ return Object.entries(p.bond||{}).filter(([id])=>state.pets.some(x=>x.id===id&&!x.dead)).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([id,v])=>{ const o=state.pets.find(x=>x.id===id); const [l,ic]=BOND_LV(v); return `<span title="친밀도 ${v}">${ic} ${esc(o.nick)}와 ${l}</span>`; }); }
 const bestBond=p=>Math.max(0,...Object.values(p.bond||{}));
 /* ---------- 이벤트 카드 ---------- */
@@ -3749,7 +3850,7 @@ function evCondMet(e,p){ if(e.trigger==="time"){ const d=new Date(); const hm=`$
   if(e.trigger==="stat"){ const v=evStat(p,e.stat,e.itemId), n=+e.n||0; return e.op==="<="?v<=n:e.op==="=="?v===n:v>=n; } return false; }
 let evCondBusy=false;
 // 시각·조건 이벤트 판정 (키우기 탭에서 상태가 바뀔 때마다 + 20초마다)
-function evCondCheck(){ if(!state||!loaded||evCondBusy||tab!=="pet"||$("#fxSlot")?.innerHTML) return; const m=me(); if(!m) return; const today=dkey(Date.now()), fired=m.evFired||{};
+function evCondCheck(){ if(!state||!loaded||evCondBusy||tab!=="pet"||$("#fxSlot")?.innerHTML||fxBusy()) return; const m=me(); if(!m) return; const today=dkey(Date.now()), fired=m.evFired||{};
   for(const p of alivePets()) for(const e of allEvents().filter(x=>(x.trigger==="time"||x.trigger==="stat"||x.trigger==="anniv")&&evFor(x,p))){ const k=e.id+":"+p.id;
     if(e.once&&(m.eventAlbum||{})[e.id]) continue; if(e.trigger==="anniv"){ if(fired[k]) continue; if(petCalc(p).days<+e.days) continue; } else { if(fired[k]===today) continue; if(!evCondMet(e,p)) continue; }
     evCondBusy=true; const isNew=!(m.eventAlbum||{})[e.id];
@@ -3762,7 +3863,7 @@ function evText(ev,p){ const o=me(); return String(ev.text||"").replace(/\{이�
 function fireEvent(s,mid,ev,p,how){ const mm=s.members.find(x=>x.id===mid); if(!mm) return false; mm.eventAlbum=mm.eventAlbum||{}; if(ev.once&&mm.eventAlbum[ev.id]) return false;
   mm.eventAlbum[ev.id]=(mm.eventAlbum[ev.id]||0)+1; if(p){ const P=freshen(p); setPetStats(p,{mood:P.mood+(+ev.mood||0)}); if(+ev.grow) addGxp(p,+ev.grow); p.growth=p.growth||[]; p.growth.unshift({ts:Date.now(),kind:"event",text:`🎴 ${ev.title}`}); }
   if(mm.eventAlbum[ev.id]===1) notify(s,"all","🎴",`${mm.name} 님이 이벤트 카드 ‘${ev.title}’을(를) 얻었어요${p?` (${p.nick})`:""}`); return true; }
-function showEvent(ev,p,isNew){ fxOverlay({kind:"event",title:isNew?"이벤트 카드 획득!":"이벤트 발생!",pic:evPic(ev),name:ev.title,sub:evText(ev,p),rewards:[isNew?"앨범에 새로 추가":"앨범 +1",+ev.mood?`기분 ${ev.mood>0?"+":""}${ev.mood}`:"",+ev.grow?`성장 +${ev.grow}`:""].filter(Boolean),btn:"멋져!"}); }
+function showEvent(ev,p,isNew){ if(fxBusy()) return setTimeout(()=>showEvent(ev,p,isNew),1500); fxOverlay({kind:"event",title:isNew?"이벤트 카드 획득!":"이벤트 발생!",pic:evPic(ev),name:ev.title,sub:evText(ev,p),rewards:[isNew?"앨범에 새로 추가":"앨범 +1",+ev.mood?`기분 ${ev.mood>0?"+":""}${ev.mood}`:"",+ev.grow?`성장 +${ev.grow}`:""].filter(Boolean),btn:"멋져!"}); }
 // 아이템을 줬을 때 (petGive 끝에서 호출)
 function evOnItem(pid,itemId){ const p=state.pets.find(x=>x.id===pid); if(!p) return; const m=me(); const L=(state.events||[]).filter(e=>e.trigger==="item"&&e.itemId===itemId&&evFor(e,p)&&!(e.once&&(m.eventAlbum||{})[e.id])); if(!L.length) return;
   const ev=L[hash(pid+itemId+Date.now())%L.length], isNew=!(m.eventAlbum||{})[ev.id]; let ok=false; commit(s=>{ const x=s.pets.find(y=>y.id===pid); ok=fireEvent(s,viewerId,ev,x,"item"); },{replay:true}); if(ok!==false) setTimeout(()=>showEvent(ev,p,isNew),700); }
@@ -3908,7 +4009,7 @@ ${l.text}
 JSON 하나로만 답해: {"reply":"답장 본문"}`;
   try{ let text=""; if(aiReady()){ try{ const r=await aiJSON(prompt,{max:900}); text=String(r?.reply||"").slice(0,500); }catch(e){ aiWarn(e); if(!["bad_key","bad_model","no_ai"].includes(e?.code)&&(l.tries||0)<3){ commit(s=>{ const y=s.pets.find(z=>z.id===p.id)?.letters?.find(z=>z.id===l.id); if(y) y.tries=(y.tries||0)+1; },{replay:true}); return; } } }
     if(!text) text=localReply(p,l);
-    commit(s=>{ const x=s.pets.find(y=>y.id===p.id); const y=x?.letters?.find(z=>z.id===l.id); if(!y||y.reply) return; y.reply=text; y.replyAt=Date.now(); notify(s,l.from,"💌",`${x.nick}에게서 답장이 왔어요`); },{replay:true});
+    commit(s=>{ const x=s.pets.find(y=>y.id===p.id); const y=x?.letters?.find(z=>z.id===l.id); if(!y||y.reply) return; y.reply=text; y.replyAt=Date.now(); notify(s,l.from,"💌",`${x.nick}에게서 답장이 왔어요`,"p:"+x.id); },{replay:true});
     toast(`💌 ${p.nick}에게서 답장이 왔어요!`);
   }catch(e){ }finally{ letterBusy=false; }
 }
@@ -4097,6 +4198,30 @@ function chapterSheet(cid,chId){
 }
 
 /* ---------- feed / repeat / due / attendance / backup ---------- */
+const isDailyQ=(q,s)=>!!q.repeatId&&(q.daily||((s||state).repeats||[]).find(r=>r.id===q.repeatId)?.freq==="daily");
+const failOf=(q,s)=>{ if(q.failCoins!=null) return q.failCoins|0; const r=q.repeatId&&((s||state).repeats||[]).find(x=>x.id===q.repeatId); return r?(r.failCoins|0):0; };
+// 기한 넘긴 사람 처리 (앱에서 처리했든, 자동 생성 서버가 먼저 '기한 지남'으로 바꿨든 한 번만)
+function applyFail(s,q){ if(q.failDone||!q.assigneeId) return; q.failDone=true; q.failedBy=[...new Set([...(q.failedBy||[]),q.assigneeId])]; const had=q.assigneeId, a=s.members.find(x=>x.id===had), pen=failOf(q,s);
+  if(a){ a.fails=(a.fails||0)+1; if(pen>0) a.coins=(a.coins||0)-pen; }
+  q.result={type:"fail",to:had,note:pen>0?`기한이 지나서 코인 ${pen}개가 깎였어요`:"기한이 지났어요",seen:false}; notify(s,had,"⏰",`‘${q.title}’ 기한이 지났어요${pen>0?` · 코인 -${pen}`:""}`,"q:"+q.id); }
+const giveupBase=(q,s)=>{ const f=failOf(q,s); return f>0?Math.ceil(f*0.1):0; }; // 실패 벌칙의 10% (올림)
+const giveupPen=(q,s)=>nearFail(q)?giveupBase(q,s):0; // 마감 3시간 전부터 포기하면 깎여요 (다른 사람이 만회할 시간을 뺏으니까)
+const WARN_MS=3*3600000; // 마감 3시간 전에 '곧 실패' 경고
+const nearFail=q=>q.status==="in_progress"&&q.assigneeId&&q.due&&q.due>Date.now()&&q.due-Date.now()<=WARN_MS;
+const failPending=q=>q.status==="expired"&&q.assigneeId&&!q.failDone&&!q.ext&&(q.expiredAt||0)>=Date.now()-3*86400000&&(q.expiredAt||0)>=FAIL_SINCE;
+const FAIL_SINCE=1792637340000; // 이 기능이 생기기 전에 끝난 퀘스트는 다시 깎지 않아요
+// 본인이 실패했던 퀘스트를 다시 받으면 보상(코인·경험치) 30% 줄어요. 다른 사람은 그대로.
+const REOPEN_MS=24*3600000; // 다시 올라온 퀘스트는 하루 안에
+// 실패한 퀘스트를 모집 중으로 다시 올려요 (연장 거절·연장 포기). 멤버가 올린 퀘스트는 코인을 다시 걸어야 해서 모자라면 못 올려요.
+function reopenQuest(s,q){ const who=q.assigneeId, c=s.members.find(x=>x.id===q.creatorId), need=c&&!isOwner(c)?(q.rewardCoins||0):0;
+  if(need&&c.coins<need) return false; if(need) c.coins-=need; if(who) q.failedBy=[...new Set([...(q.failedBy||[]),who])];
+  q.status="open"; q.assigneeId=null; q.due=Date.now()+REOPEN_MS; q.overdue=false; q.reopened=Date.now(); q.ext=null; q.failDone=false; delete q.warned; delete q.expiredAt; q.rejectNote=""; q.submitNote="";
+  notify(s,"all","🔄",`‘${q.title}’ 퀘스트가 다시 올라왔어요. 먼저 받는 사람이 할 수 있어요`,"q:"+q.id); return true; }
+const canReopen=q=>{ const c=member(q.creatorId); return !(c&&!isOwner(c)&&(q.rewardCoins||0)>c.coins); };
+const CUT=0.7, cutFor=(q,mid)=>!!mid&&(q.failedBy||[]).includes(mid);
+const effXp=(q,mid)=>cutFor(q,mid)?Math.round((q.rewardXp||0)*CUT):(q.rewardXp||0);
+const effCoins=(q,mid)=>cutFor(q,mid)?Math.round((q.rewardCoins||0)*CUT):(q.rewardCoins||0);
+const ownerDoing=q=>q.status==="in_progress"&&q.assigneeId&&isOwner(member(q.assigneeId)||{});
 /* ---------- ntfy 푸시 (서버 없이) ----------
    방마다 비밀 주제 이름을 만들어 두고, 가족은 ntfy 앱에서 그 주제를 구독해요. 앱은 피드 알림이 생길 때 ntfy.sh로 바로 보내요. */
 const NTFY_BASE="https://ntfy.sh";
@@ -4112,28 +4237,71 @@ function flushNtfy(){ if(!ntfyQ.length) return; const q=ntfyQ.splice(0); const T
     targets.forEach(t=>ntfySend(t,title,`${n.icon||""} ${n.text}`.trim())); } }
 function myFeed(){ const m=me(); if(!m) return []; return (state.feed||[]).filter(f=>f.to===viewerId||f.to==="all"||(f.to==="owners"&&isOwner(m))); }
 function feedUnread(){ const m=me(); return myFeed().filter(f=>f.ts>(m?.feedSeen||0)).length; }
+/* 알림을 누르면 관련 화면으로 (예전 알림은 아이콘·문구로 짐작해요) */
+function feedRoute(f){ const r=f.ref||"", ic=f.icon||"", t=f.text||"", owner=isOwner(me()||{});
+  if(r.startsWith("notice:")) return state.notices.some(n=>n.id===r.slice(7))?{notice:r.slice(7)}:null;
+  const qid=r.startsWith("q:")?r.slice(2):null, pid=r.startsWith("p:")?r.slice(2):null;
+  if(ic==="📮"||(ic==="⏳"&&t.includes("신청"))) return {q:"review",qid};
+  if(ic==="↩️"&&t.includes("코인")) return {ledger:1};
+  if(ic==="✏️"&&t.includes("요청했어요")) return {q:"progress",qid};
+  if(["🌧️","📨","🙅"].includes(ic)) return {q:"progress",qid};
+  if(ic==="⏰") return t.includes("주간")?{q:"open",qid}:{q:"progress",qid};
+  if(ic==="👑"||ic==="🔄") return {q:"open",qid};
+  if(ic==="🏆"||(ic==="🙋"&&t.includes("셀프"))) return {q:"done",qid};
+  if(ic==="🗑️") return {q:t.includes("하던")?"progress":"mine"};
+  if(["🙋","↩️","🏳️","🙆","🏃","✏️"].includes(ic)||(ic==="✅"&&t.includes("수정"))) return {q:"mine",qid};
+  if(ic==="💸"||ic==="📉"||(ic==="🎁"&&/코인|경험치/.test(t))) return {ledger:1};
+  if(ic==="🛍️"||(ic==="✅"&&t.includes("받았어요"))) return owner?{orders:1}:null;
+  if(ic==="🎁"&&t.includes("지급됐어요")) return {shop:1};
+  if(ic==="🎁") return {bag:"items"};
+  if(ic==="🎫") return {bag:"tickets"};
+  if(ic==="🎴") return t.includes(me()?.name||"\u0000")?{bag:"sprout"}:null;
+  if(ic==="🏅") return t.includes(me()?.name||"\u0000")||t.startsWith("새 칭호")?{titles:1}:null;
+  if(["🐾","💞","💌"].includes(ic)) return {pet:pid,mail:ic==="💌"};
+  if(ic==="🔒"||ic==="⭐") return {settings:"me"};
+  return null; }
+function flashCard(el){ if(!el) return; el.scrollIntoView({behavior:"smooth",block:"center"}); el.classList.add("qflash"); setTimeout(()=>el.classList.remove("qflash"),2500); }
+function goQuest(seg,qid){ tab="quests"; questSeg=seg; closeSheet(); render(); window.scrollTo(0,0); if(!qid) return;
+  const find=()=>document.querySelector(`[data-qid="${qid}"]`); let el=find();
+  if(!el){ for(const k of ["progress","open","review","mine","done"]){ if(k===seg) continue; questSeg=k; render(); el=find(); if(el) break; } if(!el){ questSeg=seg; render(); } }
+  if(el) setTimeout(()=>flashCard(find()),80); }
+function feedGo(f){ const R=feedRoute(f); if(!R) return;
+  if(R.notice){ closeSheet(); noticeViewSheet(R.notice); markNoticesSeen(); return; }
+  if(R.q) return goQuest(R.q,R.qid);
+  if(R.ledger){ closeSheet(); return ledgerSheet(viewerId); }
+  if(R.orders){ closeSheet(); tab="settings"; setSeg="orders"; render(); window.scrollTo(0,0); return; }
+  if(R.shop){ closeSheet(); tab="shop"; render(); window.scrollTo(0,0); return; }
+  if(R.bag){ closeSheet(); tab="bag"; bagSeg=R.bag; render(); window.scrollTo(0,0); return; }
+  if(R.titles){ closeSheet(); return titlePickSheet(); }
+  if(R.settings){ closeSheet(); tab="settings"; setSeg=R.settings; render(); window.scrollTo(0,0); return; }
+  if(R.pet!==undefined){ const p=R.pet&&state.pets.find(x=>x.id===R.pet); closeSheet();
+    if(p){ goPet(p.id); if(R.mail) setTimeout(()=>mailboxSheet(p.id),150); } else { tab="pet"; render(); window.scrollTo(0,0); } return; } }
 function feedSheet(){
   const m=me(), seen=m.feedSeen||0, L=myFeed().slice(0,60);
-  openSheet(`<h3>알림</h3>${L.length?L.map(f=>`<div class="feeditem ${f.ts>seen?"new":""}"><span class="fi">${esc(f.icon)}</span><div><div>${esc(f.text)}</div><small>${fmtTime(f.ts)}</small></div></div>`).join(""):'<div class="empty">아직 알림이 없어요.</div>'}<div class="actions">${closeBtn}</div>`);
+  openSheet(`<h3>알림</h3>${L.length?L.map(f=>{ const go=!!feedRoute(f), inner=`<span class="fi">${esc(f.icon)}</span><div class="ft"><div>${esc(f.text)}</div><small>${fmtTime(f.ts)}</small></div>`;
+    return go?`<button class="feeditem go ${f.ts>seen?"new":""}" data-act="feedGo" data-id="${esc(f.id||"")}">${inner}<span class="fgo" aria-hidden="true">›</span></button>`:`<div class="feeditem ${f.ts>seen?"new":""}">${inner}</div>`; }).join(""):'<div class="empty">아직 알림이 없어요.</div>'}<div class="actions">${closeBtn}</div>`);
   if(L.length&&L[0].ts>seen) commit(s=>{ s.members.find(x=>x.id===viewerId).feedSeen=Date.now(); });
 }
 const endOfDay=()=>{ const d=new Date(); d.setHours(23,59,59,0); return d.getTime(); };
 const DOW="일월화수목금토";
 function repeatDue(r){ if(r.paused) return false; const t=dkey(Date.now()); if(r.lastSpawn===t) return false; return r.freq==="daily"||(r.freq==="weekly"&&(r.days||[]).includes(new Date().getDay())); }
-function needsMaint(){ const now=Date.now(); return state.lastPrune!==dkey(now)||(state.repeats||[]).some(repeatDue)||state.quests.some(q=>q.due&&now>q.due&&((q.status==="open"&&!q.overdue)||q.status==="in_progress")); }
+function needsMaint(){ const now=Date.now(); return state.lastPrune!==dkey(now)||(state.repeats||[]).some(repeatDue)||state.quests.some(q=>q.due&&now>q.due&&((q.status==="open"&&!q.overdue)||q.status==="in_progress"))||state.quests.some(failPending)||state.quests.some(q=>nearFail(q)&&!q.warned); }
 function maintenance(s){
   const now=Date.now(), t=dkey(now);
   (s.repeats||[]).forEach(r=>{ if(!repeatDue(r)) return; r.lastSpawn=t;
     let due=dueToday(r.dueTime), late=null; // 마감 시각이 이미 지났어도 오늘 처음 열렸으면 올리되, 기한은 오늘 자정까지로
     if(due<=now){ late=due; due=dueToday("23:59"); if(due<=now) return; }
     s.quests=s.quests.filter(q=>!(q.repeatId===r.id&&q.status==="open"));
-    s.quests.push({id:uid(),title:r.title,desc:r.desc,creatorId:r.creatorId,rewardXp:r.rewardXp,rewardCoins:r.rewardCoins,rewardTitleId:r.rewardTitleId||null,rewardTickets:r.rewardTickets||null,rewardItems:r.rewardItems||null,status:"open",assigneeId:null,createdAt:now,due,repeatId:r.id,late}); });
+    s.quests.push({id:uid(),title:r.title,desc:r.desc,creatorId:r.creatorId,rewardXp:r.rewardXp,rewardCoins:r.rewardCoins,rewardTitleId:r.rewardTitleId||null,rewardTickets:r.rewardTickets||null,rewardItems:r.rewardItems||null,status:"open",assigneeId:null,createdAt:now,due,repeatId:r.id,late,daily:r.freq==="daily",failCoins:r.failCoins||0}); });
   s.quests.forEach(q=>{ if(!(q.due&&now>q.due&&(q.status==="open"||q.status==="in_progress"))) return;
-    if(q.status==="open"&&q.repeatId){ const r=(s.repeats||[]).find(x=>x.id===q.repeatId); if(r&&r.freq==="weekly"){ if(!q.overdue){ q.overdue=true; notify(s,"all","⏰",`주간 퀘스트 ‘${q.title}’이(가) 아직 아무도 안 해서 연체됐어요. 이번 주 안에 해 주세요`); } return; } } // 주간 반복: 아무도 안 받았으면 없애지 않고 '연체'로 남겨요
+    if(q.status==="open"&&q.repeatId){ const r=(s.repeats||[]).find(x=>x.id===q.repeatId); if(r&&r.freq==="weekly"){ if(!q.overdue){ q.overdue=true; notify(s,"all","⏰",`주간 퀘스트 ‘${q.title}’이(가) 아직 아무도 안 해서 연체됐어요. 이번 주 안에 해 주세요`,"q:"+q.id); } return; } } // 주간 반복: 아무도 안 받았으면 없애지 않고 '연체'로 남겨요
     const had=q.assigneeId; q.status="expired"; q.expiredAt=now; if(q.ext&&q.ext.status==="accepted") q.ext=null;
     dropEdit(s,q,"기한이 지나서 수정 요청이 취소됐어요");
-    const c=s.members.find(x=>x.id===q.creatorId); if(c&&!isOwner(c)&&q.rewardCoins){ c.coins+=q.rewardCoins; notify(s,c.id,"↩️",`‘${q.title}’ 기한이 지나서 건 코인 ${q.rewardCoins}개가 돌아왔어요`); }
-    if(had){ q.result={type:"fail",to:had,note:"기한이 지났어요",seen:false}; notify(s,had,"⏰",`‘${q.title}’ 기한이 지났어요`); } });
+    const c=s.members.find(x=>x.id===q.creatorId); if(c&&!isOwner(c)&&q.rewardCoins){ c.coins+=q.rewardCoins; notify(s,c.id,"↩️",`‘${q.title}’ 기한이 지나서 건 코인 ${q.rewardCoins}개가 돌아왔어요`,"q:"+q.id); }
+    if(had) applyFail(s,q); });
+  s.quests.forEach(q=>{ if(nearFail(q)&&!q.warned){ q.warned=true; const f=failOf(q,s), g=giveupPen(q,s);
+    notify(s,q.assigneeId,"⏰",`‘${q.title}’ 마감이 3시간도 안 남았어요! 안 하면 실패${f?`하고 코인 -${f}`:"해요"}${g?` · 못 하면 지금 포기하면 -${g}만 깎여요`:""}`,"q:"+q.id); } });
+  s.quests.forEach(q=>{ if(failPending(q)) applyFail(s,q); }); // 서버(자동 생성)가 먼저 '기한 지남'으로 바꾼 퀘스트도 여기서 깎아요
   if(s.lastPrune!==t){ s.lastPrune=t; prune(s); }
 }
 /* 6개월(183일) 지난 기록 자동 정리 */
@@ -4148,7 +4316,7 @@ function prune(s){ const cut=Date.now()-KEEP_MS;
 function dueToday(hm){ const d=new Date(); const [h,m]=(hm||"23:59").split(":").map(Number); d.setHours(h||0,m||0,hm?0:59,0); return d.getTime(); }
 let maintBusy=false;
 function runMaint(){ if(!state||maintBusy||!needsMaint()) return; maintBusy=true; const ph=state.lastPrune!==dkey(Date.now())?prunePhotos(state):[];
-  commit(s=>maintenance(s),{replay:true,reason:"기한 지남 · 정리"}); maintBusy=false; dropPhotos(ph); }
+  commit(s=>maintenance(s),{replay:true,reason:"기한 지남 · 정리",allowNeg:true}); maintBusy=false; dropPhotos(ph); }
 /* 정리되는 기록에 붙은 사진 → 다른 곳에서 안 쓰면 삭제 */
 function prunePhotos(s){ const cut=Date.now()-KEEP_MS, L=[];
   s.quests.forEach(q=>{ if((q.status==="done"||q.status==="expired")&&(q.doneAt||q.expiredAt||q.createdAt||0)<cut&&q.submitPhoto) L.push(q.submitPhoto); });
@@ -4182,6 +4350,7 @@ function repeatSheet(id){ const r=state.repeats.find(x=>x.id===id); if(!r) retur
   <div class="field"><label for="rCareN">개수</label><input id="rCareN" type="number" min="1" value="${r.rewardItems?.count||1}" inputmode="numeric"></div></div>
   <div class="two"><div class="field"><label for="rFreq">반복</label><select id="rFreq"><option value="daily" ${r.freq==="daily"?"selected":""}>매일</option><option value="weekly" ${r.freq==="weekly"?"selected":""}>매주 (요일 고르기)</option></select></div>
   <div class="field"><label for="rTime">마감 시각</label><input id="rTime" type="time" value="${esc(r.dueTime||"23:59")}"></div></div>
+  <div class="field"><label for="rFail">안 하면 깎을 코인</label><input id="rFail" type="number" min="0" max="9999" value="${r.failCoins||0}" inputmode="numeric" style="max-width:140px"></div>
   <div class="days" id="rDays" ${r.freq==="weekly"?"":"hidden"}>${[1,2,3,4,5,6,0].map(i=>`<label><input type="checkbox" value="${i}" ${(r.days||[]).includes(i)?"checked":""}><span>${DOW[i]}</span></label>`).join("")}</div>
   ${tq?`<div class="field" style="margin-top:10px"><label style="display:flex;gap:8px;align-items:center;color:var(--ink)"><input type="checkbox" id="rToday" checked style="width:auto"> 오늘 올라와 있는 퀘스트에도 바로 적용</label></div>`:""}
   <p class="hint">누군가 이미 수락한 오늘 퀘스트는 바뀌지 않고, 내일부터 바뀐 내용으로 올라와요.</p>
@@ -4323,9 +4492,9 @@ function itemsInvHTML(){
 const RK_P=[["day","오늘"],["week","이번 주"],["month","이번 달"],["year","올해"]];
 const RK_C=[["total","종합"],["coin","코인 획득"],["level","레벨 상승"],["quest","퀘스트 클리어"]];
 function rankRows(){
-  const from=periodStart(rkPeriod), agg={};
+  const [from,to]=periodRange(rkPeriod,rkOff), agg={};
   state.members.forEach(m=>agg[m.id]={c:0,x:0,q:0});
-  for(const [k,day] of Object.entries(state.stats||{})) if(k>=from) for(const [mid,r] of Object.entries(day)) if(agg[mid]){ agg[mid].c+=r.c; agg[mid].x+=r.x; agg[mid].q+=r.q; }
+  for(const [k,day] of Object.entries(state.stats||{})) if(k>=from&&k<to) for(const [mid,r] of Object.entries(day)) if(agg[mid]){ agg[mid].c+=r.c; agg[mid].x+=r.x; agg[mid].q+=r.q; }
   return state.members.map(m=>{ const a=agg[m.id]; const lv=levelInfo(m.xp).lvl, lv0=levelInfo(Math.max(0,m.xp-a.x)).lvl; const up=lv-lv0;
     const score=a.c+a.x+a.q*30;
     const v={total:[score,`${score}점`,`코인 ${a.c} · 경험치 ${a.x} · 퀘스트 ${a.q}`],coin:[a.c,`${a.c}코인`,""],level:[up*100000+a.x,`+${up}레벨`,`경험치 ${a.x}`],quest:[a.q,`${a.q}개`,""]}[rkCat];
@@ -4344,8 +4513,11 @@ function rankHTML(){
     <div class="info"><div class="top"><b>${esc(r.m.name)}</b><span class="lvmini">Lv.${levelInfo(r.m.xp).lvl}</span></div>${memberTitleHTML(r.m)}</div>
     <div class="val">${r.sort>0?r.val:"-"}${r.sub?`<small>${r.sub}</small>`:""}</div></div>`).join("");
   const note=rkCat==="total"?'<p class="hint">종합 점수 = 획득 코인 + 획득 경험치 + 클리어 퀘스트 × 30</p>':"";
+  const nav=`<div class="rknav"><button class="btn ghost sm" data-act="rkOff" data-d="1">◀ 이전</button><b>${esc(periodLabel(rkPeriod,rkOff))}</b><button class="btn ghost sm" data-act="rkOff" data-d="-1" ${rkOff>0?"":"disabled"}>다음 ▶</button></div>`;
+  const weekly=rkPeriod==="week"?(()=>{ const W=12, cols=[]; for(let i=0;i<W;i++){ const [a,b]=periodRange("week",i); const agg={}; state.members.forEach(m=>agg[m.id]=0); for(const [k,day] of Object.entries(state.stats||{})) if(k>=a&&k<b) for(const [mid,r] of Object.entries(day)) if(mid in agg) agg[mid]+=r.c||0; cols.push({i,a,agg}); }
+    return `<h2>주간 코인 획득 <span class="count">최근 ${W}주</span></h2><div class="card" style="padding:8px 4px;overflow-x:auto"><table class="wkt"><thead><tr><th>주</th>${state.members.map(m=>`<th>${esc(m.name)}</th>`).join("")}</tr></thead><tbody>${cols.map(c=>`<tr class="${c.i===rkOff?"on":""}"><td><button class="lnk" data-act="rkGo" data-i="${c.i}">${c.i===0?"이번 주":c.i===1?"지난 주":c.i+"주 전"}<small>${+c.a.slice(5,7)}/${+c.a.slice(8,10)}~</small></button></td>${state.members.map(m=>`<td>${c.agg[m.id]||0}</td>`).join("")}</tr>`).join("")}</tbody></table><p class="hint" style="margin:6px 8px 0">퀘스트 보상과 출석으로 번 코인만 세요(방장 직접 지급·벌칙·구매 제외). 월요일부터 일요일까지가 한 주예요.</p></div>`; })():"";
   const sub3=rows.slice(0,3).some(r=>r.sub)?`<div style="margin-top:-4px">${rows.slice(0,3).map((r,i)=>r.sub?`<p class="hint" style="margin:2px 0">${medals[i]} ${esc(r.m.name)}: ${r.sub}</p>`:"").join("")}</div>`:"";
-  return `<div class="seg">${fp}</div><div class="rkfilters">${fc}</div>${podium}${sub3}${rest}${note}`;
+  return `<div class="seg">${fp}</div>${nav}<div class="rkfilters">${fc}</div>${podium}${sub3}${rest}${note}${weekly}`;
 }
 
 /* ---------- checklist ---------- */
@@ -4507,15 +4679,16 @@ function newQuestSheet(){
   <div class="days" id="repDays" hidden>${[1,2,3,4,5,6,0].map(i=>`<label><input type="checkbox" value="${i}"><span>${DOW[i]}</span></label>`).join("")}</div>
   <div class="field" id="repTimeBox" hidden style="margin-top:8px"><label for="qRepTime">마감 시각</label><input id="qRepTime" type="time" value="23:59" style="max-width:160px"></div>
   <p class="hint">반복 퀘스트는 그날 마감 시각(기본 밤 11시 59분)까지가 기한이고, 날마다 새로 올라와요.</p></div>`:""}
+  <div class="field"><label for="qFail">안 하면 깎을 코인 (선택)</label><input id="qFail" type="number" min="0" max="9999" value="0" inputmode="numeric" style="max-width:140px"><p class="hint">받아 놓고 기한까지 안 하면 받은 사람의 코인이 이만큼 깎여요. 모자라면 마이너스가 돼요.</p></div>
   <div class="field" id="dueBox"><label for="qDue">기한 (선택)</label><input id="qDue" type="datetime-local"><p class="hint">기한이 지나면 실패로 끝나요.</p></div>
   <div class="actions"><button class="btn pink" data-act="createQuest" ${!owner&&m.coins<1?"disabled":""}>등록하기</button>${closeBtn}</div>
   ${!owner&&m.coins<1?'<p class="hint">코인이 없어요. 방장 퀘스트를 깨서 코인을 모아 보세요.</p>':""}`);
 }
 function noteSheet(kind,id){
-  const sub=kind==="submit"; pendingPhoto=null; dropPhoto=false;
-  openSheet(`<h3>${sub?"완료 제출":"반려하기"}</h3>${sub?photoField(null,"완료한 모습을 사진으로 남겨요 (선택)"):""}
+  const st=kind==="steal", sub=kind==="submit"||st; pendingPhoto=null; dropPhoto=false;
+  openSheet(`<h3>${st?"🏃 내가 먼저 해서 제출":sub?"완료 제출":"반려하기"}</h3>${st?`<p class="hint" style="margin-top:-6px">방장이 하고 있는 ‘${esc(state.quests.find(x=>x.id===id)?.title||"")}’을(를) 내가 먼저 끝냈다면 제출하세요. 심사에서 승인되면 내가 보상을 받고, 멤버 코인은 깎이지 않아요.</p>`:""}${sub?photoField(null,"완료한 모습을 사진으로 남겨요 (선택)"):""}
   <div class="field"><label for="noteIn">${sub?"한마디 (선택)":"반려 사유"}</label><textarea id="noteIn" maxlength="200" placeholder="${sub?"예: 베란다까지 다 했어요":"예: 베란다도 해 주세요"}"></textarea></div>
-  <div class="actions"><button class="btn ${sub?"pink":""}" data-act="${sub?"doSubmit":"doReject"}" data-id="${id}">${sub?"제출하기":"반려하기"}</button>${closeBtn}</div>`);
+  <div class="actions"><button class="btn ${sub?"pink":""}" data-act="${st?"doSteal":sub?"doSubmit":"doReject"}" data-id="${id}">${sub?"제출하기":"반려하기"}</button>${closeBtn}</div>`);
 }
 function photoField(cur,note){
   return `<div class="field"><label>사진</label><div class="photo"><div class="pv" id="pv">${cur?`<img src="${blobURL(esc(cur))}" alt="">`:"📷"}</div>
@@ -4553,12 +4726,13 @@ function goodsSheet(id){
   <div class="field"><label for="gStock">수량</label><input id="gStock" type="number" min="0" value="${g&&g.stock!==null?g.stock:""}" placeholder="비우면 무제한" inputmode="numeric"></div></div>
   <div class="actions"><button class="btn pink" data-act="saveGoods" data-id="${g?.id||""}">${g?"저장":"올리기"}</button>${g?`<button class="btn ghost" data-act="delGoods" data-id="${g.id}">내리기</button>`:""}${closeBtn}</div>`);
 }
-const TCOND=[["none","조건 없음 (직접 주기·퀘스트 보상)"],["level","내 레벨이 N 이상"],["quests","퀘스트 N개 클리어"],["streak","출석 연속 N일"],["coins","퀘스트·출석으로 번 코인 누적 N"],["petlv","캐릭터 한 명이 Lv.N 이상"],["pets","키우는 캐릭터 N명 이상"],["time","정확히 HH:MM에 앱 열기"],["album","가챠 팩 카드 전부 모으기"],["star","카드 하나를 5성(최고)으로"]];
-const tcondText=t=>{ const c=t.cond; if(!c||c.type==="none") return ""; const n=c.n||0; return {level:`레벨 ${n} 이상`,quests:`퀘스트 ${n}개 클리어`,streak:`출석 연속 ${n}일`,coins:`코인 누적 ${n}`,petlv:`캐릭터 Lv.${n}`,pets:`캐릭터 ${n}명`,time:`${c.time||"--:--"}에 접속`,album:`‘${packById(c.packId)?.name||"?"}’ 전부 모으기`,star:"카드 5성 달성"}[c.type]||""; };
+const TCOND=[["none","조건 없음 (직접 주기·퀘스트 보상)"],["level","내 레벨이 N 이상"],["quests","퀘스트 N개 클리어"],["fails","퀘스트 실패 N회 (받고 안 함)"],["streak","출석 연속 N일"],["coins","퀘스트·출석으로 번 코인 누적 N"],["petlv","캐릭터 한 명이 Lv.N 이상"],["pets","키우는 캐릭터 N명 이상"],["time","정확히 HH:MM에 앱 열기"],["album","가챠 팩 카드 전부 모으기"],["star","카드 하나를 5성(최고)으로"]];
+const tcondText=t=>{ const c=t.cond; if(!c||c.type==="none") return ""; const n=c.n||0; return {level:`레벨 ${n} 이상`,quests:`퀘스트 ${n}개 클리어`,fails:`퀘스트 실패 ${n}회`,streak:`출석 연속 ${n}일`,coins:`코인 누적 ${n}`,petlv:`캐릭터 Lv.${n}`,pets:`캐릭터 ${n}명`,time:`${c.time||"--:--"}에 접속`,album:`‘${packById(c.packId)?.name||"?"}’ 전부 모으기`,star:"카드 5성 달성"}[c.type]||""; };
 function condMet(s,m,c){ if(!c||c.type==="none") return false; const n=+c.n||0;
   switch(c.type){
     case "level": return levelInfo(m.xp).lvl>=n;
     case "quests": return s.quests.filter(q=>q.status==="done"&&q.assigneeId===m.id).length+(m.questDoneArch||0)>=n;
+    case "fails": return (m.fails||0)>=n;
     case "streak": return (m.attend?.streak||0)>=n;
     case "coins": return Object.values(s.stats||{}).reduce((a,d)=>a+((d[m.id]||{}).c||0),0)>=n;
     case "petlv": return s.pets.some(p=>p.ownerId===m.id&&!p.dead&&petCalc(p).lvl>=n);
@@ -4567,12 +4741,14 @@ function condMet(s,m,c){ if(!c||c.type==="none") return false; const n=+c.n||0;
     case "album": { const pk=s.packs.find(x=>x.id===c.packId); return !!pk&&pk.cards.length>0&&pk.cards.every(cd=>(m.album||{})[cd.id]>0); }
     case "star": return Object.values(m.stars||{}).some(v=>v>=5);
   } return false; }
-let titleFxBusy=false;
-function checkTitleConds(){ if(!state||!loaded||titleFxBusy) return; const m=me(); if(!m) return;
+let titleFxBusy=false; let dlFn=null;
+// 미니게임·장면 연출 중이면 이벤트·칭호 연출은 끝날 때까지 미뤄요
+const fxBusy=()=>!!((typeof game!=="undefined"&&game)||$("#gameSlot")?.innerHTML||$(".gx")||$(".carefx"));
+function checkTitleConds(){ if(!state||!loaded||titleFxBusy||fxBusy()) return; const m=me(); if(!m) return;
   const won=state.titles.filter(t=>t.cond&&t.cond.type!=="none"&&!m.ownedTitles.includes(t.id)&&condMet(state,m,t.cond)); if(!won.length) return;
   titleFxBusy=true; const ids=won.map(t=>t.id);
   commit(s=>{ const mm=s.members.find(x=>x.id===m.id); if(!mm) return; ids.forEach(id=>{ const t=s.titles.find(x=>x.id===id); if(t&&!mm.ownedTitles.includes(id)&&condMet(s,mm,t.cond)){ mm.ownedTitles.push(id); notify(s,"all","🏅",`${mm.name} 님이 ‘${t.name}’ 칭호를 얻었어요 (${tcondText(t)})`); } }); },{replay:true});
-  const t=won[0]; fxOverlay({kind:"lv",title:"칭호 획득!",pic:`<div style="transform:scale(1.6);display:inline-block">${ttlHTML(t.name,t.effect)}</div>`,name:t.name,sub:tcondText(t)+(won.length>1?` 외 ${won.length-1}개`:""),rewards:[],btn:"멋져!"}); setTimeout(()=>{ titleFxBusy=false; },1500); }
+  const t=won[0]; fxOverlay({kind:"lv",defer:true,title:"칭호 획득!",pic:`<div style="transform:scale(1.6);display:inline-block">${ttlHTML(t.name,t.effect)}</div>`,name:t.name,sub:tcondText(t)+(won.length>1?` 외 ${won.length-1}개`:""),rewards:[],btn:"멋져!"}); setTimeout(()=>{ titleFxBusy=false; },1500); }
 function titleSheet(id){
   const t=id?titleById(id):null, fx0=t?t.effect:"rainbow"; const c=t?.cond||{type:"none"};
   openSheet(`<h3>${t?"칭호 수정":"칭호 만들기"}</h3>
@@ -4580,13 +4756,13 @@ function titleSheet(id){
   <div class="field"><label for="tName">칭호 이름</label><input id="tName" maxlength="16" value="${esc(t?.name||"")}" placeholder="예: 설거지의 신"></div>
   <div class="field"><label>효과</label><div class="fxpick">${EFFECTS.map(([k,l],i)=>`<input type="radio" name="fx" id="fx-${k}" value="${k}" ${k===fx0?"checked":""}><label for="fx-${k}">${ttlHTML(l,k)}</label>`).join("")}</div></div>
   <div class="field"><label for="tCond">자동 지급 조건</label><select id="tCond">${TCOND.map(([k,l])=>`<option value="${k}" ${c.type===k?"selected":""}>${l}</option>`).join("")}</select></div>
-  <div class="field" id="tCondN" ${["level","quests","streak","coins","petlv","pets"].includes(c.type)?"":"hidden"}><label for="tN">N</label><input id="tN" type="number" min="1" value="${c.n||1}"></div>
+  <div class="field" id="tCondN" ${["level","quests","fails","streak","coins","petlv","pets"].includes(c.type)?"":"hidden"}><label for="tN">N</label><input id="tN" type="number" min="1" value="${c.n||1}"></div>
   <div class="field" id="tCondT" ${c.type==="time"?"":"hidden"}><label for="tTime">시각</label><input id="tTime" type="time" value="${esc(c.time||"04:44")}"><p class="hint">그 시각에 앱이 열려 있으면(1분 안) 받아요.</p></div>
   <div class="field" id="tCondP" ${c.type==="album"?"":"hidden"}><label for="tPack">팩</label><select id="tPack">${state.packs.map(p=>`<option value="${p.id}" ${c.packId===p.id?"selected":""}>${esc(p.name)}</option>`).join("")||'<option value="">팩이 없어요</option>'}</select></div>
   <p class="hint">조건을 달성하면 자동으로 받고 연출이 떠요. 조건이 없어도 퀘스트 보상이나 ‘주기’로 줄 수 있어요.</p>
   ${t?'<p class="hint">고치면 이미 가진 사람의 칭호도 함께 바뀌어요.</p>':""}
   <div class="actions"><button class="btn pink" data-act="saveTitle" data-id="${t?.id||""}">${t?"저장":"만들기"}</button>${closeBtn}</div>`);
-  $("#tCond").addEventListener("change",ev=>{ const v=ev.target.value; $("#tCondN").hidden=!["level","quests","streak","coins","petlv","pets"].includes(v); $("#tCondT").hidden=v!=="time"; $("#tCondP").hidden=v!=="album"; });
+  $("#tCond").addEventListener("change",ev=>{ const v=ev.target.value; $("#tCondN").hidden=!["level","quests","fails","streak","coins","petlv","pets"].includes(v); $("#tCondT").hidden=v!=="time"; $("#tCondP").hidden=v!=="album"; });
 }
 function updateTitlePreview(){ const n=$("#tName")?.value.trim()||"칭호 이름"; const fx=document.querySelector('input[name=fx]:checked')?.value||"none"; const p=$("#tPrev"); if(p) p.innerHTML=ttlHTML(n,fx); }
 function giveTitleSheet(tid){
@@ -4889,18 +5065,38 @@ const acts={
     if(repV==="weekly"&&!days.length) return toast("반복할 요일을 골라 주세요.");
     const dueV=$("#qDue").value; const due=!repV&&dueV?new Date(dueV).getTime():null;
     if(due&&due<=Date.now()) return toast("기한은 지금보다 뒤로 정해 주세요.");
-    if(repV){ commit(s=>{ s.repeats.push({id:uid(),title,desc,creatorId:viewerId,rewardXp:xp,rewardCoins:coins,rewardTitleId:ttl,rewardTickets:tickets,rewardItems:items,freq:repV,days,dueTime:$("#qRepTime")?.value||"23:59",lastSpawn:null,createdAt:Date.now()}); bump(s,viewerId,"questPost"); });
+    const failCoins=Math.max(0,Math.min(9999,num("#qFail")));
+    if(repV){ commit(s=>{ s.repeats.push({id:uid(),title,desc,creatorId:viewerId,failCoins,rewardXp:xp,rewardCoins:coins,rewardTitleId:ttl,rewardTickets:tickets,rewardItems:items,freq:repV,days,dueTime:$("#qRepTime")?.value||"23:59",lastSpawn:null,createdAt:Date.now()}); bump(s,viewerId,"questPost"); });
       closeSheet(); toast(repV==="daily"?"매일 반복 퀘스트를 만들었어요.":"매주 반복 퀘스트를 만들었어요."); return; }
-    commit(s=>{ s.quests.push({id:uid(),title,desc,creatorId:viewerId,rewardXp:xp,rewardCoins:coins,rewardTitleId:ttl,rewardTickets:tickets,rewardItems:items,status:"open",assigneeId:null,createdAt:Date.now(),due});
+    commit(s=>{ s.quests.push({id:uid(),title,desc,creatorId:viewerId,failCoins,rewardXp:xp,rewardCoins:coins,rewardTitleId:ttl,rewardTickets:tickets,rewardItems:items,status:"open",assigneeId:null,createdAt:Date.now(),due});
       if(!owner) s.members.find(x=>x.id===viewerId).coins-=coins; bump(s,viewerId,"questPost"); });
     closeSheet(); toast(owner?"퀘스트를 등록했어요.":`코인 ${coins}개를 걸고 등록했어요.`);
   },
-  accept(el){ const q0=state.quests.find(x=>x.id===el.dataset.id); if(!q0) return; const self=q0.creatorId===viewerId; if(self&&!isOwner(me())) return toast("자기가 올린 퀘스트는 직접 할 수 없어요.");
-    commit(s=>{const q=s.quests.find(x=>x.id===el.dataset.id); if(q&&q.status==="open"){q.status="in_progress";q.assigneeId=viewerId; if(q.overdue){ q.due=null; } bump(s,viewerId,"questAccept"); if(!self) notify(s,q.creatorId,"🙋",`${nameOf(viewerId)} 님이 ‘${q.title}’을(를) 수락했어요`);}}); toast(self?"내가 하기로 했어요. 끝나면 ‘완료 제출’을 누르면 바로 클리어돼요.":"수락했어요. 퀘스트 탭 ‘내 진행’에서 볼 수 있어요."); },
+  async accept(el){ const q0=state.quests.find(x=>x.id===el.dataset.id); if(!q0) return; const self=q0.creatorId===viewerId; if(self&&!isOwner(me())) return toast("자기가 올린 퀘스트는 직접 할 수 없어요.");
+    if(cutFor(q0,viewerId)&&!(await ask(`전에 내가 실패했던 퀘스트라 보상이 30% 줄어요. (코인 ${q0.rewardCoins||0} → ${effCoins(q0,viewerId)}, 경험치 ${q0.rewardXp||0} → ${effXp(q0,viewerId)}) 그래도 받을까요?`,"받을게요",false))) return;
+    commit(s=>{const q=s.quests.find(x=>x.id===el.dataset.id); if(q&&q.status==="open"){q.status="in_progress";q.assigneeId=viewerId; if(q.overdue){ q.due=Date.now()+REOPEN_MS; q.overdue=false; q.reopened=q.reopened||Date.now(); } bump(s,viewerId,"questAccept"); if(!self) notify(s,q.creatorId,"🙋",`${nameOf(viewerId)} 님이 ‘${q.title}’을(를) 수락했어요`,"q:"+q.id);
+      if(isOwner(me())&&q.rewardCoins>0) s.members.filter(mm=>mm.role==="member").forEach(mm=>{ if(mm.id!==q.creatorId) notify(s,mm.id,"👑",`방장 ${nameOf(viewerId)} 님이 ‘${q.title}’을(를) 시작했어요. 먼저 처리하고 보고하세요! (방장이 끝내면 코인 -${q.rewardCoins})`,"q:"+q.id); else notify(s,mm.id,"👑",`방장 ${nameOf(viewerId)} 님이 내 퀘스트 ‘${q.title}’을(를) 시작했어요. 끝내면 멤버 모두 코인 -${q.rewardCoins}`,"q:"+q.id); });}}); toast(self?"내가 하기로 했어요. 끝나면 ‘완료 제출’을 누르면 바로 클리어돼요.":"수락했어요. 퀘스트 탭 ‘내 진행’에서 볼 수 있어요."); },
+  steal(el){ const q=state.quests.find(x=>x.id===el.dataset.id); if(!q||!ownerDoing(q)) return toast("이미 상황이 바뀌었어요."); if(q.edit) return toast("지금은 수정 요청 중이라 제출할 수 없어요."); noteSheet("steal",q.id); },
+  async doSteal(el){ const note=$("#noteIn").value.trim(), qid=el.dataset.id, who=viewerId;
+    { const q0=state.quests.find(x=>x.id===qid); if(!q0||!ownerDoing(q0)||q0.edit) return toast("그 사이 상황이 바뀌어 제출하지 못했어요."); }
+    let ph; try{ ph=await uploadPending(el,"제출하기"); }catch(e){ return; }
+    let okd=false;
+    commit(s=>{ const x=s.quests.find(y=>y.id===qid); if(!x||x.status!=="in_progress"||x.edit||!isOwner(s.members.find(m=>m.id===x.assigneeId)||{})||x.creatorId===who) return;
+      const from=x.assigneeId; x.assigneeId=who; x.status="review"; x.submitNote=note; x.rejectNote=""; x.stolenFrom=from; if(ph) x.submitPhoto=ph; okd=true;
+      bump(s,who,"questAccept"); bump(s,who,"questSubmit");
+      notify(s,from,"🏃",`${nameOf(who)} 님이 ‘${x.title}’을(를) 먼저 끝내고 제출했어요`,"q:"+x.id);
+      if(x.creatorId!==from) notify(s,x.creatorId,"📮",`${nameOf(who)} 님이 방장보다 먼저 ‘${x.title}’ 완료를 제출했어요. 심사해 주세요`,"q:"+x.id);
+      else notify(s,x.creatorId,"📮",`${nameOf(who)} 님이 ‘${x.title}’ 완료를 먼저 제출했어요. 심사해 주세요`,"q:"+x.id); },{replay:true});
+    if(!okd&&ph) cleanupPhoto(ph);
+    pendingPhoto=null; closeSheet(); toast(okd?"제출했어요! 심사에서 승인되면 보상을 받아요.":"그 사이 상황이 바뀌어 제출하지 못했어요."); },
   async cancelQuest(el){ if(!(await ask("이 퀘스트 등록을 취소할까요?"))) return;
     commit(s=>{const i=s.quests.findIndex(x=>x.id===el.dataset.id); if(i<0) return; const q=s.quests[i]; const c=s.members.find(x=>x.id===q.creatorId); if(c&&!isOwner(c)) c.coins+=q.rewardCoins; s.quests.splice(i,1);}); toast("등록을 취소했어요."); },
-  async giveup(el){ if(!(await ask("포기할까요? 다시 모집 중으로 돌아가요."))) return; const qid=el.dataset.id, who=viewerId;
-    commit(s=>{const q=s.quests.find(x=>x.id===qid); if(q&&q.status==="in_progress"&&q.assigneeId===who){ if(q.edit) applyEdit(s,q); q.status="open";q.assigneeId=null;q.rejectNote=""; }},{replay:true}); },
+  async giveup(el){ const qid=el.dataset.id, who=viewerId, q0=state.quests.find(x=>x.id===qid); if(!q0) return; const g=giveupPen(q0), f=failOf(q0);
+    if(!(await ask(g?`포기하면 코인 -${g}개가 깎여요. (끝까지 안 하면 -${f}개) 포기할까요? 퀘스트는 다시 모집 중으로 돌아가요.`:"포기할까요? 다시 모집 중으로 돌아가요.",g?`포기하기 (-${g})`:"포기하기"))) return;
+    const pen=g; // 확인창에서 보여 준 금액으로 고정 (저장이 늦어져도 바뀌지 않게)
+    commit(s=>{const q=s.quests.find(x=>x.id===qid); if(q&&q.status==="in_progress"&&q.assigneeId===who){ if(q.edit) applyEdit(s,q); q.status="open";q.assigneeId=null;q.rejectNote=""; delete q.warned;
+      if(pen>0){ const m=s.members.find(x=>x.id===who); if(m) m.coins=(m.coins||0)-pen; } }},{replay:true,allowNeg:true,reason:"퀘스트 포기"});
+    toast(g?`포기했어요. 코인 -${g}`:"포기했어요."); },
   qeOpen(el){ editQuestSheet(el.dataset.id); },
   async qRemove(el){ const qid=el.dataset.id, q=state.quests.find(x=>x.id===qid); if(!q) return; const by=viewerId;
     const c=member(q.creatorId), esc_=c&&!isOwner(c)&&["open","in_progress","review"].includes(q.status)?q.rewardCoins:0;
@@ -4909,8 +5105,8 @@ const acts={
     commit(s=>{ const i=s.quests.findIndex(x=>x.id===qid); if(i<0) return; const Q=s.quests[i]; if(Q.status==="done") return;
       const C=s.members.find(x=>x.id===Q.creatorId); if(C&&!isOwner(C)&&["open","in_progress","review"].includes(Q.status)) C.coins+=Q.rewardCoins||0;
       dropEdit(s,Q,null); const who=s.members.find(x=>x.id===by)?.name||"방장";
-      if(Q.creatorId) notify(s,Q.creatorId,"🗑️",`${who} 님이 ‘${Q.title}’ 퀘스트를 내렸어요`);
-      if(Q.assigneeId&&Q.assigneeId!==Q.creatorId) notify(s,Q.assigneeId,"🗑️",`하던 퀘스트 ‘${Q.title}’을(를) ${who} 님이 내렸어요`);
+      if(Q.creatorId) notify(s,Q.creatorId,"🗑️",`${who} 님이 ‘${Q.title}’ 퀘스트를 내렸어요`,"q:"+Q.id);
+      if(Q.assigneeId&&Q.assigneeId!==Q.creatorId) notify(s,Q.assigneeId,"🗑️",`하던 퀘스트 ‘${Q.title}’을(를) ${who} 님이 내렸어요`,"q:"+Q.id);
       s.quests.splice(i,1); },{replay:true,reason:"방장이 퀘스트를 내려서 환불"});
     if(ph) dropPhotos([ph]); toast("퀘스트를 내렸어요."); },
   qeSave(el){ const qid=el.dataset.id, q=state.quests.find(x=>x.id===qid), who=viewerId; if(!q||q.creatorId!==who) return;
@@ -4931,15 +5127,15 @@ const acts={
     if(q.status!=="in_progress"||q.edit) return toast("지금은 수정할 수 없어요.");
     const held=owner?0:Math.max(0,coins-q.rewardCoins); if(held>m.coins) return toast(`코인이 부족해요. 지금 ${m.coins}개 있어요.`);
     commit(s=>{ const Q=s.quests.find(x=>x.id===qid); if(!Q||Q.status!=="in_progress"||Q.edit) return; const c=s.members.find(x=>x.id===who); if(held){ if(c.coins<held) return; c.coins-=held; }
-      Q.edit={...f,held,ts:Date.now()}; notify(s,Q.assigneeId,"✏️",`${c.name} 님이 ‘${Q.title}’ 수정을 요청했어요. 확인해 주세요`); },{replay:true,reason:"퀘스트 수정 요청 (늘린 코인)"});
+      Q.edit={...f,held,ts:Date.now()}; notify(s,Q.assigneeId,"✏️",`${c.name} 님이 ‘${Q.title}’ 수정을 요청했어요. 확인해 주세요`,"q:"+Q.id); },{replay:true,reason:"퀘스트 수정 요청 (늘린 코인)"});
     closeSheet(); toast("수정 요청을 보냈어요. 수행하는 사람이 승낙하면 바뀌어요."); },
   qeCancel(el){ const qid=el.dataset.id, who=viewerId;
-    commit(s=>{ const Q=s.quests.find(x=>x.id===qid); if(!Q||!Q.edit||Q.creatorId!==who) return; const t=Q.assigneeId; dropEdit(s,Q,null); if(t) notify(s,t,"✏️",`‘${Q.title}’ 수정 요청이 취소됐어요`); },{replay:true,reason:"수정 요청 취소 환불"}); toast("수정 요청을 취소했어요."); },
+    commit(s=>{ const Q=s.quests.find(x=>x.id===qid); if(!Q||!Q.edit||Q.creatorId!==who) return; const t=Q.assigneeId; dropEdit(s,Q,null); if(t) notify(s,t,"✏️",`‘${Q.title}’ 수정 요청이 취소됐어요`,"q:"+Q.id); },{replay:true,reason:"수정 요청 취소 환불"}); toast("수정 요청을 취소했어요."); },
   qeAccept(el){ const qid=el.dataset.id, who=viewerId;
-    commit(s=>{ const Q=s.quests.find(x=>x.id===qid); if(!Q||!Q.edit||Q.assigneeId!==who||Q.status!=="in_progress") return; applyEdit(s,Q); notify(s,Q.creatorId,"✅",`${nameOf(who)} 님이 ‘${Q.title}’ 수정을 승낙했어요`); },{replay:true,reason:"퀘스트 수정 반영"}); toast("승낙했어요. 바뀐 내용으로 계속해요."); },
+    commit(s=>{ const Q=s.quests.find(x=>x.id===qid); if(!Q||!Q.edit||Q.assigneeId!==who||Q.status!=="in_progress") return; applyEdit(s,Q); notify(s,Q.creatorId,"✅",`${nameOf(who)} 님이 ‘${Q.title}’ 수정을 승낙했어요`,"q:"+Q.id); },{replay:true,reason:"퀘스트 수정 반영"}); toast("승낙했어요. 바뀐 내용으로 계속해요."); },
   async qeDecline(el){ const qid=el.dataset.id, who=viewerId; if(!(await ask("수정 요청을 거절할까요? 이 퀘스트는 내 목록에서 빠지고 바뀐 내용으로 다시 모집 중이 돼요.","거절하기"))) return;
     commit(s=>{ const Q=s.quests.find(x=>x.id===qid); if(!Q||!Q.edit||Q.assigneeId!==who||Q.status!=="in_progress") return; applyEdit(s,Q); Q.status="open"; Q.assigneeId=null; Q.rejectNote=""; Q.submitNote=""; Q.result=null;
-      notify(s,Q.creatorId,"↩️",`${nameOf(who)} 님이 ‘${Q.title}’ 수정을 거절했어요. 바뀐 내용으로 다시 모집 중이에요`); },{replay:true,reason:"퀘스트 수정 반영"}); toast("거절했어요. 퀘스트가 다시 모집 중으로 올라갔어요."); },
+      notify(s,Q.creatorId,"↩️",`${nameOf(who)} 님이 ‘${Q.title}’ 수정을 거절했어요. 바뀐 내용으로 다시 모집 중이에요`,"q:"+Q.id); },{replay:true,reason:"퀘스트 수정 반영"}); toast("거절했어요. 퀘스트가 다시 모집 중으로 올라갔어요."); },
   submit(el){ noteSheet("submit",el.dataset.id); },
   async doSubmit(el){ const note=$("#noteIn").value.trim(); const qid=el.dataset.id;
     { const q0=state.quests.find(x=>x.id===qid); if(!q0||q0.status!=="in_progress"||q0.assigneeId!==viewerId) return toast("지금은 제출할 수 없는 퀘스트예요."); if(q0.edit) return toast("등록자가 수정 요청을 보낸 상태예요. 먼저 승낙/거절한 뒤 제출해 주세요."); }
@@ -4947,23 +5143,27 @@ const acts={
     { const q1=state.quests.find(x=>x.id===qid); if(!q1||q1.edit||q1.status!=="in_progress"){ if(ph) cleanupPhoto(ph); return toast("그 사이 퀘스트 상태가 바뀌어 제출하지 못했어요."); } }
     const old=state.quests.find(x=>x.id===qid)?.submitPhoto||null;
     const self=state.quests.find(x=>x.id===qid)?.creatorId===viewerId;
-    commit(s=>{const q=s.quests.find(x=>x.id===qid); if(q&&!q.edit){ q.submitNote=note;q.rejectNote=""; if(ph) q.submitPhoto=ph; bump(s,viewerId,"questSubmit");
-      if(self){ q.selfClear=true; grantQuest(s,q); notify(s,"all","🙋",`${nameOf(viewerId)} 님이 자기 퀘스트 ‘${q.title}’을(를) 직접 끝냈어요 (셀프 클리어)`); }
-      else { q.status="review"; notify(s,q.creatorId,"📮",`${nameOf(viewerId)} 님이 ‘${q.title}’ 완료를 제출했어요. 심사해 주세요`); } }},{reason:self?"퀘스트 보상 (셀프 클리어)":undefined});
+    const who=viewerId;
+    commit(s=>{const q=s.quests.find(x=>x.id===qid); if(q&&!q.edit&&q.status==="in_progress"&&q.assigneeId===who){ q.submitNote=note;q.rejectNote=""; if(ph) q.submitPhoto=ph; bump(s,who,"questSubmit");
+      if(self){ q.selfClear=true; grantQuest(s,q); notify(s,"all","🙋",`${nameOf(viewerId)} 님이 자기 퀘스트 ‘${q.title}’을(를) 직접 끝냈어요 (셀프 클리어)`,"q:"+q.id); }
+      else { q.status="review"; notify(s,q.creatorId,"📮",`${nameOf(who)} 님이 ‘${q.title}’ 완료를 제출했어요. 심사해 주세요`,"q:"+q.id); } }},{allowNeg:self,reason:self?(isOwner(me())?"퀘스트 보상 (셀프 클리어) · 방장 수행 차감":"퀘스트 보상 (셀프 클리어)"):undefined});
     if(ph&&old&&old!==ph) cleanupPhoto(old);
     pendingPhoto=null; closeSheet(); toast(self?"셀프 클리어! 보상을 받았어요.":"제출했어요. 심사를 기다려요."); },
   viewPhoto(el){ openSheet(`<img class="bigphoto" src="${blobURL(esc(el.dataset.id))}" alt="완료 사진"><div class="actions">${closeBtn}</div>`); },
   approve(el){ let who="";
-    commit(s=>{const q=s.quests.find(x=>x.id===el.dataset.id); if(!q||q.status!=="review") return; who=grantQuest(s,q); bump(s,viewerId,"questReview"); notify(s,q.assigneeId,"🏆",`‘${q.title}’ 클리어! 보상을 받았어요`);}); toast(`${who} 님에게 보상을 줬어요. 다음에 들어오면 결과가 떠요.`); },
+    commit(s=>{const q=s.quests.find(x=>x.id===el.dataset.id); if(!q||q.status!=="review") return; who=grantQuest(s,q); bump(s,viewerId,"questReview"); notify(s,q.assigneeId,"🏆",`‘${q.title}’ 클리어! 보상을 받았어요`,"q:"+q.id);},{allowNeg:true,reason:isOwner(member(state.quests.find(x=>x.id===el.dataset.id)?.assigneeId)||{})?"퀘스트 보상 · 방장 수행 차감":undefined}); toast(`${who} 님에게 보상을 줬어요. 다음에 들어오면 결과가 떠요.`); },
   reject(el){ noteSheet("reject",el.dataset.id); },
   doReject(el){ const note=$("#noteIn").value.trim(); if(!note) return toast("반려 사유를 적어 주세요.");
-    commit(s=>{const q=s.quests.find(x=>x.id===el.dataset.id); if(q){q.status="in_progress";q.rejectNote=note;q.result={type:"fail",to:q.assigneeId,note,seen:false}; bump(s,viewerId,"questReview"); notify(s,q.assigneeId,"🌧️",`‘${q.title}’이(가) 반려됐어요: ${note}`);}}); closeSheet(); toast("반려했어요."); },
+    commit(s=>{const q=s.quests.find(x=>x.id===el.dataset.id); if(q){q.status="in_progress";q.rejectNote=note;q.result={type:"fail",to:q.assigneeId,note,seen:false}; bump(s,viewerId,"questReview"); notify(s,q.assigneeId,"🌧️",`‘${q.title}’이(가) 반려됐어요: ${note}`,"q:"+q.id);}}); closeSheet(); toast("반려했어요."); },
   ackLevel(){ const L=levelInfo(me().xp); closeSheet(); commit(s=>{s.members.find(x=>x.id===viewerId).seenLevel=L.lvl;}); },
   qseg(el){ questSeg=el.dataset.k; render(); },
   sseg(el){ setSeg=el.dataset.k; render(); },
   goOrders(){ tab="settings"; setSeg="orders"; render(); },
   goQuests(el){ tab="quests"; questSeg=el.dataset.k||"progress"; render(); window.scrollTo(0,0); },
   goShop(){ tab="shop"; render(); },
+  openCat(el){ openCat=el.dataset.k; render(); },
+  goQuestId(el){ goQuest("progress",el.dataset.id); },
+  goQuestOpen(el){ tab="quests"; questSeg="open"; render(); window.scrollTo(0,0); const id=el.dataset.id; setTimeout(()=>{ const b=document.querySelector(`[data-act="steal"][data-id="${id}"]`); if(b){ b.scrollIntoView({behavior:"smooth",block:"center"}); const c=b.closest(".card"); if(c){ c.classList.add("qflash"); setTimeout(()=>c.classList.remove("qflash"),2500); } } },80); },
   /* gacha */
   bseg(el){ bagSeg=el.dataset.k; render(); },
   goBag(){ tab="bag"; bagSeg="tickets"; render(); },
@@ -5077,7 +5277,7 @@ const acts={
   editTitle(el){ titleSheet(el.dataset.id); },
   saveTitle(el){ const name=$("#tName").value.trim(); if(!name) return toast("칭호 이름을 입력해 주세요."); const id=el?.dataset?.id;
     const effect=document.querySelector('input[name=fx]:checked')?.value||"none";
-    const type=$("#tCond")?.value||"none"; const cond={type}; if(["level","quests","streak","coins","petlv","pets"].includes(type)) cond.n=Math.max(1,parseInt($("#tN").value,10)||1); if(type==="time") cond.time=$("#tTime").value||"04:44"; if(type==="album"){ cond.packId=$("#tPack").value; if(!cond.packId) return toast("가챠 팩을 먼저 만들어 주세요."); }
+    const type=$("#tCond")?.value||"none"; const cond={type}; if(["level","quests","fails","streak","coins","petlv","pets"].includes(type)) cond.n=Math.max(1,parseInt($("#tN").value,10)||1); if(type==="time") cond.time=$("#tTime").value||"04:44"; if(type==="album"){ cond.packId=$("#tPack").value; if(!cond.packId) return toast("가챠 팩을 먼저 만들어 주세요."); }
     if(id){ commit(s=>{ const t=s.titles.find(x=>x.id===id); if(t){ t.name=name; t.effect=effect; t.cond=cond; } }); closeSheet(); return toast("칭호를 고쳤어요."); }
     commit(s=>{s.titles.push({id:uid(),name,effect,cond,createdAt:Date.now()});}); closeSheet(); toast("칭호를 만들었어요."); },
   async takeTitle(el){ const tid=el.dataset.id, mid=el.dataset.m; if(!(await ask(`${nameOf(mid)} 님에게서 이 칭호를 회수할까요?`,"회수하기"))) return;
@@ -5258,19 +5458,28 @@ const acts={
   sPick(el){ studyRun(el.dataset.id,el.dataset.k); },
   sAns(el){ studyAns(el.dataset.v); },
   feedOpen(){ feedSheet(); },
+  moneyHelp(el){ openSheet(`<h3>코인과 도토리</h3><p class="hint" style="margin-top:-6px">돈이 두 종류예요. 버는 곳과 쓰는 곳이 달라요.</p>${moneyGuide(el.dataset.k,el.dataset.p)}<div class="actions">${closeBtn}</div>`); },
+  feedGo(el){ const f=(state.feed||[]).find(x=>x.id===el.dataset.id); if(f) feedGo(f); },
   extReq(el){ extReqSheet(el.dataset.id); },
   extReqSend(el){ const qid=el.dataset.id, v=$("#exDue").value; const want=v?new Date(v).getTime():0; if(!want||want<=Date.now()) return toast("새 기한은 지금보다 뒤로 정해 주세요.");
     const msg=$("#exMsg").value.trim();
-    commit(s=>{ const q=s.quests.find(x=>x.id===qid); if(!q||q.status!=="expired"||q.ext) return; q.ext={status:"requested",want,msg,ts:Date.now()}; notify(s,q.creatorId,"⏳",`${nameOf(q.assigneeId)} 님이 ‘${q.title}’ 기한 연장을 신청했어요`); });
+    if(isDailyQ(state.quests.find(x=>x.id===qid)||{})) return toast("매일 반복 퀘스트는 연장할 수 없어요.");
+    commit(s=>{ const q=s.quests.find(x=>x.id===qid); if(!q||q.status!=="expired"||q.ext||isDailyQ(q,s)) return; q.ext={status:"requested",want,msg,ts:Date.now()}; notify(s,q.creatorId,"⏳",`${nameOf(q.assigneeId)} 님이 ‘${q.title}’ 기한 연장을 신청했어요`,"q:"+q.id); });
     closeSheet(); toast("연장을 신청했어요. 답을 기다려 주세요."); },
   extReview(el){ extReviewSheet(el.dataset.id); },
-  async extReject(el){ const qid=el.dataset.id; if(!(await ask("연장 신청을 거절할까요?","거절하기"))) return;
-    commit(s=>{ const q=s.quests.find(x=>x.id===qid); if(!q?.ext) return; q.ext.status="rejected"; notify(s,q.assigneeId,"🙅",`‘${q.title}’ 연장 신청이 거절됐어요`); }); toast("거절했어요."); },
+  async extReject(el){ const qid=el.dataset.id, q0=state.quests.find(x=>x.id===qid); if(!q0) return; const cr=member(q0.creatorId), esc_=cr&&!isOwner(cr)?(q0.rewardCoins||0):0;
+    const can=!esc_||cr.coins>=esc_;
+    if(!(await ask(can?`연장 신청을 거절할까요? 퀘스트는 ‘다시 올라온’ 퀘스트로 모집 중에 다시 떠요. 마감은 지금부터 24시간이에요. ${nameOf(q0.assigneeId)} 님이 다시 받으면 보상이 30% 줄어요.${esc_?` (${cr.name} 님 코인 ${esc_}개를 다시 걸어요)`:""}`:`연장 신청을 거절할까요? ${cr.name} 님 코인이 모자라서 퀘스트를 다시 올리지는 못해요.`,"거절하기"))) return;
+    let back=false;
+    commit(s=>{ const q=s.quests.find(x=>x.id===qid); if(!q?.ext) return; const who=q.assigneeId; q.ext.status="rejected";
+      back=reopenQuest(s,q);
+      notify(s,who,"🙅",`‘${q.title}’ 연장 신청이 거절됐어요${back?". 퀘스트는 다시 모집 중이에요 (다시 받으면 보상 -30%)":""}`,"q:"+q.id); },{replay:true,reason:"실패한 퀘스트 다시 올리기"});
+    toast(back?"거절했어요. 퀘스트를 다시 모집 중으로 올렸어요.":"거절했어요."); },
   extOffer(el){ const qid=el.dataset.id, q=state.quests.find(x=>x.id===qid); if(!q?.ext) return;
     const v=$("#rvDue").value, due=v?new Date(v).getTime():0; if(!due||due<=Date.now()) return toast("새 기한은 지금보다 뒤로 정해 주세요.");
     const xp=Math.max(0,Math.min(q.rewardXp,num("#rvXp"))), coins=Math.max(0,Math.min(q.rewardCoins,num("#rvCoin")));
     const offer={due,xp,coins,keepTitle:!!$("#rvT")?.checked,keepTickets:!!$("#rvK")?.checked,keepItems:!!$("#rvI")?.checked,msg:$("#rvMsg").value.trim()};
-    commit(s=>{ const x=s.quests.find(y=>y.id===qid); x.ext={...x.ext,status:"offered",offer}; notify(s,x.assigneeId,"📨",`‘${x.title}’ 연장 제안이 왔어요. 줄어든 보상이 괜찮은지 골라 주세요`); });
+    commit(s=>{ const x=s.quests.find(y=>y.id===qid); x.ext={...x.ext,status:"offered",offer}; notify(s,x.assigneeId,"📨",`‘${x.title}’ 연장 제안이 왔어요. 줄어든 보상이 괜찮은지 골라 주세요`,"q:"+x.id); });
     closeSheet(); toast("제안을 보냈어요."); },
   extAccept(el){ const qid=el.dataset.id, q=state.quests.find(x=>x.id===qid); if(!q?.ext?.offer) return; const o=q.ext.offer;
     const cr=member(q.creatorId); if(cr&&!isOwner(cr)&&o.coins>cr.coins) return toast(`${cr.name} 님의 코인이 부족해서 다시 걸 수 없어요. 포기하거나 다시 신청해 주세요.`);
@@ -5279,18 +5488,21 @@ const acts={
       if(c&&!isOwner(c)) c.coins-=o.coins;
       x.status="in_progress"; x.due=o.due; x.rewardXp=o.xp; x.rewardCoins=o.coins;
       if(!o.keepTitle) x.rewardTitleId=null; if(!o.keepTickets) x.rewardTickets=null; if(!o.keepItems) x.rewardItems=null;
-      x.result=null; x.rejectNote=""; x.ext={...x.ext,status:"accepted"}; delete x.expiredAt;
-      notify(s,x.creatorId,"🙆",`${nameOf(x.assigneeId)} 님이 줄어든 보상으로 ‘${x.title}’을(를) 다시 하기로 했어요`); });
+      x.result=null; x.rejectNote=""; x.ext={...x.ext,status:"accepted"}; delete x.expiredAt; x.failDone=false; delete x.warned; // 연장 뒤 또 넘기면 다시 실패 처리(벌칙 포함)
+      notify(s,x.creatorId,"🙆",`${nameOf(x.assigneeId)} 님이 줄어든 보상으로 ‘${x.title}’을(를) 다시 하기로 했어요`,"q:"+x.id); });
     fxOverlay({kind:"clear",title:"다시 도전!",pic:"⏳",name:q.title,sub:`새 기한: ${fmtDue(o.due)}`,rewards:[`경험치 ${o.xp}`,`코인 ${o.coins}`],btn:"이번엔 꼭!"}); },
-  async extDecline(el){ const qid=el.dataset.id; if(!(await ask("연장을 포기할까요? 이 퀘스트는 실패로 끝나요.","포기하기"))) return;
-    commit(s=>{ const q=s.quests.find(x=>x.id===qid); if(!q?.ext) return; q.ext.status="declined"; notify(s,q.creatorId,"🏳️",`${nameOf(q.assigneeId)} 님이 ‘${q.title}’ 연장을 포기했어요`); }); toast("포기했어요."); },
+  async extDecline(el){ const qid=el.dataset.id, q0=state.quests.find(x=>x.id===qid); if(!q0) return; const can=canReopen(q0);
+    if(!(await ask(`연장을 포기할까요? 이미 깎인 실패 코인은 돌아오지 않아요.${can?" 퀘스트는 ‘다시 올라온’ 퀘스트로 모집 중에 떠서 다른 사람이 할 수 있어요. 내가 다시 받으면 보상이 30% 줄어요.":""}`,"포기하기"))) return;
+    let back=false;
+    commit(s=>{ const q=s.quests.find(x=>x.id===qid); if(!q?.ext) return; const who=q.assigneeId; q.ext.status="declined"; notify(s,q.creatorId,"🏳️",`${nameOf(who)} 님이 ‘${q.title}’ 연장을 포기했어요`,"q:"+q.id); back=reopenQuest(s,q); },{replay:true,reason:"실패한 퀘스트 다시 올리기"});
+    toast(back?"포기했어요. 퀘스트는 다시 모집 중으로 올라갔어요.":"포기했어요."); },
   async repDel(el){ if(!(await ask("이 반복 퀘스트를 지울까요? 이미 올라온 오늘 퀘스트는 남아요."))) return; commit(s=>{ s.repeats=s.repeats.filter(r=>r.id!==el.dataset.id); }); },
   repEdit(el){ repeatSheet(el.dataset.id); },
   repSave(el){ const id=el.dataset.id; const title=$("#rTitle").value.trim(); if(!title) return toast("퀘스트 이름을 입력해 주세요.");
     const freq=$("#rFreq").value, days=[...document.querySelectorAll("#rDays input:checked")].map(x=>+x.value); if(freq==="weekly"&&!days.length) return toast("반복할 요일을 골라 주세요.");
     const tp=$("#rPack").value, ci=$("#rCare").value, dueTime=$("#rTime").value||"23:59", today=!!$("#rToday")?.checked;
     const f={title,desc:$("#rDesc").value.trim(),rewardXp:num("#rXp"),rewardCoins:num("#rCoin"),rewardTitleId:$("#rTtl").value||null,
-      rewardTickets:tp?{packId:tp,count:Math.max(1,num("#rTk",1))}:null,rewardItems:ci?{itemId:ci,count:Math.max(1,num("#rCareN",1))}:null};
+      rewardTickets:tp?{packId:tp,count:Math.max(1,num("#rTk",1))}:null,rewardItems:ci?{itemId:ci,count:Math.max(1,num("#rCareN",1))}:null,failCoins:Math.max(0,num("#rFail"))};
     commit(s=>{ const r=s.repeats.find(x=>x.id===id); if(!r) return; Object.assign(r,f,{freq,days:freq==="weekly"?days:[],dueTime});
       if(today){ const q=s.quests.find(x=>x.repeatId===id&&x.status==="open"); if(q){ Object.assign(q,f); const d=dueToday(dueTime); if(d>Date.now()) q.due=d; } } },{replay:true});
     closeSheet(); toast("반복 퀘스트를 고쳤어요."); },
@@ -5306,8 +5518,10 @@ const acts={
   atSave(){ const v=Math.max(0,Math.min(100,num("#atCoin"))); commit(s=>{ s.attendCoins=v; }); toast("출석 보상을 저장했어요."); },
   backup(){ backupSheet(); },
   bkDownload(){ const d=new Date(), pad=n=>String(n).padStart(2,"0"), name=`시스템창-백업-${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}.json`;
-    const obj=structuredClone(state); delete obj._t; const blob=new Blob([JSON.stringify(obj)],{type:"application/json"}); const u=URL.createObjectURL(blob); const a=document.createElement("a"); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(u),4000);
-    commit(s=>{ s.lastBackup=Date.now(); }); toast("백업 파일을 저장했어요. 다운로드 폴더를 확인해 주세요."); },
+    const obj=structuredClone(state); delete obj._t; const txt=JSON.stringify(obj);
+    const done=()=>{ commit(s=>{ s.lastBackup=Date.now(); }); toast("백업 파일을 저장했어요."); };
+    if(dlFn){ dlFn.save({filename:name,data:txt}).then(done).catch(e=>{ const c=e&&e.code; toast(c==="declined"?"저장을 취소했어요.":c==="rate_limited"?"저장 창이 이미 열려 있어요. 잠시 뒤 다시 눌러 주세요.":"이 화면에서는 파일로 저장할 수 없어요. ‘텍스트로 복사’를 써 주세요."); }); return; }
+    const blob=new Blob([txt],{type:"application/json"}); const u=URL.createObjectURL(blob); const a=document.createElement("a"); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(u),4000); done(); },
   bkCopy(){ const obj=structuredClone(state); delete obj._t; const v=JSON.stringify(obj); (navigator.clipboard?.writeText(v)||Promise.reject()).then(()=>toast("백업 내용을 복사했어요.")).catch(()=>toast("복사가 막혀 있어요. ‘백업 파일 저장’을 이용해 주세요.")); },
   async bkRestore(){ const raw=$("#bkIn").value.trim(); if(!raw) return toast("백업 내용을 붙여 넣어 주세요."); let data; try{ data=JSON.parse(raw); }catch(e){ return toast("백업 내용이 올바르지 않아요."); }
     if(!data||!Array.isArray(data.members)) return toast("백업 내용이 올바르지 않아요.");
@@ -5389,8 +5603,10 @@ const acts={
   giveCareSheet(el){ giveCareSheet(el.dataset.id); },
   giveCare(el){ const id=el.dataset.id, mid=el.dataset.m; commit(s=>{ const x=s.members.find(y=>y.id===mid); x.items[id]=(x.items[id]||0)+1; notify(s,mid,"🎁",`${s.careItems.find(c=>c.id===id)?.name||"아이템"}을(를) 받았어요`); }); giveCareSheet(id); toast(`${nameOf(mid)} 님에게 줬어요.`); },
   giveCharSheet(el){ giveCharSheet(el.dataset.id); },
-  giveChar(el){ const id=el.dataset.id, mid=el.dataset.m; let r=null; commit(s=>{ r=adoptInto(s,mid,id); if(r) notify(s,mid,"🐾",r.dup?`${r.pet.nick}이(가) 성장 +20을 받았어요`:`새 캐릭터 ${r.nick}이(가) 생겼어요`); }); petLvQueue.length=0; giveCharSheet(id); toast(r?.dup?`${nameOf(mid)} 님은 이미 키우고 있어서 성장 +20을 줬어요.`:`${nameOf(mid)} 님이 새 캐릭터를 입양했어요.`); },
-  rkP(el){ rkPeriod=el.dataset.k; render(); },
+  giveChar(el){ const id=el.dataset.id, mid=el.dataset.m; let r=null; commit(s=>{ r=adoptInto(s,mid,id); if(r) notify(s,mid,"🐾",r.dup?`${r.pet.nick}이(가) 성장 +20을 받았어요`:`새 캐릭터 ${r.nick}이(가) 생겼어요`,"p:"+(r.dup?r.pet.id:r.id)); }); petLvQueue.length=0; giveCharSheet(id); toast(r?.dup?`${nameOf(mid)} 님은 이미 키우고 있어서 성장 +20을 줬어요.`:`${nameOf(mid)} 님이 새 캐릭터를 입양했어요.`); },
+  rkP(el){ rkPeriod=el.dataset.k; rkOff=0; render(); },
+  rkOff(el){ rkOff=Math.max(0,rkOff+parseInt(el.dataset.d,10)); render(); },
+  rkGo(el){ rkOff=parseInt(el.dataset.i,10)||0; render(); window.scrollTo({top:0,behavior:"smooth"}); },
   rkC(el){ rkCat=el.dataset.k; render(); },
   /* checklist */
   ckCat(el){ ckCat=el.dataset.c; render(); },
@@ -5459,6 +5675,7 @@ document.addEventListener("change",ev=>{
       commit(s=>{ const c=s.chars.find(x=>x.id===cid); if(c){ c.anim=c.anim||{}; c.anim[k]=r.id; } }); if(old) cleanupPhoto(old); animSheet(cid); toast("동작 그림을 넣었어요."); }
       catch(e){ toast(upErr(e,"그림을 올리지 못했어요.")); animSheet(cid); } })();
   }
+  if(ev.target.id==="openSort"){ openSort=ev.target.value; render(); }
   if(ev.target.id==="rFreq"){ const d=$("#rDays"); if(d) d.hidden=ev.target.value!=="weekly"; }
   if(ev.target.id==="qRep"){ const d=$("#repDays"), b=$("#dueBox"), t=$("#repTimeBox"); if(d) d.hidden=ev.target.value!=="weekly"; if(b) b.hidden=!!ev.target.value; if(t) t.hidden=!ev.target.value; }
   if(ev.target.id==="ci_type"){ const v=ev.target.value; const e=$("#ciEvent"), l=$("#ciLock"); if(e) e.hidden=v!=="event"; if(l) l.hidden=v!=="freeze"; }
